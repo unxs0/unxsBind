@@ -1,0 +1,57 @@
+FROM centos:7
+MAINTAINER docker@unxs.io
+
+ENV container docker
+
+RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == \
+systemd-tmpfiles-setup.service ] || rm -f $i; done); \
+rm -f /lib/systemd/system/multi-user.target.wants/*;\
+rm -f /etc/systemd/system/*.wants/*;\
+rm -f /lib/systemd/system/local-fs.target.wants/*; \
+rm -f /lib/systemd/system/sockets.target.wants/*udev*; \
+rm -f /lib/systemd/system/sockets.target.wants/*initctl*; \
+rm -f /lib/systemd/system/basic.target.wants/*;\
+rm -f /lib/systemd/system/anaconda.target.wants/*;
+VOLUME [ "/sys/fs/cgroup" ]
+
+RUN yum -y install httpd; systemctl enable httpd.service
+RUN yum -y install git gcc make mysql-devel openssl-devel
+RUN yum -y clean all
+RUN systemctl enable httpd.service
+
+RUN mkdir /home/unxs
+RUN mkdir -p /var/www/unxs/html
+RUN mkdir -p /var/www/unxs/logs
+
+WORKDIR /home/unxs
+RUN git clone https://github.com/unxs0/unxsVZ.git
+
+WORKDIR /home/unxs/unxsVZ/unxsTemplateLib
+RUN make install
+
+WORKDIR /home/unxs/unxsVZ/unxsCIDRLib
+RUN make install
+
+WORKDIR /home/unxs/unxsVZ/unxsAdmin
+RUN cp -ia images /var/www/unxs/html/
+RUN cp -ia js /var/www/unxs/html/
+RUN cp -ia css /var/www/unxs/html/
+
+WORKDIR /home/unxs/unxsVZ/unxsBind
+RUN cp -i images/dns.ico /var/www/unxs/html/images/
+RUN make local.h;
+RUN sed -i -e 's/#define DBIP0 NULL/#define DBIP0 \"unxsbind-mysql\"/g' local.h
+RUN sed -i -e 's/#define DBIP1 NULL/#define DBIP1 \"unxsbind-mysql\"/g' local.h
+RUN sed -i -e 's/if(getenv(\"HTTPS\")==NULL)//g' main.c
+RUN sed -i -e 's/iDNS(\"Non SSL access denied\");//g' main.c
+RUN make; install -s iDNS.cgi /var/www/unxs/html/iDNS.cgi
+
+COPY unxsbind.httpd.conf /etc/httpd/conf.d/
+RUN sed -i -e 's/^Listen 80/#Listen 80/g' /etc/httpd/conf/httpd.conf
+
+CMD ["/usr/sbin/init"]
+
+#docker build -t unxsio/unxsbind .
+#docker rm -f unxsbind;docker run --privileged --restart unless-stopped --link unxsbind-mysql:unxsbind-mysql --volume /sys/fs/cgroup:/sys/fs/cgroup:ro --name unxsbind -p 8088:8088 -d unxsio/unxsbind
+#
+#docker build -t unxsio/unxsbind .;docker rm -f unxsbind;docker-compose up -d;
