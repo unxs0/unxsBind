@@ -46,11 +46,9 @@ RUN cp -ia css /var/www/unxs/html/
 WORKDIR /home/unxs/unxsBind
 RUN cp -i images/dns.ico /var/www/unxs/html/images/
 RUN make local.h;
+#this creates a dependency with docker-compose.yml
 RUN sed -i -e 's/#define DBIP0 NULL/#define DBIP0 \"unxsbind-mysql\"/g' local.h
 RUN sed -i -e 's/#define DBIP1 NULL/#define DBIP1 \"unxsbind-mysql\"/g' local.h
-#Turn off app SSL requirement. Our SSL is at nginx service stack level.
-RUN sed -i -e 's/if(getenv(\"HTTPS\")==NULL)//g' main.c
-RUN sed -i -e 's/iDNS(\"Non SSL access denied\");//g' main.c
 RUN make; install -s iDNS.cgi /var/www/unxs/html/iDNS.cgi
 
 #Modify httpd service
