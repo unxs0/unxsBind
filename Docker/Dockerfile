@@ -18,6 +18,7 @@ VOLUME [ "/sys/fs/cgroup" ]
 #Install required packages
 RUN yum -y install httpd; systemctl enable httpd.service
 RUN yum -y install git gcc make mysql-devel openssl-devel
+RUN yum -y install bind-utils
 RUN yum -y clean all
 RUN systemctl enable httpd.service
 
