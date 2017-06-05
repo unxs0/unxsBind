@@ -41,7 +41,7 @@ void ExttMonthButtons(void)
 	switch(guMode)
         {
 		default:
-
+			printf("<p>(%s)</p>",cGitVersion);
 			tMonthNavList();
 	}
 	CloseFieldSet();

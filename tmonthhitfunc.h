@@ -41,6 +41,7 @@ void ExttMonthHitButtons(void)
 	switch(guMode)
         {
 		default:
+			printf("<p>(%s)</p>",cGitVersion);
 			tMonthHitNavList();
 	}
 	CloseFieldSet();

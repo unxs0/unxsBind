@@ -208,7 +208,7 @@ void ExttNSButtons(void)
                 break;
 
 		default:
-			printf("<u>Table Tips</u><br>");
+			printf("<u>Table Tips (%s)</u><br>",cGitVersion);
 			printf("These NSs are what are used to create NS sets. Also see tServer,tNSSet and tNSType.");
 			if(guPermLevel>10)
 			printf("<p><input class=largeButton title='Add tServer records based on cFQDN and associate' " 

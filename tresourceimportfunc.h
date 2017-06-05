@@ -124,6 +124,7 @@ void ExttResourceImportButtons(void)
                 break;
 
 		default:
+			printf("<p>(%s)</p>",cGitVersion);
 			if(uZone)
 			{
 				printf("<a class=darkLink href=?gcFunction=tZoneImport&uZone=%u>",uZone);

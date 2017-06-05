@@ -539,7 +539,7 @@ void ExttBlockButtons(void)
 		break;
 		
 		default:
-			printf("<u>Table Tips</u><br>");
+			printf("<u>Table Tips (%s)</u><br>",cGitVersion);
 			printf("Blocks of IPs are allocated to companies/organizations here. CIDR is spoken and certain "
 				"in-addr.arpa zone operations require that the information here be correct.\n");
 			printf("<p><u>Search Tools</u><br>");

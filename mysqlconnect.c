@@ -185,13 +185,13 @@ void ConnectDb(void)
 	if(DBIP1!=NULL && DBIP0!=NULL)
 		sprintf(cMessage,"Could not connect to DBIP0:%1$s or DBIP1:%1$s\n",cPort);
 	else if(DBIP1==NULL && DBIP0==NULL)
-		sprintf(cMessage,"Could not connect to local socket\n");
+		sprintf(cMessage,"%.255s","Could not connect to local socket\n");
 	else if(DBIP0!=NULL && DBIP1==NULL)
 		sprintf(cMessage,"Could not connect to DBIP0:%s or local socket (DBIP1)\n",cPort);
 	else if(DBIP0==NULL && DBIP1!=NULL)
 		sprintf(cMessage,"Could not connect to DBIP1:%s or local socket (DBIP0)\n",cPort);
 	else if(1)
-		sprintf(cMessage,"Could not connect unexpected case\n");
+		sprintf(cMessage,"%.255s","Could not connect unexpected case\n");
 
 	iDNS(cMessage);
 
@@ -334,15 +334,15 @@ unsigned TextConnectDb(void)
 	if(DBIP1!=NULL && DBIP0!=NULL)
 		sprintf(cMessage,"Could not connect to DBIP0:%1$s or DBIP1:%1$s\n",cPort);
 	else if(DBIP1==NULL && DBIP0==NULL)
-		sprintf(cMessage,"Could not connect to local socket\n");
+		sprintf(cMessage,"%.255s","Could not connect to local socket\n");
 	else if(DBIP0!=NULL && DBIP1==NULL)
 		sprintf(cMessage,"Could not connect to DBIP0:%s or local socket (DBIP1)\n",cPort);
 	else if(DBIP0==NULL && DBIP1!=NULL)
 		sprintf(cMessage,"Could not connect to DBIP1:%s or local socket (DBIP0)\n",cPort);
 	else if(1)
-		sprintf(cMessage,"Could not connect unexpected case\n");
+		sprintf(cMessage,"%.255s","Could not connect unexpected case\n");
 
-	printf(cMessage);
+	printf("%s",cMessage);
 	return(1);
 
 }//unsigned TextConnectDb()
@@ -462,8 +462,8 @@ unsigned TextConnectExtDb(MYSQL *Mysql, unsigned uMode)
 	if(cDbIp[0])
 		sprintf(cMessage,"Could not connect to %s:%s %s\n",cDbIp,cDbPort,cDbName);
 	else
-		sprintf(cMessage,"Could not connect to local socket\n");
-	printf(cMessage);
+		sprintf(cMessage,"%.255s","Could not connect to local socket\n");
+	printf("%s",cMessage);
 	return(1);
 
 }//unsigned TextConnectExtDb(MYSQL *Mysql, unsigned uMode)

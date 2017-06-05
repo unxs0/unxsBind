@@ -511,6 +511,7 @@ void ExttZoneImportButtons(void)
                 break;
 
 		default:
+			printf("<p>(%s)</p>",cGitVersion);
 			if(uZone && guPermLevel>11)
 			{
 				printf("<u>Import Tools</u><p>\n");

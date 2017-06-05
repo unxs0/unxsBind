@@ -137,7 +137,7 @@ void ExttRegistrarButtons(void)
                 break;
 
 		default:
-
+			printf("<p>(%s)</p>",cGitVersion);
 			tRegistrarNavList();
 	}
 	CloseFieldSet();

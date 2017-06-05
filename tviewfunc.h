@@ -157,7 +157,7 @@ void ExttViewButtons(void)
                 break;
 
 		default:
-			printf("<u>Table Tips</u><br>");
+			printf("<u>Table Tips (%s)</u><br>",cGitVersion);
 			printf("BIND 9 introduced views. mysqlBind could not cope, thus iDNS (mysqlBind2.)"
 				" Apart from the mundane internal/external view model for firewalled environments."
 				" iDNS supports n views, for advanced geographically (approximated by IP ranges)"

@@ -130,6 +130,7 @@ void ExttRRTypeButtons(void)
                 break;
 
 		default:
+			printf("<p>(%s)</p>\n",cGitVersion);
 			printf("<p><u>tRRTypeNavList</u><br>\n");
 			tRRTypeNavList();
 

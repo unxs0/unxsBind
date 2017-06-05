@@ -136,7 +136,7 @@ void ExttTemplateTypeButtons(void)
                 break;
 
 		default:
-
+			printf("<p>(%s)</p>",cGitVersion);
 			tTemplateTypeNavList();
 	}
 	CloseFieldSet();

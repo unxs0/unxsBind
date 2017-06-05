@@ -141,7 +141,7 @@ void ExttGroupGlueButtons(void)
                 break;
 
 		default:
-			printf("<u>Table Tips</u><br>");
+			printf("<u>Table Tips (%s)</u><br>",cGitVersion);
 			printf("This is just a glue table, see [New], [Delete] and <a href=?gcFunction=tGroup>tGroup</a>"
 				" for more info.<br>");
 	}

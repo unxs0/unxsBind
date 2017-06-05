@@ -125,7 +125,7 @@ void ExttLogTypeButtons(void)
                 break;
 
 		default:
-
+			printf("<p>(%s)</p>",cGitVersion);
 			tLogTypeNavList();
 	}
 	CloseFieldSet();

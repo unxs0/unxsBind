@@ -125,7 +125,7 @@ void ExttGroupTypeButtons(void)
                 break;
 
 		default:
-			printf("<u>Table Tips</u><br>");
+			printf("<u>Table Tips (%s)</u><br>",cGitVersion);
 			printf("tGroupType (and it's related tables <a href=?gcFunction=tGroupGlue>"
 				"tGroupGlue</a> and <a href=?gcFunction=tGroup>tGroup</a>)"
 				" provide a way to create"

@@ -133,6 +133,7 @@ void ExttMailServerButtons(void)
                 break;
 
 		default:
+			printf("<p>(%s)</p>\n",cGitVersion);
 			tMailServerNavList();
 
 	}

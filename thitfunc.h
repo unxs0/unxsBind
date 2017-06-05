@@ -41,7 +41,7 @@ void ExttHitCommands(pentry entries[], int x)
 void ExttHitButtons(void)
 {
 	OpenFieldSet("tHit Aux Panel",100);
-	printf("<u>Table Tips</u><br>");
+	printf("<u>Table Tips (%s)</u><br>",cGitVersion);
 	printf("This table holds the non-archived (usually the current month only) per tZone.cZone Dns/BIND named daemon "
 		"query hits (cluster wide.) Not real time data: This data is collected from all cluster NSs and then "
 		"aggregated here usually only once a day. When possible some context related info is provided below.<p>"

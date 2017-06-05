@@ -102,7 +102,7 @@ void ExttHitMonthButtons(void)
 {
 	OpenFieldSet("tHitMonth Aux Panel",100);
 
-	printf("<u>Table Tips</u><br>");
+	printf("<u>Table Tips (%s)</u><br>",cGitVersion);
 	printf("This table is used to load command line archived read only tHit data one month at a time. "
 		"You can then search and/or run reports on this historical data. You can also run simple "
 		"reports just by selecting the Archive Tools archived table name.<p>");

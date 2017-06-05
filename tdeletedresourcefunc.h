@@ -224,7 +224,7 @@ void ExttDeletedResourceButtons(void)
 			printf("<input class=largeButton title='' type=submit name=gcCommand value='Confirm RR Restore'>\n");
 		break;
 		default:
-
+			printf("<p>(%s)</p>",cGitVersion);
 			uDefault=1;
 			if(uDeletedResource)
 				printf("<input type=submit name=gcCommand value='Restore RR'><br>\n");

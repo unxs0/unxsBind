@@ -145,6 +145,7 @@ void ExttJobButtons(void)
                 break;
 
 		default:
+			printf("<p>%s</p>\n",cGitVersion);
 			if(guPermLevel>11)
 				printf("<input class=largeButton type=submit name=gcCommand value=Purge>");
 

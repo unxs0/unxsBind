@@ -1737,14 +1737,14 @@ void ExttResourceCommands(pentry entries[], int x)
 
 void ResourceLinks(unsigned uZone)
 {
-	MYSQL_RES *res;
+	//MYSQL_RES *res;
 	unsigned uArpa=0;
-	unsigned uCount=0;
+	//unsigned uCount=0;
 
 	if(!strcmp(cZone+strlen(cZone)-5,".arpa"))
 	{
 		sprintf(gcQuery,"SELECT cName,uResource,cParam1 FROM tResource WHERE uZone=%u ORDER BY ABS(cName)",uZone);
-		uArpa=1;
+		if(!uArpa) uArpa=1;
 	}
 	else
 	{
@@ -1755,8 +1755,8 @@ void ResourceLinks(unsigned uZone)
 	mysql_query(&gMysql,gcQuery);
 	if(mysql_errno(&gMysql)) tResource(mysql_error(&gMysql));
 
-	res=mysql_store_result(&gMysql);
-	uCount=mysql_num_rows(res);
+	//res=mysql_store_result(&gMysql);
+	//uCount=mysql_num_rows(res);
 /*
 	MYSQL_ROW field;
 
@@ -1878,7 +1878,7 @@ void ExttResourceButtons(void)
 
 		default:
 			uDefault=1;
-			printf("<u>Table Tips</u><br>");
+			printf("<u>Table Tips (%s)</u><br>",cGitVersion);
 			printf("Here we gather all zone resource records, usually organized by a single given uZone. "
 				"Quite a bit of input and context input checking takes place, but you probably should "
 				"know DNS/BIND configuration. A little knowledge will help you use this backend quickly"
@@ -1901,7 +1901,7 @@ void ExttResourceButtons(void)
 					printf("%s %s</a>",cZone,ForeignKey("tView","cLabel",uView));
 				else
 					printf("Back to Zone</a>");
-				ResourceLinks(uZone);
+				//ResourceLinks(uZone);
 			}
 			if(uRRType==9)
 			{
@@ -1999,7 +1999,7 @@ void ExttResourceAuxTable(void)
 		        res=mysql_store_result(&gMysql);
 			if((uNumRows=mysql_num_rows(res)))
 			{
-				char cResult[100]={""};
+				char cResult[256]={""};
 				char cCtLabel[100]={""};
 
 				printf("<table>");
@@ -2049,14 +2049,14 @@ while((field=mysql_fetch_row(res)))
 					mysql_query(&gMysql,gcQuery);
 					if(mysql_errno(&gMysql))
 					{
-						sprintf(cResult,mysql_error(&gMysql));
+						sprintf(cResult,"%.255s",mysql_error(&gMysql));
 						break;
 					}
 
 					if(mysql_affected_rows(&gMysql)>0)
-						sprintf(cResult,"Deleted from set");
+						sprintf(cResult,"%.255s","Deleted from set");
 					else
-						sprintf(cResult,"Unexpected non deletion");
+						sprintf(cResult,"%.255s","Unexpected non deletion");
 					break;
 				}//Delete Checked
 
@@ -2068,18 +2068,18 @@ while((field=mysql_fetch_row(res)))
 						mysql_query(&gMysql,gcQuery);
 						if(mysql_errno(&gMysql))
 						{
-							sprintf(cResult,mysql_error(&gMysql));
+							sprintf(cResult,"%.255s",mysql_error(&gMysql));
 							break;
 						}
 	
 						if(mysql_affected_rows(&gMysql)>0)
-							sprintf(cResult,"Owner changed");
+							sprintf(cResult,"%.255s","Owner changed");
 						else
-							sprintf(cResult,"Owner not changed");
+							sprintf(cResult,"%.255s","Owner not changed");
 					}
 					else
 					{
-						sprintf(cResult,"No client selected");
+						sprintf(cResult,"%.255s","No client selected");
 					}
 					break;
 				}//Group Change Owner
@@ -2092,12 +2092,12 @@ while((field=mysql_fetch_row(res)))
 					mysql_query(&gMysql,gcQuery);
 					if(mysql_errno(&gMysql))
 					{
-						sprintf(cResult,mysql_error(&gMysql));
+						sprintf(cResult,"%.255s",mysql_error(&gMysql));
 						break;
 					}
 					if(mysql_affected_rows(&gMysql)>0)
 					{
-						sprintf(cResult,"Deleted");
+						sprintf(cResult,"%.255s","Deleted");
 
 						if(uZone && uPrevZone!=uZone && uSubmitJob)
 						{
@@ -2115,7 +2115,7 @@ while((field=mysql_fetch_row(res)))
 						}
 					}
 					else
-						sprintf(cResult,"Unexpected non deletion");
+						sprintf(cResult,"%.255s","Unexpected non deletion");
 					break;
 				}//Group Delete
 		
@@ -2130,19 +2130,19 @@ while((field=mysql_fetch_row(res)))
 					mysql_query(&gMysql,gcQuery);
 					if(mysql_errno(&gMysql))
 					{
-						sprintf(cResult,mysql_error(&gMysql));
+						sprintf(cResult,"%.255s",mysql_error(&gMysql));
 						break;
 					}
 					if(mysql_affected_rows(&gMysql)>0)
 					{
 						unsigned uDelJob=0;
-						sprintf(cResult,"Deleted");
+						sprintf(cResult,"%.255s","Deleted");
 
 						sprintf(gcQuery,"DELETE FROM tZone WHERE uZone=%u",uZone);
 						mysql_query(&gMysql,gcQuery);
 						if(mysql_errno(&gMysql))
 						{
-							sprintf(cResult,mysql_error(&gMysql));
+							sprintf(cResult,"%.255s",mysql_error(&gMysql));
 							break;
 						}
 						if(mysql_affected_rows(&gMysql)>0)
@@ -2179,13 +2179,13 @@ while((field=mysql_fetch_row(res)))
 						}
 					}
 					else
-						sprintf(cResult,"Unexpected non deletion");
+						sprintf(cResult,"%.255s","Unexpected non deletion");
 					break;
 				}//Group Delete
 		
 				else if(1)
 				{
-					sprintf(cResult,"Unexpected gcCommand=%.64s",gcCommand);
+					sprintf(cResult,"Unexpected gcCommand=%.128s",gcCommand);
 					break;
 				}
 			}//end if Ct block

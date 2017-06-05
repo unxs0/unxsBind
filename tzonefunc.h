@@ -1389,7 +1389,7 @@ void ExttZoneButtons(void)
 
 		default:
 			uDefault=1;
-			printf("<u>Table Tips</u><br>");
+			printf("<u>Table Tips (%s)</u><br>",cGitVersion);
 			printf("The zone table provides the SOA header and some other iDNS only fields. "
 				"And is of course the anchor point for all a given zone's resource records. "
 				"A zone may have n instances via uView. Important non BIND fields that must be "
@@ -1580,7 +1580,7 @@ while((field=mysql_fetch_row(res)))
 
 				else if(!strcmp(gcCommand,"Whois"))
 				{
-					sprintf(cResult,cNSFromWhois(field[1],field[5]));
+					sprintf(cResult,"%.254s",cNSFromWhois(field[1],field[5]));
 					break;
 				}//Delete Checked
 
@@ -3619,7 +3619,7 @@ void htmlMassResourceImport(void)
 	unsigned uZoneOwner;
 	unsigned uNSSet;
 	unsigned uZoneCount=0,uZoneFoundCount=0,uResourceCount=0,uImportCount=0;
-	unsigned uOnlyOncePerZone;
+	//unsigned uOnlyOncePerZone;
 
 	printf("Content-type: text/plain\n\n");
 	printf("htmlMassResourceImport() start (uDDClient=%u)\n",uDDClient);
@@ -3641,7 +3641,7 @@ void htmlMassResourceImport(void)
 		//have no jobs created. Later add uDebug to ProcessRRLine()
 		if(!strncmp(cLine,"cMode=debug;",12))
 		{
-			uDebug=1;
+			if(!uDebug) uDebug=1;
 			printf("uDebug=1\n");
 			continue;
 		}
@@ -3683,7 +3683,7 @@ void htmlMassResourceImport(void)
 		//New zone
 		if(!strncmp(cLine,"cZone=",6))
 		{
-			uOnlyOncePerZone=0;
+			//uOnlyOncePerZone=0;
 			uZone=0;
 			uNewZone=0;
 			uZoneOwner=0;
@@ -3736,7 +3736,7 @@ void htmlMassResourceImport(void)
 				}
 			}
 
-			uOnlyOncePerZone=1;
+			//uOnlyOncePerZone=1;
 			uZoneFoundCount++;
 		}
 		else

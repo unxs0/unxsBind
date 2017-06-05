@@ -41,7 +41,7 @@ void ExttLogButtons(void)
 {
 	OpenFieldSet("tLog Aux Panel",100);
 
-	printf("<u>Table Tips</u><br>");
+	printf("<u>Table Tips (%s)</u><br>",cGitVersion);
 	printf("This table holds the non-archived logged and MD5 signed operations that have taken place in the system. "
 		"Usually data is available here only for the current month. When possible context related info is provided"
 		" below. Current iDNS version does not save delete (Del) operation data.<p><a href=?gcFunction="

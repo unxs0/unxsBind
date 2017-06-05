@@ -399,7 +399,7 @@ void ExttClientButtons(void)
 			if(guPermLevel>9)
 			{
 				uDefault=1;
-				printf("<u>Table Tips</u><br>");
+				printf("<u>Table Tips (%s)</u><br>",cGitVersion);
 				printf("Here you can create new companies (organizations in general) or add new contacts"
 					" to existing companies. Once a new contact is made you can authorize her to use"
 					" interfaces or even this backoffice web interface."

@@ -1,21 +1,19 @@
 #
 #FILE
-#	makefile
-#	svn ID removed
+#	/unxsBind/Makefile
 #
 #AUTHOR/LEGAL
 #	(C) 2001-2010 Gary Wallis and Hugo Urquiza for Unixservice, LLC.
+#	(C) 2011-2017 Gary Wallis for Unixservice, LLC.
 #	GPLv2 license applies. See LICENSE file included.
 #NOTES
-#	This is a CentOS5 rpm release version only (use CFLAG -pedantic to cleanup.)
-#	For help contact support @ openisp . net
 GIT_VERSION := $(shell git describe --dirty --always --tags)
 
 CFLAGS=-Wall -DGitVersion=\"$(GIT_VERSION)\"
 
 #LIBS= -L/usr/lib/mysql -L/usr/lib64/mysql -L/usr/lib/openisp -lz -lcrypt -lm -lssl -lucidr -lmysqlclient
 #LIBS=-L/usr/lib/mysql -L/usr/lib64/mysql -L/usr/lib/openisp -L/usr/lib/oath -lmysqlclient -lz -lcrypt -lm -lssl -lucidr -ltemplate -loath
-LIBS=-L/usr/lib/mysql -L/usr/lib64/mysql -L/usr/lib/openisp -lmysqlclient -lz -lcrypt -lm -lssl -lucidr -ltemplate
+LIBS=-L/usr/lib/mysql -L/usr/lib64/mysql -L/usr/lib/openisp -lmysqlclient -lz -lcrypt -lssl -lucidr -ltemplate -lm
 
 all: iDNS.cgi
 

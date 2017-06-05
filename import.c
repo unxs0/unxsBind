@@ -689,7 +689,7 @@ void ImportSORRs(void)
 	unsigned uZone=0;
 	unsigned uOwner=0;
 	unsigned uNSSet=0;
-	structSOA *importSOA;
+	//structSOA *importSOA;
 	
 
 	fprintf(stdout,"ImportSORRs() Start\n");
@@ -741,7 +741,8 @@ void ImportSORRs(void)
 		}
 
 		//5. We run a modified version of the loop in the Import() function
-		importSOA=ProcessSOA(fp); //Unused, just to move file pointer to 'after soa position'
+		ProcessSOA(fp); //Unused, just to move file pointer to 'after soa position'
+		//importSOA=ProcessSOA(fp); //Unused, just to move file pointer to 'after soa position'
 		
 		while(fgets(gcQuery,254,fp)!=NULL)
 		{

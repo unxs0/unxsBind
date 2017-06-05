@@ -236,6 +236,7 @@ void ExttDeletedZoneButtons(void)
 		break;
 		default:
 			uDefault=1;
+			printf("<p>(%s)</p>",cGitVersion);
 			printf("<u>Search Tools</u><br>");
 			printf("<input type=text title='cZone, cMainAddr and uOwner=2000 search. Use %% . "
 				"and _ for pattern matching when applicable.' name=cSearch value=\"%s\" maxlength=99 size=20>",cSearch);

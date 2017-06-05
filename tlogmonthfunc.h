@@ -144,7 +144,7 @@ void ExttLogMonthButtons(void)
 {
 	OpenFieldSet("tLogMonth Aux Panel",100);
 
-	printf("<u>Table Tips</u><br>");
+	printf("<u>Table Tips (%s)</u><br>",cGitVersion);
 	printf("This table is used to load command line archived read only tLog data one month at a time."
 		" You can then search and/or run reports on this historical data. Some simple reports do "
 		"not require loading, just selecting the archive table below.<p>");

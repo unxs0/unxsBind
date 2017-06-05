@@ -1039,7 +1039,7 @@ void ProcessControlVars(pentry entries[], int x)
 	for(i=0;i<x;i++)
 	{
 		if(!strcmp(entries[i].name,"gcFilter"))
-			sprintf(gcFilter,entries[i].val);
+			sprintf(gcFilter,"%.99s",entries[i].val);
 		else if(!strcmp(entries[i].name,"gcCommand"))
 			sprintf(gcCommand,"%.99s",entries[i].val);
 		else if(!strcmp(entries[i].name,"gcFind"))

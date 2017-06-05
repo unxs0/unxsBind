@@ -139,7 +139,7 @@ void ExttGlossaryButtons(void)
                 break;
 
 		default:
-
+			printf("<p>(%s)</p>",cGitVersion);
 			tGlossaryNavList();
 	}
 	CloseFieldSet();
