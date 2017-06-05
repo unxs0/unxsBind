@@ -1,0 +1,20 @@
+FILE
+	unxsBind/agents/mysqlcluster/README
+
+The mysqlCluster agent checks via "show slave status" in script configurable mysql
+servers. If any server shows that the replication functionality is off or behind,
+a tLog entry is created on the local (socket) mysql server. And a standard
+dashboard image in /var/www/unxs/html/images/mrcstatus.gif is changed from a
+green to a red image.
+
+Please read and test the mysqlcluster.sh script for more information.
+
+To use:
+
+<edit mysqlcluster.sh for your system and needs>
+cd unxsBind/images
+cp -i *.gif /var/www/unxs/html/images
+crontab -e
+<and add an entry for the mysqlcluster.sh script>
+
+(binary rpm may have already installed the images)

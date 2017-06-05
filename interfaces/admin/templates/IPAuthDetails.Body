@@ -1,0 +1,48 @@
+<body onLoad="window.focus()">
+<form method=post>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_header2">
+  <tr>
+    <td><img src="/images/unxsbind.jpg"  style="margin:10px; "></td>
+    <td align="right">
+        <input type="submit" onClick="javascript:window.close()" value="X Close" style="margin:0 20px 0 0;" class="close_button"/>
+    </td>
+  </tr>
+
+</table>
+
+<table width="100%"  border="0" cellspacing="0" cellpadding="5" class="tTitles2">
+  <tr>
+    <td class="hdrtout padlt8"><h6 class="modhdr">IP Auth Post Import Action Details </h6></td>
+  </tr>
+</table>
+
+                <table border="0" cellspacing="0" cellpadding="4" style="margin:25px 0px 0 0px;">
+            <tr>
+                                <td>&nbsp;</td>
+
+                                <td class="table_center">
+                                <br>                                        
+					<span>
+					Companies that will be removed:<br>
+					<table border="0" cellspacing="0" cellpadding="7" width="100%" class="table_content" style="margin-top:5px;">
+					<tr bgcolor="#e9e9e9"><th>Company ID</th><th>Company Name</th></tr>
+					{{funcRemovedCompanies}}
+					</table>
+					<br>
+					Blocks that will be removed: <br>
+					<table border="0" cellspacing="0" cellpadding="7" width="100%" class="table_content" style="margin-top:5px;">
+					<tr bgcolor="#e9e9e9"><th>Block</th><th>Owned By</th></tr>
+					{{funcRemovedBlocks}}
+					</table>
+					<br>
+					Rejected/ignored lines: <br>
+					{{funcIgnoredLines}}
+                                        </span>
+                                </td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+            </tr>
+
+          </table>
+<br>
+

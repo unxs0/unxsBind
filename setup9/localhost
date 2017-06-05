@@ -1,0 +1,14 @@
+; localhost.
+; $Id: localhost,v 1.1 2003/05/22 14:19:22 ggw Exp $
+; iDNS.cgi project file
+$TTL 3600
+@               in      soa     localhost. postmaster.localhost. (
+                                1	;serial
+                                3600            ;refresh
+                                1800            ;retry
+                                604800          ;expiration
+                                3600 )          ;minimum
+
+                        ns      localhost.
+
+                        a       127.0.0.1

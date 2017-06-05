@@ -1,0 +1,78 @@
+<body marginwidth="0" marginheight="0">
+
+<div align="center" class="standard2colnee">
+
+<table cellspacing="0" cellpadding="0" border="0" width=60%>
+	<tr valign="top">
+		<td class="padb20"><img src=/images/unxsbind.jpg></td>
+	</tr>
+</table>
+
+<table cellspacing="0" cellpadding="0" border="0" width=1192>
+	<tr>
+		<td class="title" colspan="2">
+<form method=post action={{cCGI}} style="margin:0;">
+<table border="0" cellspacing="0" cellpadding="0" align="center">
+<tr>
+<td valign="top" width="9" class="hdrtout padlt8" height="21"></td>
+<td class="hdrtout padlt8" align=center><h6 class="modhdr">vdnsOrg</h6></td>
+<td valign="top" width="9" class="hdrtout padlt8"></td>
+</tr>
+<tr>
+<td ><img src="/images/clear.gif" width="9" height="9" ></td>
+<td>
+
+
+<table border="0" cellspacing="5" cellpadding="0" width="80%" class="table_content" align="center">
+<tr>
+<td> </td>
+</tr>
+<tr>
+<td><strong>User Name </strong></td>
+</tr>
+<tr>
+<td><input title='Your login information' type="text" name="gcLogin" size=40 class="type_fields"></td>
+</tr>
+<tr>
+<td><strong>Password</strong></td>
+</tr>
+<tr>
+<td><input title='Your password for the above login' type="password" name="gcPasswd" size=40 class="type_fields"></td>
+</tr>
+<tr>
+<td height="40"><input title='Login with your iDNS System login and password' class=largeButton type=submit name=gcFunction value='Login'></td>
+</tr>
+<tr>
+<td>To login please enter your username and password and click login.
+<p><font color=red>
+<u>Important Notice</u>
+<p style='font-size: 9px;'>Use this tool at your own risk.
+Improper use of this tool may result in interruption of your DNS service.
+Unixservice assumes no liability and client agrees not to hold Unixservice 
+responsible for any damage resulting from improper use.<br>
+You must have Javascript enabled in order to use this software correctly.</font><br>
+
+</td>
+</tr>
+      
+</table>
+
+</td>
+<td ><img src="/images/clear.gif" width="9" height="9" ></td>
+</tr>
+<tr>
+<td></td>
+<td width="9" height="9" ></td>
+<td></td>
+</tr>
+</table>
+
+	
+</form>
+
+                </td>
+        </tr>
+
+</table>
+</div>
+

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>IPAuth</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">IPAuth</td></tr>
+</thead><tbody>
+<tr>
+	<td>clickAndWait</td>
+	<td>//td[8]/a/b</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cMassList</td>
+	<td>80.253.96.0 - 80.253.97.255&nbsp;&nbsp;&nbsp;512 20030502 PKXG-INFRA-PROXIMITY-01<br />80.253.98.0 - 80.253.98.255&nbsp;&nbsp;&nbsp;256 20060404 PKXG-CUST-1234-01<br />80.253.99.0 - 80.253.99.255&nbsp;&nbsp;&nbsp;256 20060404 PKXG-CUST-1234-02<br />80.253.100.0 - 80.253.100.255 256 20020917 PKXG-INFRA-PROXIMITY-01<br />80.253.101.0 - 80.253.101.255 256 20020917 PKXG-INFRA-PROXIMITY-02<br />80.253.102.0 - 80.253.102.7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8 20020627 PKXG-CUST-4567-DELE<br />80.253.102.8 - 80.253.102.15&nbsp;&nbsp;&nbsp;&nbsp;8 20021217 PKXG-CUST-9876-01<br />80.253.102.16 - 80.253.102.31&nbsp;&nbsp;16 20030307 PKXG-CUST-7654-01<br />80.253.102.32 - 80.253.102.39&nbsp;&nbsp;&nbsp;8 20030307 PKXG-CUST-7654-02<br />80.253.102.40 - 80.253.102.47&nbsp;&nbsp;&nbsp;8 20060306 PKXG-CUST-9922-DELE<br />80.253.103.0 - 80.253.103.255 256 20060306 PKXG-MRP-9922-01<br /></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='IP Auth Import']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*After import, 1 companies and their contacts will be removed from the database.*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*These companies own 0 blocks that will also be removed.*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Commit IP Auth Import']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*Added 11 block(s)*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*Added 5 companies*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*Deleted 1 company and their contacts*</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

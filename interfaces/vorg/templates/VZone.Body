@@ -1,0 +1,302 @@
+<body marginwidth="0" marginheight="0">
+
+<div align="center" class="standard2colnee">
+
+<table cellspacing="0" cellpadding="0" border="0" width=1200>
+	<tr valign="top">
+	<td class="padb20"><img border=0 src=/images/unxsbind.jpg></td>
+
+		<td align="right">
+
+
+	<!-- one row, one cell table to span the page-->
+	<table border="0" class="wpsPlaceBar" cellspacing="0" cellpadding="0" width="608">
+		<tr>
+
+			<!-- Navigation -->
+			<td align="left" background="/images/bgrd_topnav.gif" valign="bottom" nowrap>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0">
+					<tr>
+						<td class="wpsSelectedPlace" nowrap height="100%">
+						<a title='Zone management' class="wpsSelectedPlaceLink" href='{{cCGI}}?gcPage=Zone&uZone={{uZone}}'><b class ="font10pt">Zone</b></a>
+						</td>
+						<td class="wpsUnSelectedPlace" nowrap height="100%">
+						<a title='Zone resource record management' class="wpsUnSelectedPlaceLink" href='{{cCGI}}?gcPage=Resource&uZone={{uZone}}'><b class ="font10pt">Resources</b></a>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+                <tr>
+		<td valign=top align=right class=notice>
+{{gcName}} ({{gcLogin}}) of {{gcOrgName}} is logged in from {{gcHost}} [{{cUserLevel}}] <a title='Erase login cookies' href={{cCGI}}?gcFunction=Logout>Logout
+</a></td>
+                </tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+
+
+<form method=post action={{cCGI}} style="margin:0px;">
+<table width=1200  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+
+{{gcMessage}}
+<table border="0" cellspacing="0" cellpadding="0" width="100%" style='border: solid gray 1px'>
+  <tr>
+    <td valign="top" width="9" class="hdrtout padlt8" height="21"></td>
+    <td class="hdrtout padlt8" width="33%">
+		<h6 class="modhdr">Customer Resource Panel</h6>
+	</td>
+    <td valign="top" width="9" class="hdrtout padlt8"></td>
+    <td width="10"> </td>
+    <td valign="top" width="9" class="hdrtout padlt8"></td>
+    <td class="hdrtout padlt8">
+		<h6 class="modhdr">{{cZone}} {{cZoneView}} NS Set, SOA Data</h6>
+	</td>
+    <td valign="top" width="9" class="hdrtout padlt8"></td>
+  </tr>
+  <tr>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td valign="top">
+	
+	
+	
+<table border="0" cellspacing="8" cellpadding="0" width="100%" class="table_content">
+		<tr>
+		  <td> </td>
+		  <td> </td>
+		</tr>
+		<tr>
+			<td width=33%>
+				<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Your Zones')"><strong>Your Zones</strong></a></td>
+			</td>
+			<td>
+				<script language="JavaScript" type="text/JavaScript">
+				function changePage(newLoc)
+				{
+					nextPage = newLoc.options[newLoc.selectedIndex].value
+				
+					if (nextPage != "---")
+						document.location.href = "{{cCGI}}?gcPage=Zone&uZone="+nextPage
+				}
+				</script>
+				{{funcSelectZone}}
+			</td>
+		</tr>
+		<tr>
+			<td valign=top>				
+				<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Your IP Blocks')"><strong>Your IP Blocks</strong></a></td>
+			</td>
+			<td>
+				{{funcSelectBlock}}
+			</td>
+		</tr>
+		<tr>
+			<td valign=top>			
+				<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Your Secondary Zones')"><strong>Your Secondary Zones</strong></a></td>
+			</td>
+			<td>
+				{{funcSelectSecondary}}
+			</td>
+		</tr>
+		<tr>
+			<td colspan=2>
+				<input type=hidden name=gcPage value=Zone>
+				<input type=submit title='Select a zone to edit. Not needed if you have javascript enabled in your browser' class=largeButton name=gcFunction value='Select Zone'><br><br>
+				<input type=submit title='Delegate this zone with an easy to follow wizard' class=largeButton  name=gcFunction value='Delegation Tool' {{cDelToolStatus}}>
+				<p>
+				<strong><u>Editing Hints</u></strong><br>
+				To edit, remove or create a new resource record click on it's name, in the list below. Or click on the resource records tab above once you have a zone selected.<br>
+				After opening fields for modification, each field has a yellow tool-tip with field specific information.
+			</td>
+		</tr>
+		<tr>
+			<td colspan=2>
+			{{funcZoneStatus}}
+			</td>
+		</tr>
+		<tr>
+			<td colspan=2>
+			<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Zone Pending Jobs')"><strong>Zone Pending Jobs</strong></a><br>
+			{{cPendingJobs}}
+			</td>
+		</tr>
+			
+	</table>
+	
+	
+	
+	
+	
+	</td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td> </td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td valign="top">
+	
+	
+<table border="0" cellspacing="5" cellpadding="0" width="100%" class="table_content">
+	<tr>
+	  <td valign="top"> </td>
+	  <td> </td>
+	</tr>
+	<tr>
+		<td valign="top">
+		<input type=hidden name=cNSSet value='{{cNSSet}}'>
+			<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=NS Set')"><strong>NS Set ({{cNSSet}})</strong></a></td>
+			
+		</td>
+		<td>
+			<input type=hidden name=cNSs value='{{cNSs}}'>
+			<textarea cols=50 rows=4 disabled class="type_textarea_off">{{funcNSSetMembers}}</textarea>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Serial Number')"><strong>Serial Number</strong></a></td>
+		</td>
+		<td>
+			<input type=text name=uSerial value='{{uSerial}}' size=40 maxlength=99 disabled  class="type_fields_off">
+			<input type=hidden name=uSerial value='{{uSerial}}'>
+			<input type=hidden name=uNameServer value='{{uNameServer}}'>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Expire TTL')"><strong>Expire TTL</strong></a></td>
+		</td>
+		<td>
+			<input title='Slave expire TTL' type=text name=uExpire value='{{uExpire}}' size=40 maxlength=99 {{gcInputStatus}} class={{cuExpireStyle}}>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>		
+			<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Refresh TTL')"><strong>Refresh TTL</strong></a></td>
+		</td>
+		<td>
+			<input title='Slave refresh TTL' type=text name=uRefresh value='{{uRefresh}}' size=40 maxlength=99 {{gcInputStatus}} class={{cuRefreshStyle}}>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Default TTL')"><strong>Default TTL</strong></a></td>
+		</td>
+		<td>
+			<input title='Default zone TTL for records with no TTL set or set to 0.' type=text name=uTTL value='{{uTTL}}' size=40 maxlength=99 {{gcInputStatus}} class={{cuTTLStyle}}>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Retry TTL')"><strong>Retry TTL</strong></a></td>
+		</td>
+		<td>
+			<input title='Slave retry TTL' type=text name=uRetry value='{{uRetry}}' size=40 maxlength=99 {{gcInputStatus}} class={{cuRetryStyle}}>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>			
+			<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Negative TTL')"><strong>Negative TTL</strong></a></td>
+		</td>
+		<td>
+			<input title='Negative (nxdomain) TTL (RFC 2308)' type=text name=uZoneTTL value='{{uZoneTTL}}' size=40 maxlength=99 {{gcInputStatus}} class={{cuZoneTTLStyle}}>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Hostmaster')"><strong>Hostmaster</strong></a></td>
+		</td>
+		<td>
+			<input title='eMail address of responsible person. First dot is the @ symbol' type=text name=cHostmaster value='{{cHostmaster}}' size=40 maxlength=100 {{gcInputStatus}} class={{cHostmasterStyle}}>
+		</td>
+	</tr>
+
+	<tr>
+		<td> </td>
+		<td colspan=2>
+			<input type=submit title='Zone SOA and extras modification two step procedure' class=largeButton name=gcFunction value='Modify SOA{{gcModStep}}' {{cModSOAStatus}}>
+		</td>
+	</tr>
+</table>
+	
+	
+	
+	</td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td></td>
+    <td><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td></td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td></td>
+  </tr>
+</table>
+
+<br />
+
+
+<table border="0" cellspacing="0" cellpadding="0" width="100%" style='border: solid gray 1px'>
+  <tr>
+    <td valign="top" width="9" class="hdrtout padlt8" height="21"></td>
+    <td class="hdrtout padlt8"><h6 class="modhdr">{{cZone}} {{cZoneView}} Resource Records</td>
+    <td valign="top" width="9" class="hdrtout padlt8"></td>
+  </tr>
+  <tr>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td>
+	
+<table border="0" cellspacing="0" cellpadding="7" width="100%" class="table_content" style="margin-top:5px;">
+	<tr bgcolor="#e9e9e9">
+		<td class="tit_list">
+			Name
+		</td>
+		<td class="tit_list">
+			TTL
+		</td>
+		<td class="tit_list">
+			Type
+		</td>
+		<td class="tit_list">
+			Parameter 1
+		</td>
+		<td class="tit_list">
+			Parameter 2
+		</td>
+		<td class="tit_list">
+			Comment
+		</td>
+	</tr>
+	{{funcRRs}}
+</table>
+
+	
+	</td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td></td>
+  </tr>
+</table>
+
+
+
+
+
+	</td>
+  </tr>
+</table>
+</form>

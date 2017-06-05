@@ -1,0 +1,339 @@
+<body marginwidth="0" marginheight="0">
+
+<div align="center" class="standard2colnee">
+
+<table cellspacing="0" cellpadding="0" border="0" width=1200>
+	<tr valign="top">
+	<td class="padb20"><img border=0 src=/images/unxsbind.jpg></td>
+
+		<td align="right">
+
+
+	<!-- one row, one cell table to span the page-->
+	<table border="0" class="wpsPlaceBar" cellspacing="0" cellpadding="0" width="608">
+		<tr>
+
+			<!-- Navigation -->
+			<td align="left" background="/images/bgrd_topnav.gif" valign="bottom" nowrap>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0">
+					<tr>
+						<td class="wpsUnSelectedPlace" nowrap height="100%">
+						<a title='System overalll information' class="wpsUnSelectedPlaceLink" href="idnsAdmin.cgi?&gcPage=Dashboard"><b class ="font10pt">Dashboard</b></a>
+						</td>
+						<td class="wpsUnSelectedPlace" nowrap height="100%">
+						<a title='Company management' class="wpsUnSelectedPlaceLink" href="idnsAdmin.cgi?&gcPage=Customer"><b class ="font10pt">Companies</b></a>
+						</td>
+						<td class="wpsUnSelectedPlace" nowrap height="100%">
+						<a title='Contact management' class="wpsUnSelectedPlaceLink" href="idnsAdmin.cgi?&gcPage=CustomerUser"><b class ="font10pt">Contacts</b></a>
+						</td>
+						<td class="wpsUnSelectedPlace" nowrap height="100%">
+						<a title='Zone management' class="wpsUnSelectedPlaceLink" href="idnsAdmin.cgi?&gcPage=Zone"><b class ="font10pt">Zones</b></a>
+						</td>
+						<td class="wpsUnSelectedPlace" nowrap height="100%">
+						<a title='Zone resource record management' class="wpsUnSelectedPlaceLink" href="idnsAdmin.cgi?&gcPage=Resource"><b class ="font10pt">Resources</b></a>
+						</td>
+						<td class="wpsUnSelectedPlace" nowrap height="100%">
+						<a title='Bulk import zones and RRs' class="wpsUnSelectedPlaceLink" href="idnsAdmin.cgi?&gcPage=BulkOp"><b class ="font10pt">Bulk Operations</b></a>
+						</td>
+						<td class="wpsUnSelectedPlace" nowrap height="100%">
+						<a title='Restore deleted zones' class="wpsUnSelectedPlaceLink" href="idnsAdmin.cgi?&gcPage=RestoreZone"><b class ="font10pt">Restore Zones</b></a>
+						</td>
+						<td class="wpsUnSelectedPlace" nowrap height="100%">
+						<a title='Import IP Auth data into the system' class="wpsUnSelectedPlaceLink" href="idnsAdmin.cgi?&gcPage=IPAuth"><b class ="font10pt">IP Auth</b></a>
+						</td>
+						<td class="wpsUnSelectedPlace" nowrap height="100%">
+						<a title='Zone and customer use report' class="wpsUnSelectedPlaceLink" href="idnsAdmin.cgi?&gcPage=Report"><b class ="font10pt">Reports</b></a>
+						</td>
+						<td class="wpsSelectedPlace" nowrap height="100%">
+						<a title='Administrator management' class="wpsSelectedPlaceLink" href='idnsAdmin.cgi?cZone={{gcZone}}&uView={{uView}}&uResource={{uResource}}&cCustomer={{cCustomer}}&gcPage=Administrator'><b class ="font10pt">Administrators</b></a>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+                <tr>
+		<td valign=top align=right class=notice>
+{{gcName}} ({{gcLogin}}) of {{gcOrgName}} is logged in from {{gcHost}} [{{cUserLevel}}] <a title='Erase login cookies' href={{cCGI}}?gcFunction=Logout>Logout
+</a>
+		{{funcTopInfo}}
+		</td>
+                </tr>
+							<tr>
+								<td class="mastbg2">
+
+									<table cellspacing="0" cellpadding="0" border="0" width="100%">
+									<tr valign="top">
+										
+										<td align="right" class="padt10">																				
+											<form action=idnsAdmin.cgi method="post">
+												<table cellspacing="0" cellpadding="0" border="0">
+													<tr>
+														<td><input type="text" value="Search Administrators" class="searchinp" name=cSearch onfocus="this.select();" title="Search for administrators with a keyword" /></td>
+
+														<td valign="middle" style="padding: 0px 4px 0px 4px;"></td><td class="padlt6rt10"><input type="image" src="/images/btn_mast_search.gif" alt="Search" width="17" height="17" border="0" title="Find one or more administrators based on input search pattern" /></td>
+													</tr>
+												</table>
+										</td>
+										
+										
+									</tr>
+									</table>
+								</td>
+							</tr>
+
+			</table>
+		</td>
+	</tr>
+</table>
+
+
+<input type=hidden name=gcPage value=Administrator>
+<table width=1200  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+
+{{gcMessage}}
+<table border="0" cellspacing="0" cellpadding="0" width="100%" style='border: solid gray 1px'>
+  <tr>
+    <td valign="top" width="9" class="hdrtout padlt8" height="21"></td>
+    <td class="hdrtout padlt8" width="33%">
+		<h6 class="modhdr">Administrator Management</h6></td>
+    <td valign="top" width="9" class="hdrtout padlt8"></td>
+    <td width="10"> </td>
+    <td valign="top" width="9" class="hdrtout padlt8"></td>
+    <td class="hdrtout padlt8">
+		<h6 class="modhdr">Administrator Data </h6></td>
+    <td valign="top" width="9" class="hdrtout padlt8"></td>
+  </tr>
+  <tr>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td valign="top">
+	
+	
+	
+<table border="0" cellspacing="8" cellpadding="0" width="100%" class="table_content">
+		<tr>
+		  <td> </td>
+		  <td> </td>
+		</tr>
+		<tr>
+		<td width=33%>
+<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Search Administrator')"><strong>Search Results</strong></a></td>
+		</tr>	
+		<tr>
+			<td colspan=2>
+				<input type=hidden name=gcPage value=Administrator>
+				<input type=hidden name=cNavList value="{{cNavList}}">
+				{{cNavList}}
+			
+<br>
+<br>
+<br>
+
+<input  title="An add adminitrator wizard with easy to follow steps" name="gcFunction" type="submit" class="largeButton" id="gcFunction" value="Add Admin User Wizard" />
+<br>
+<br>
+{{funcAdmLast7DaysAct}}
+<br>
+<br>
+<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Adminstrator Tab Details')"><strong>Adminstrator Tab Details</strong></a><br>
+At this tab you can manage your iDNS system administrators and root users. An administrator is a back-office permission level user (and any other interface user) that has been granted permission to administrate the iDNS DNS application service provider (ASP) system.<br>
+				</td>
+		</tr>
+	</table>
+	
+	
+	
+	
+	
+	</td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td> </td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td valign="top">
+	
+	
+<table border="0" cellspacing="5" cellpadding="0" width="100%" class="table_content">
+	<tr>
+	  <td valign="top"> </td>
+	  <td> </td>
+	</tr>
+	<tr>
+		<td valign="top"><a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Contact Name')"><strong>Contact Name </strong></a></td>
+		<td>
+		<input type=hidden name=cClientName value='{{cClientName}}'>
+		<input title='Name of the administrator,e.g.: John Doe (Required)'  type="text" name="cClientName" value='{{cClientName}}' size="40" maxlength="99" {{gcInputStatus}}  class={{cClientNameStyle}} /></td>
+	</tr>
+	<tr>
+		<td>
+		<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Email Address')"><strong>Email Address</strong></a>		</td>
+		<td>
+			<input type=hidden name=cEmail value='{{cEmail}}'>
+			<input title='Email address of the administrator, e.g.: johndoe@bigisp.net (Optional)' type=text name=cEmail value='{{cEmail}}' size=40 maxlength=99 {{gcInputStatus}} class={{cEmailStyle}}></td>
+	</tr>
+	<tr>
+		<td>
+		<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Administrator Additional Info')"><strong>Additional Info</strong></a></td>			
+		<td>
+			<input type=hidden name=cInfo value='{{cInfo}}'>
+<textarea  title='Other info, such as phone number, mailing address (Optional)' name="cInfo" cols="40" rows="4" class={{cInfoStyle}} {{gcInputStatus}}="{{gcInputStatus}}">{{cInfo}}</textarea></td>
+	</tr>
+	
+	<tr>
+		<td valign="top">
+		<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Login')"><strong>Login </strong></a></td>
+		<td>
+		<input type=hidden name=cUserName value='{{cUserName}}'>
+		<input title='User name for logging into the portal, e.g.: 789456 (Required)' type="text" name="cUserName" value='{{cUserName}}' size="40" maxlength="99" {{gcInputStatus}}  class={{cUserNameStyle}} /></td>
+	</tr>	
+	<tr>
+		<td>
+		<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Clear Password')"><strong>Clear Password</strong></a>		</td>		
+		<td>
+		<input type=hidden name=cClearPassword value='{{cClearPassword}}'>	
+		<input title='Password for logging into the portal, must have more than five characters, e.g: 123456 (Required)' type=text name=cClearPassword value='{{cClearPassword}}' size=40 maxlength=99 disabled class=type_fields_off>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Password')"><strong>Password</strong></a>		</td>
+		<td>
+			<input type=hidden  name=cPassword value='{{cPassword}}'>
+			<input title='Password for logging into the portal, must have more than five characters, e.g: Ju95fh (Required)' type=text name=cPassword value='{{cPassword}}' size=40 maxlength=99 {{gcInputStatus}} class={{cPasswordStyle}}>
+		<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Save Clear Text Password')"><strong>Save Clear Text Password</strong></a>
+		<input type=checkbox value=1 name=uSaveClrPassword {{gcInputStatus}}>
+			</td>
+	</tr>
+	
+<tr>
+		<td>			
+<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Administrator Permission Level')"><strong>Permission Level</strong></a></td>
+		<td>
+		<input type=hidden name=uPerm value={{uPerm}}>
+		{{funcPermLevelDropDown}}</td>
+	</tr>
+	<tr>
+		<td>
+<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Company')"><strong>Company</strong></a></td>
+		<td>
+		<input type=hidden name=uForClient value={{uForClient}}>
+		{{funcTablePullDownResellers}}</td>
+	</tr>	
+	
+	<tr>
+		<td>
+		<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Created By')"><strong>Created By</strong></a></td>
+		<td>
+		{{uCreatedBy}}
+		<input type=hidden name=uCreatedBy value={{uCreatedByForm}}>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Creation Date')"><strong>Creation Date</strong></a></td>
+		<td>
+		{{uCreatedDate}}
+		<input type=hidden name=uCreatedDate value={{uCreatedDateForm}}>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Modified By')"><strong>Modified By</strong></a></td>
+		<td>
+		{{uModBy}}
+		<input type=hidden name=uModBy value={{uModByForm}}>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Owner')"><strong>Modification Date</strong></a></td>
+		<td>
+		{{uModDate}}
+		<input type=hidden name=uModDate value={{uModDateForm}}>
+		</td>
+	</tr>
+	<tr>
+		<td colspan=2>
+		<input type=submit title='Create a new administrator with a two step procedure' class="largeButton" name="gcFunction" value='{{gcNewStep}}New' />
+		  <input {{cBtnStatus}} type=submit  title='Adminitrator modification two step procedure' class="largeButton" name="gcFunction" value='{{gcModStep}}Modify' />
+          <input {{cBtnStatus}} type=submit title='Delete an administrator with a two step procedure' class="largeButton" name="gcFunction" value='{{gcDelStep}}Delete' /></td>
+	</tr>
+</table>
+	
+	
+	
+	</td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td></td>
+    <td><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td></td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td></td>
+  </tr>
+</table>
+
+<br /></td>
+  </tr>
+<tr>
+<td>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="100%" style='border: solid gray 1px'>
+  <tr>
+
+    <td valign="top" width="9" class="hdrtout padlt8" height="21"></td>
+    <td class="hdrtout padlt8"><h6 class="modhdr">Adminstrators</h6></td>
+    <td valign="top" width="9" class="hdrtout padlt8"></td>
+  </tr>
+  <tr>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td>
+	
+
+<table border="0" cellspacing="0" cellpadding="7" width="100%" class="table_content" style="margin-top:5px;">
+	<tr bgcolor="#e9e9e9">
+		<td class="title_list">
+			Login
+		</td>
+		<td class="title_list">
+			Permission Level
+		</td>
+		<td class="title_list">
+			Contact Name
+		</td>
+
+	</tr>
+
+	{{funcAdminUsers}}
+</table>
+
+	
+	</td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+
+    <td></td>
+  </tr>
+</table>
+</td>
+</tr>
+</td>
+</tr>
+</table>
+<input type=hidden name=uClient value={{uClient}}>
+<input type=hidden name=cZone value='{{cZone}}'>
+<input type=hidden name=uView value='{{uView}}'>
+<input type=hidden name=uResource value='{{uResource}}'>
+<input type=hidden name=cCustomer value='{{cCustomer}}'>
+
+</form>

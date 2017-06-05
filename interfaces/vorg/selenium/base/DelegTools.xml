@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://192.168.238.200:9333/" />
+<title>DelegTools</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">DelegTools</td></tr>
+</thead><tbody>
+<tr>
+	<td>clickAndWait</td>
+	<td>//b</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectAndWait</td>
+	<td>cZone</td>
+	<td>label=0.168.192.in-addr.arpa</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delegation Tool']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//input[@name='cIPBlock' and @value='' and @type='text']</td>
+	<td>192.168.238.0/24</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//textarea[@name='cNSList']</td>
+	<td>ns1.unixservice.com<br />ns2.unixservice.com</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delegate Block']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delegate Block Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*The entered block is not inside the loaded zone.*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//input[@name='cIPBlock' and @value='192.168.238.0/24' and @type='text']</td>
+	<td>192.168.0.0/24</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delegate Block Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*The RR has an error: CNAME and other data*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//input[@name='cIPBlock' and @value='192.168.0.0/24' and @type='text']</td>
+	<td>192.168.0.3/32</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delegate Block Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*The RR has an error: syntax error*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//input[@name='cIPBlock' and @type='text']</td>
+	<td>192.168.0.4/26</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delegate Block Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Remove Del.']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Remove Del. Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*IP block delegation removed*</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

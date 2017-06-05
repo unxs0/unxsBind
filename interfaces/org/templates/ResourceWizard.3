@@ -1,0 +1,239 @@
+
+<body marginwidth="0" marginheight="0">
+
+<div align="center" class="standard2colnee">
+
+<table cellspacing="0" cellpadding="0" border="0" width=1200>
+	<tr valign="top">
+	<td class="padb20"><img border=0 src=/images/unxsbind.jpg></td>
+
+		<td align="right">
+
+
+	<!-- one row, one cell table to span the page-->
+	<table border="0" class="wpsPlaceBar" cellspacing="0" cellpadding="0" width="608">
+		<tr>
+
+			<!-- Navigation -->
+			<td align="left" background="/images/bgrd_topnav.gif" valign="bottom" nowrap>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0">
+					<tr>
+						<td class="wpsUnSelectedPlace" nowrap height="100%">
+						<a title='Zone management' class="wpsUnSelectedPlaceLink" href='idnsOrg.cgi?gcPage=Zone&cZone={{cZone}}'><b class ="font10pt">Zone</b></a>
+						</td>
+						<td class="wpsSelectedPlace" nowrap height="100%">
+						<a title='Zone resource record management' class="wpsSelectedPlaceLink" href='idnsOrg.cgi?gcPage=Resource&cZone={{cZone}}'><b class ="font10pt">Resources</b></a>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+                <tr>
+		<td valign=top align=right class=notice>
+{{gcName}} ({{gcLogin}}) of {{gcOrgName}} is logged in from {{gcHost}} [{{cUserLevel}}] <a title='Erase login cookies' href={{cCGI}}?gcFunction=Logout>Logout
+</a></td>
+                </tr>
+
+			</table>
+		</td>
+	</tr>
+</table>
+
+
+<form method=post action={{cCGI}} style="margin:0px; ">
+
+<table width=1200  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+{{gcMessage}}	
+<table border="0" cellspacing="0" cellpadding="0" width="100%" style='border: solid gray 1px'>
+  <tr>
+    <td valign="top" width="9" class="hdrtout padlt8" height="21"></td>
+    <td class="hdrtout padlt8" width="33%">
+		<h6 class="modhdr">Wizard Help</h6>
+	</td>
+    <td valign="top" width="9" class="hdrtout padlt8"></td>
+    <td width="10">&nbsp;</td>
+    <td valign="top" width="9" class="hdrtout padlt8"></td>
+    <td class="hdrtout padlt8">
+		<h6 class="modhdr">Step 3/3 - Review Your Entered Data and Finish</strong>
+	</td>
+    <td valign="top" width="9" class="hdrtout padlt8"></td>
+  </tr>
+  <tr>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td valign="top">
+	
+<table border="0" cellspacing="8" cellpadding="0" width="100%" class="table_content">
+	<tr>
+	  <td>&nbsp;</td>
+	  <td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input type=hidden name=gcPage value=Resource>
+			<input type=hidden name=uStep value=3>
+			<input type=hidden name=cZone value={{cZone}}>
+			<input type=hidden name=uResource value={{uResource}}>
+			<input type=hidden name=uNameServer value={{uNameServer}}>
+			<br>
+			<strong><u>Editing Hints</u></strong>
+			<br>
+			This is the last wizard step. All data is presented together for your review or editing. After presing the Finish button your resource record will be created.<br> Please double check all the values before clicking it!<br>
+			Each field has a yellow tool-tip with field specific information. Slowly move your mouse over the open field to read.
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input class=largeButton type=submit name=gcFunction value='Cancel Resource Wizard' title="Press to cancel the wizard and go back to normal mode. Your changes WON'T be saved">
+		</td>
+	</tr>
+</table>
+
+	
+	</td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td>&nbsp;</td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td valign="top">
+
+
+<table border="0" cellspacing="5" cellpadding="0" width="100%" class="table_content">
+	<tr>
+	  <td valign="top">&nbsp;</td>
+	  <td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td valign="top">
+			<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel={{cNameLabel}})"><strong>{{cNameLabel}}</strong></a>
+		</td>
+		<td>
+			<input title='{{cNameTip}}' type=text name=cName value='{{cName}}' size=40 maxlength=99  class={{cNameStyle}}>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>			
+			<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Resource Type')"><strong>Resource Type</strong></a></td>
+		</td>
+		<td>
+			<script language="JavaScript" type="text/JavaScript"><!--
+			function changePage(newLoc)
+			{
+				nextPage = newLoc.options[newLoc.selectedIndex].value
+			
+				if (nextPage != "---")
+					document.location.href = "idnsOrg.cgi?gcPage=Resource"+nextPage
+			}
+			//--></script>
+			{{funcSelectRRTypeWiz}}
+		</td>
+	</tr>
+	<tr>
+	
+	<tr>
+		<td>
+			<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel={{cParam1Label}}')"><strong>{{cParam1Label}}</strong></a>
+		</td>
+		<td>
+			<input title='{{cParam1Tip}}' type=text name=cParam1 value='{{cParam1}}' size=40 maxlength=255  class={{cParam1Style}}>
+		</td>
+	</tr>
+	
+	{{funcMetaParam}}
+	
+	<tr>
+	<td>		
+		<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Resource Comment')"><strong>Resource Comment</strong></a></td>
+	</td>
+	<td>
+		<input title='Add a short comment if you like' type=text name=cComment value='{{cComment}}' size=40 maxlength=255  class={{cCommentStyle}}>
+	</td>
+	</tr>
+	
+	<tr>
+	  <td valign="top">&nbsp;</td>
+	  <td>&nbsp;</td>
+	</tr>
+	
+	<tr>
+		<td colspan="2">
+			<input class=smallButton type=submit name=gcFunction value='Back'>
+			<input class=smallButton type=submit name=gcFunction value='Finish'>
+		</td>
+	</tr>
+
+</table>
+
+
+	
+	</td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td></td>
+    <td><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td></td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td></td>
+  </tr>
+</table>
+
+<br />
+
+
+<table border="0" cellspacing="0" cellpadding="0" width="100%" style='border: solid gray 1px'>
+  <tr>
+    <td valign="top" width="9" class="hdrtout padlt8" height="21"></td>
+    <td class="hdrtout padlt8"><h6 class="modhdr">{{cZone}} Resource Records</h6></td>
+    <td valign="top" width="9" class="hdrtout padlt8"></td>
+  </tr>
+  <tr>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td>
+	
+<table border="0" cellspacing="0" cellpadding="7" width="100%" class="table_content" style="margin-top:5px;">
+	<tr bgcolor="#e9e9e9">
+		<td class="tit_list">
+			Name
+		</td>
+		<td class="tit_list">
+			TTL
+		</td>
+		<td class="tit_list">
+			Type
+		</td>
+		<td class="tit_list">
+			Parameter 1
+		</td>
+		<td class="tit_list">
+			Parameter 2
+		</td>
+		<td class="tit_list">
+			Comment
+		</td>
+	</tr>
+	{{funcRRs}}
+</table>
+
+
+	
+	</td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td></td>
+  </tr>
+</table>
+
+	</td>
+    <td width="45">&nbsp;</td>
+  </tr>
+</table>
+<input type=hidden name=uTTL value=0>
+<input type=hidden name=uStep value=3>
+</form>

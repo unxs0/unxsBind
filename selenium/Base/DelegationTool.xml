@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>DelTools</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">DelTools</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/cgi-bin/iDNS.cgi?gcFunction=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>gcLogin</td>
+	<td>John Doe</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>gcPasswd</td>
+	<td>wsxedc</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>gcFunction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=tZone</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>gcCommand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cZone</td>
+	<td>24.16.172.in-addr.arpa</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcCommand' and @value='Create New Record']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcCommand' and @value='Delegation Tools']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cIPBlock</td>
+	<td>172.16.24.0/28</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cNSList</td>
+	<td>ns1.unixservice.com<br />ns2.unixservice.com</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcCommand' and @value='Delegate IP Block']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcCommand' and @value='Confirm Delegation']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*IP block delegation done*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*$GENERATE 0-15 $ CNAME$.0/28.24.16.172.in-addr.arpa.Delegation (172.16.24.0/28)*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcCommand' and @value='Delegation Tools']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cIPBlock</td>
+	<td>172.16.24.0/28</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcCommand' and @value='Remove Delegation']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcCommand' and @value='Confirm Del. Removal']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcCommand' and @value='Delegation Tools']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cIPBlock</td>
+	<td>172.16.25.0/28</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcCommand' and @value='Delegate IP Block']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cNSList</td>
+	<td>ns1.unixservice.com<br />ns2.unixservice.com</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcCommand' and @value='Confirm Delegation']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*The entered block is not inside the loaded zone.*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cIPBlock</td>
+	<td>172.16.24.0-15</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcCommand' and @value='Confirm Delegation']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*$GENERATE 0-15 $ CNAME$.0-15.24.16.172.in-addr.arpa.Delegation (172.16.24.0-15)*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcCommand' and @value='Delegation Tools']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cIPBlock</td>
+	<td>172.16.24.0/24</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cNSList</td>
+	<td>ns1.unixservice.com<br />ns2.unixservice.com</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcCommand' and @value='Delegate IP Block']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcCommand' and @value='Confirm Delegation']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*The RR has an error: multiple RRs of singleton type*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=tZone</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cSearch</td>
+	<td>24.16.172.in</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>gcFind</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcCommand' and @value='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcCommand' and @value='Confirm Delete']</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

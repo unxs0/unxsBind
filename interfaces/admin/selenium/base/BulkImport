@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>BulkImport</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">BulkImport</td></tr>
+</thead><tbody>
+<tr>
+	<td>clickAndWait</td>
+	<td>//td[6]/a/b</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Bulk Resource Import']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*cMassList empty. Read manual for list format.*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cMassList</td>
+	<td>cZone=ns1.yourdomain.com<br />router A 192.168.9.5<br />mailgw MX 10 mail.unixservice.com.<br />alias CNAME www.unixservice.com.<br />info TXT &quot;Hi, text RR&quot;</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Bulk Resource Import']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*4 resource lines found 4 imported.*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cMassList</td>
+	<td>cZone=0.168.192.in-addr.arpa<br />4 PTR ns3.yourdomain.com.</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Bulk Resource Import']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*1 resource lines found 1 imported.*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cMassList</td>
+	<td>uCreateZones=1;<br />cZone=newzone.com;<br />@ A 192.168.6.5<br />www CNAME newzone.com.</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Bulk Resource Import']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*uCreateZones=1*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*2: cZone=(newzone.com)*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*2: Added zone newzone.com*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*Bulk Resource Record Import ends.*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*1 of 1 tZone.cZone found.*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*2 resource lines found 2 imported*</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

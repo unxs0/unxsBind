@@ -1,0 +1,40 @@
+1	internal	2	3	1163112096	1	1238946321	acl "ourlocalnets" {\
+\	127.0.0.1;\
+};\
+\
+\
+view "internal" {\
+\
+\	match-clients { ourlocalnets; };	acl "ourlocalnets" {\
+\	10.0.0.1;\
+\	127.0.0.1;\
+};\
+\
+\
+view "internal" {\
+\
+\	match-clients { ourlocalnets; };\
+\	recursion yes;\
+\	allow-recursion { ourlocalnets; };\
+	0	0
+2	external	2	3	1163112705	1	1238946261	view "external" {\
+\
+\	match-clients { any; };\
+\
+\	//Toggle the value below to yes to allow recursion at the master server\
+\	recursion no;\
+\
+\	//These should always be part of any correctly configured NS\
+\	zone "localhost" {\
+\	\	type master;\
+\	\	file "master/localhost";\
+\	};\
+\	zone "0.0.127.in-addr.arpa" {\
+\	\	type master;\
+\	\	file "master/127.0.0";\
+\	};\
+	view "external" {\
+\
+\	match-clients { any; };\
+\	//Toggle the value below to yes to allow recursion at the slave server(s)\
+\	recursion no;	100	0

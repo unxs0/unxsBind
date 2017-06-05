@@ -1,0 +1,347 @@
+<body marginwidth="0" marginheight="0">
+
+<div align="center" class="standard2colnee">
+
+<table cellspacing="0" cellpadding="0" border="0" width=1200>
+	<tr valign="top">
+	<td class="padb20"><img border=0 src=/images/unxsbind.jpg></td>
+
+		<td align="right">
+
+
+	<!-- one row, one cell table to span the page-->
+	<table border="0" class="wpsPlaceBar" cellspacing="0" cellpadding="0" width="608">
+		<tr>
+
+			<!-- Navigation -->
+			<td align="left" background="/images/bgrd_topnav.gif" valign="bottom" nowrap>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0">
+					<tr>
+						<td class="wpsUnSelectedPlace" nowrap height="100%">
+						<a title='System overalll information' class="wpsUnSelectedPlaceLink" href='idnsAdmin.cgi?&gcPage=Dashboard'><b class ="font10pt">Dashboard</b></a>
+						</td>
+						<td class="wpsUnSelectedPlace" nowrap height="100%">
+						<a title='Company management' class="wpsUnSelectedPlaceLink" href='idnsAdmin.cgi?&gcPage=Customer'><b class ="font10pt">Companies</b></a>
+						</td>
+						<td class="wpsUnSelectedPlace" nowrap height="100%">
+						<a title='Contact management' class="wpsUnSelectedPlaceLink" href='idnsAdmin.cgi?&gcPage=CustomerUser'><b class ="font10pt">Contacts</b></a>
+						</td>
+						<td class="wpsUnSelectedPlace" nowrap height="100%">
+						<a title='Zone management' class="wpsUnSelectedPlaceLink" href='idnsAdmin.cgi?&gcPage=Zone'><b class ="font10pt">Zones</b></a>
+						</td>
+						<td class="wpsUnSelectedPlace" nowrap height="100%">
+						<a title='Zone resource record management' class="wpsUnSelectedPlaceLink" href='idnsAdmin.cgi?&gcPage=Resource'><b class ="font10pt">Resources</b></a>
+						</td>
+						<td class="wpsUnSelectedPlace" nowrap height="100%">
+						<a title='Bulk import zones and RRs' class="wpsUnSelectedPlaceLink" href='idnsAdmin.cgi?&gcPage=BulkOp'><b class ="font10pt">Bulk Operations</b></a>
+						</td>
+						<td class="wpsSelectedPlace" nowrap height="100%">
+						<a title='Restore deleted zones' class="wpsSelectedPlaceLink" href='idnsAdmin.cgi?&gcPage=RestoreZone'><b class ="font10pt">Restore Zones</b></a>
+						</td>
+						<td class="wpsUnSelectedPlace" nowrap height="100%">
+						<a title='Import IP Auth data into the system' class="wpsUnSelectedPlaceLink" href="idnsAdmin.cgi?&gcPage=IPAuth"><b class ="font10pt">IP Auth</b></a>
+						</td>
+						<td class="wpsUnSelectedPlace" nowrap height="100%">
+						<a title='Zone and customer use report' class="wpsUnSelectedPlaceLink" href='idnsAdmin.cgi?&gcPage=Report'><b class ="font10pt">Report</b></a>
+						</td>
+						<td class="wpsUnSelectedPlace" nowrap height="100%">
+						<a title='Administrator management' class="wpsUnSelectedPlaceLink" href='idnsAdmin.cgi?&gcPage=Administrator'><b class ="font10pt">Administrators</b></a>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+                <tr>
+		<td valign=top align=right class=notice>
+{{gcName}} ({{gcLogin}}) of {{gcOrgName}} is logged in from {{gcHost}} [{{cUserLevel}}] <a title='Erase login cookies' href={{cCGI}}?gcFunction=Logout>Logout
+</a>
+		{{funcTopInfo}}
+		</td>
+                </tr>
+							<tr>
+								<td class="mastbg2">
+
+									<table cellspacing="0" cellpadding="0" border="0" width="100%">
+									<tr valign="top">
+										
+										<td align="right" class="padt10">																				
+											<form action=idnsAdmin.cgi method="post">
+												<table cellspacing="0" cellpadding="0" border="0">
+													<tr>
+														<td><input type="text" value="Search Del. Zones" class="searchinp" name=cSearch onfocus="this.select();" title="Search for deleted zones with a keyword" /></td>
+
+														<td valign="middle" style="padding: 0px 4px 0px 4px;"></td><td class="padlt6rt10"><input type="image" src="/images/btn_mast_search.gif" alt="Search" width="17" height="17" border="0" title="Find one or more deleted zones based on input search pattern" /></td>
+													</tr>
+												</table>
+												<input type=hidden name=gcFunction value=Search>
+												<input type=hidden name=gcPage value=RestoreZone>
+											</form>									 
+										</td>
+										
+										
+									</tr>
+									</table>
+								</td>
+							</tr>
+
+			</table>
+		</td>
+	</tr>
+</table>
+
+
+
+
+<form method=post action={{cCGI}} style="margin:0px;">
+<table width=1200  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+{{gcMessage}}
+<table border="0" cellspacing="0" cellpadding="0" width="100%" style='border: solid gray 1px'>
+  <tr>
+    <td valign="top" width="9" class="hdrtout padlt8" height="21"></td>
+    <td class="hdrtout padlt8" width="40%">
+		<h6 class="modhdr">Deleted Zone Management</h6>
+	</td>
+    <td valign="top" width="9" class="hdrtout padlt8"></td>
+    <td width="10">&nbsp;</td>
+    <td valign="top" width="9" class="hdrtout padlt8"></td>
+    <td class="hdrtout padlt8">
+		<h6 class="modhdr">{{cZone}} Header Data</h6>
+	</td>
+    <td valign="top" width="9" class="hdrtout padlt8"></td>
+  </tr>
+  <tr>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td valign="top">
+	
+	
+	
+<table border="0" cellspacing="8" cellpadding="0" width="100%" class="table_content">
+		<tr>
+		  <td>&nbsp;</td>
+		  <td>&nbsp;</td>
+		</tr>
+                <tr>
+                <td width=33%>
+<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Search Zone')"><strong>Search Results</strong></a></td>
+                </tr>
+                <tr>
+                        <td colspan=2>
+			{{cNavList}}
+	</tr>		<input type=hidden name=cNavList value="{{cNavList}}">
+	
+		<tr>
+			<td colspan=2>
+				<input type=hidden name=gcPage value=RestoreZone>
+				<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Deleted Zones Tab Detail')"><strong>Deleted Zones Tab Detail</strong></a><br>
+Search for the zone you want to restore with tool above. Zone data will be displayed read-only. By pressing the [Restore Zone] button and confirm the action the zone and all its RRs will be restored across the DNS cluster.
+<br>
+			</td>
+		</tr>
+	</table>
+	
+	
+	
+	
+	
+	</td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td>&nbsp;</td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td valign="top">
+	
+	
+<table border="0" cellspacing="5" cellpadding="0" width="100%" class="table_content">
+	<tr>
+	  <td valign="top">&nbsp;</td>
+	  <td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td valign="top">
+<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=NS Set')"><strong>NS Set ({{cNSSet}})</strong></a>
+		</td>
+		<td>
+		<input type=hidden name=uNameServer value={{uNameServer}}>
+		<input type=hidden name=cNSSet value={{cNSSet}}>
+			<textarea cols=50 rows=4 disabled class="type_textarea_off">{{funcNSSetMembers}}</textarea>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Serial Number')"><strong>Serial Number</strong></a>
+		</td>
+		<td>
+			<input title='Serial number for identification of the Resource Record,this number always increase when you update your zone data' type=text name=uSerial value='{{uSerial}}' size=40 maxlength=99 disabled  class="type_fields_off">
+			<input type=hidden name=uSerial value='{{uSerial}}'>
+			<input type=hidden name=uNameServer value='{{uNameServer}}'>
+		</td>
+	</tr>
+	<tr>
+		<td>
+<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Zone Name')"><strong>Zone Name</strong></a>
+		</td>
+		<td>
+			<input type=hidden name=cZone value='{{cZone}}'>		
+			<input title='The name that will identify the zone' type=text name=cZone value='{{cZone}}' size=40 maxlength=99 {{gcInputStatus}} class=type_fields_off>
+	</tr>
+	<tr>
+		<td>
+<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Expire TTL')"><strong>Expire TTL</strong></a>
+		</td>
+		<td>
+			<input type=hidden name=uExpire value='{{uExpire}}'>
+			<input title='Slave expire TTL' TTLtype=text name=uExpire value='{{uExpire}}' size=40 maxlength=99 {{gcInputStatus}} class=type_fields_off>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Refresh TTL')"><strong>Refresh TTL</strong></a>
+		</td>
+		<td>
+			<input type=hidden name=uRefresh value='{{uRefresh}}'>
+			<input title='Slave refresh TTL' type=text name=uRefresh value='{{uRefresh}}' size=40 maxlength=99 {{gcInputStatus}} class=type_fields_off>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Default TTL')"><strong>Default TTL</strong></a>
+		</td>
+		<td>
+			<input type=hidden  name=uTTL value='{{uTTL}}'>
+			<input title='Default zone TTL for records with no TTL set or set to 0.' type=text name=uTTL value='{{uTTL}}' size=40 maxlength=99 {{gcInputStatus}} class=type_fields_off>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Retry TTL')"><strong>Retry TTL</strong></a>
+		</td>
+		<td>
+			<input type=hidden name=uRetry value='{{uRetry}}'>
+			<input title='Slave retry TTL' type=text name=uRetry value='{{uRetry}}' size=40 maxlength=99 {{gcInputStatus}} class=type_fields_off>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Negative TTL')"><strong>Negative TTL</strong></a>
+		</td>
+		<td>
+			<input type=hidden name=uZoneTTL value='{{uZoneTTL}}'>
+			<input title='Negative (nxdomain) TTL (RFC 2308)' type=text name=uZoneTTL value='{{uZoneTTL}}' size=40 maxlength=99 {{gcInputStatus}} class=type_fields_off>
+		</td>
+	</tr>
+	<tr>
+		<td>
+<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Hostmaster')"><strong>Hostmaster</strong></a>
+		</td>
+		<td>
+			<input type=hidden name=cHostmaster value='{{cHostmaster}}'>
+			<input title='eMail address of responsible person. First dot is the @ symbol' type=text name=cHostmaster value='{{cHostmaster}}' size=40 maxlength=100 {{gcInputStatus}} class=type_fields_off>
+		</td>
+	</tr>
+	<tr>
+		<td>
+<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=DNS Views')"><strong>View</strong></a>
+		</td>
+		<td>
+		<input type=hidden name=cView value='{{cView}}'>
+			<input type=text value='{{cView}}' class=type_fields_off size=40 {{gcInputStatus}}>
+		</td>
+	</tr>
+	<tr>
+		<td>
+<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Company')"><strong>Company</strong></a></td>
+		<td>
+		<input type=hidden name=cCompany value="{{cCompany}}">
+		<input type=text value="{{cCompany}}" class=type_fields_off size=40 {{gcInputStatus}}></td>
+	</tr>	
+	
+	<tr>
+		<td> 
+	<tr>
+		<td>&nbsp;
+		
+		</td>
+		<td colspan=2>
+           <input {{cBtnStatus}} type="submit" title='Restore this zone and all its RRs' class="largeButton" name="gcFunction" value='{{gcNewStep}}Restore Zone' /></td>
+	</tr>
+</table>
+	
+	
+	
+	</td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td></td>
+    <td><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td></td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td></td>
+  </tr>
+</table>
+
+<br />
+
+
+<table border="0" cellspacing="0" cellpadding="0" width="100%" style='border: solid gray 1px'>
+  <tr>
+    <td valign="top" width="9" class="hdrtout padlt8" height="21"></td>
+    <td class="hdrtout padlt8"><h6 class="modhdr">{{cZone}} Resource Records</h6></td>
+    <td valign="top" width="9" class="hdrtout padlt8"></td>
+  </tr>
+  <tr>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td>
+	
+<table border="0" cellspacing="0" cellpadding="7" width="100%" class="table_content" style="margin-top:5px;">
+	<tr bgcolor="#e9e9e9">
+		<td class="title_list">
+			Name
+		</td>
+		<td class="title_list">
+			TTL
+		</td>
+		<td class="title_list">
+			Type
+		</td>
+		<td class="title_list">
+			Parameter 1
+		</td>
+		<td class="title_list">
+			Parameter 2
+		</td>
+		<td class="title_list">
+			Comment
+		</td>
+	</tr>
+	{{funcDeletedRRs}}
+</table>
+
+	
+	</td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td></td>
+  </tr>
+</table>
+
+
+
+
+
+	</td>
+  </tr>
+</table>
+<input type=hidden name=uDeletedZone value='{{uDeletedZone}}'>
+</form>

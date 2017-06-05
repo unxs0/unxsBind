@@ -1,0 +1,3 @@
+An executable that connects to a remote unxsBind db and creates /etc/hosts
+compatible lines from given cZone rlike matching pattern.
+Fixed for external view only.

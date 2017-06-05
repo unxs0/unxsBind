@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://192.168.238.130:9333/" />
+<title>BaseLine</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">BaseLine</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/cgi-bin/iDNS.cgi?gcFunction=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>gcLogin</td>
+	<td>John Doe</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>gcPasswd</td>
+	<td>wsxedc</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>gcFunction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=tClient</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>gcCommand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cLabel</td>
+	<td>Acme Webhosting</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cEmail</td>
+	<td>info@acmewebhosting.net</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>cForClientPullDown</td>
+	<td>label=---</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcCommand' and @value='Create New Record']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*New record*added*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cLabel</td>
+	<td>Acme Webhosting</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=tBlock</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>gcCommand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cLabel</td>
+	<td>172.96.64.0/24</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cComment</td>
+	<td>Test Block</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>cForClientPullDown</td>
+	<td>label=Acme Webhosting</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcCommand' and @value='Create New Record']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=tZone</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>gcCommand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cZone</td>
+	<td>64.96.172.in-addr.arpa</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>cCustomerDropDown</td>
+	<td>label=Acme Webhosting</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcCommand' and @value='Create New Record']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*New record*added*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cZone</td>
+	<td>64.96.172.in-addr.arpa</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>gcCommand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cZone</td>
+	<td>acmewebhosting.com</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>cCustomerDropDown</td>
+	<td>label=Acme Webhosting</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcCommand' and @value='Create New Record']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=tJob</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cJob</td>
+	<td>New</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cZone</td>
+	<td>64.96.172.in-addr.arpa</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFind' and @value=' &gt;']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cJob</td>
+	<td>New</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cZone</td>
+	<td>64.96.172.in-addr.arpa</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFind' and @value=' &gt;']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cJob</td>
+	<td>New</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cZone</td>
+	<td>acmewebhosting.com</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFind' and @value=' &gt;']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cJob</td>
+	<td>New</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cZone</td>
+	<td>acmewebhosting.com</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=tClient</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>gcCommand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cLabel</td>
+	<td>Acme Admin</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>cForClientPullDown</td>
+	<td>label=Acme Webhosting</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcCommand' and @value='Create New Record']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcCommand' and @value='Authorize']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cPasswd</td>
+	<td>wsxedc</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcCommand' and @value='Confirm Authorize']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

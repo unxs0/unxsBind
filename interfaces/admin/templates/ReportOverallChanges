@@ -1,0 +1,43 @@
+<fieldset>
+<legend>System wide changes</legend>
+<table border=0 style='border: solid black 1px' width=100%>
+	<tr>
+		<td></td>
+		<td  align=right><strong>New zone headers</strong></td>
+		<td  align=right><strong>Zone header mods</strong></td>
+		<td  align=right><strong>Deleted zone headers</strong></td>
+		<td  align=right><strong>New RRs</strong></td>
+		<td  align=right><strong>Modified RRs</strong></td>
+		<td  align=right><strong>Deleted RRs</strong></td>
+	</tr>
+	<tr>
+		<td><strong>Back-office interface</strong></td>
+		<td align=right>{{uZoneNewCountBO}}</td>
+		<td align=right>{{uZoneModCountBO}}</td>
+		<td align=right>{{uZoneDelCountBO}}</td>
+		<td align=right>{{uRRNewCountBO}}</td>
+		<td align=right>{{uRRModCountBO}}</td>
+		<td align=right>{{uRRDelCountBO}}</td>
+	</tr>
+	<tr>
+		<td><strong>Admin interface</strong></td>
+		<td align=right>{{uZoneNewCountAdmin}}</td>
+		<td align=right>{{uZoneModCountAdmin}}</td>
+		<td align=right>{{uZoneDelCountAdmin}}</td>
+		<td align=right>{{uRRNewCountAdmin}}</td>
+		<td align=right>{{uRRModCountAdmin}}</td>
+		<td align=right>{{uRRDelCountAdmin}}</td>
+	</tr>
+	<tr>
+		<td><strong>Org interface</strong></td>
+		<td align=right>---</td>
+		<td align=right>{{uZoneModCount}}</td>
+		<td align=right>---</td>
+		<td align=right>{{uRRNewCount}}</td>
+		<td align=right>{{uRRModCount}}</td>
+		<td align=right>{{uRRDelCount}}</td>
+	</tr>
+</table>
+<br>
+</fieldset>
+

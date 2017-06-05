@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>RestoreSRV</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">RestoreSRV</td></tr>
+</thead><tbody>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Resources</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='New']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectAndWait</td>
+	<td>cRRType</td>
+	<td>label=SRV</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cName</td>
+	<td>_sip._tcp.newzone.com.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cParam2</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cParam4</td>
+	<td>sipserver.example.com.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cParam1</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cParam3</td>
+	<td>5060</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='New Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*Zone Resource Created*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Modify']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cName</td>
+	<td>_sip._tcpmodtest.newzone.com.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cComment</td>
+	<td>testing mod</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Modify Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*Zone Resource Modified*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delete Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*Zone Resource Deleted*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//td[4]/a/b</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>gcFunction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cName</td>
+	<td>_sip._tcpmodtest.newzone.com.</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cParam2</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cParam4</td>
+	<td>sipserver.example.com.</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cParam1</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cParam3</td>
+	<td>5060</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value=' Restore RR']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Confirm Restore RR']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*RR restored OK.*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//td[5]/a/b</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=_sip._tcpmodtest.newzone.com.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cName</td>
+	<td>_sip._tcpmodtest.newzone.com.</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cParam2</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cParam4</td>
+	<td>sipserver.example.com.</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cParam1</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cParam3</td>
+	<td>5060</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cComment</td>
+	<td>testing mod- restored</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

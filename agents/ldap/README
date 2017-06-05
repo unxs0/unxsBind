@@ -1,0 +1,10 @@
+In this directory we are developing C code to interface our legacy AA tClient and
+tAuthorize system to an LDAP system with failover to a second LDAP server if the first
+fails.
+
+Initially we will run this as an agent to update tClient and tAuthorize. Future
+systems should be able to replace tClient and tAuthorize entirely.
+
+tConfiguration will be used to be able to translate enterprise specific LDAP
+schema elements to what is needed to populate the Org/Contact/Role model
+implemented by our tAuthorize and tClient.

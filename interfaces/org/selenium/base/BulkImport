@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>BulkImport</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">BulkImport</td></tr>
+</thead><tbody>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Bulk Resource Record Entry']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cMassList</td>
+	<td>router A 192.168.9.5<br />mailgw MX 10 mail.unixservice.com.<br />alias CNAME www.unixservice.com.<br />info TXT &quot;Hi, text RR&quot;</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>gcFunction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*4 resource lines found 4 imported.*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>gcFunction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//b</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>cZone</td>
+	<td>label=0.168.192.in-addr.arpa</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//td[2]/a/b</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Bulk Resource Record Entry']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cMassList</td>
+	<td>4 PTR ns3.yourdomain.com.</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>gcFunction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*1 resource lines found 1 imported.*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delete Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//b</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>cZone</td>
+	<td>label=ns1.yourdomain.com</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=info</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delete Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=alias</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delete Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=mailgw</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delete Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=router</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delete Confirm']</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

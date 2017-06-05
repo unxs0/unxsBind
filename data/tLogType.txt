@@ -1,0 +1,8 @@
+1182265936	1	1	1	1163026052	1	backoffice
+0	0	1	1	1163026077	2	organization interface
+0	0	1	1	1182265877	3	admin interface
+0	0	1	1	1182265957	4	system event
+0	0	1	1	1183069440	5	named error
+0	0	1	1	1191934408	6	backend login
+1192540614	1	1	1	1192197055	7	idnsAdmin login
+1192540636	1	1	1	1192197076	8	idnsOrg login

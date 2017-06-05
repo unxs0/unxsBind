@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>RR-MX1</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">RR-MX1</td></tr>
+</thead><tbody>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='New']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cName</td>
+	<td>dsdhshdfjtrjrdhasegdsadgagdsdhshdfjtrjrdhasegdsadgagdsdhshdfjtrjrdhasegdsadgagdsdhshdfjtrjrdhasegds</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='New Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*The RR has an error: label too long*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cName</td>
+	<td>joe</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cParam1</td>
+	<td>9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaassssssssssssssssssss</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='New Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*Invalid MX Priority Number for Preference Number*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cParam1</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cParam2</td>
+	<td>33333333333335435435555555555555222222222222222222222|1432rgasesh5gtfyfty6p7vjyt7t6tktktu54wyewu6ri76ktkyfgdyureur5i6tkyugtuyg7k6ri56djtrduj64eu5ktfyjrdjdtjrsdwserhshesjk67k76rdjrtdjthrdhrdh4suhsdrthdjh65dj5dfj6dhrtdhtshesj6d5jkdjdjrtdjrdjdjdshseheshsu4ex</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='New Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:* The RR has an error: label too long*</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

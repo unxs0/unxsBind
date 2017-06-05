@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://192.168.238.130:9333/" />
+<title>RRWizard</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">RRWizard</td></tr>
+</thead><tbody>
+<tr>
+	<td>clickAndWait</td>
+	<td>//b</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectAndWait</td>
+	<td>cZone</td>
+	<td>label=ns1.yourdomain.com</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//td[2]/a/b</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>gcFunction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cName</td>
+	<td>router</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Next']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cParam1</td>
+	<td>192.168.45.4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cComment</td>
+	<td>wizard RR</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Next']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Finish']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*Zone Resource Created*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>gcFunction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>cRRType</td>
+	<td>label=MX</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cName</td>
+	<td>mailgw</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Next']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cParam1</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cParam1</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cComment</td>
+	<td>wizard RR</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cParam2</td>
+	<td>mail.unixservice.com.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cComment</td>
+	<td>wizard RR</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Next']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Finish']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*Zone Resource Created*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>gcFunction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>cRRType</td>
+	<td>label=HINFO</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cName</td>
+	<td>host</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Next']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cParam1</td>
+	<td>Linux</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cParam2</td>
+	<td>686</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cComment</td>
+	<td>wizard RR</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Next']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Finish']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>gcFunction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>cRRType</td>
+	<td>label=CNAME</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cName</td>
+	<td>alias</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Next']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cParam1</td>
+	<td>ww.unixservice.com.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cComment</td>
+	<td>wizard RR</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Next']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Finish']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>gcFunction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>cRRType</td>
+	<td>label=TXT</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cName</td>
+	<td>txt</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Next']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cParam1</td>
+	<td>&quot;I am a TXT RR&quot;</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cComment</td>
+	<td>wizard RR</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Next']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Finish']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*Zone Resource Created*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>gcFunction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>cRRType</td>
+	<td>label=SRV</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cName</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Next']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*SRV records are not supported by this wizard.*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=router</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delete Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=mailgw</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delete Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=host</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delete Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=alias</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delete Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=txt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delete Confirm']</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

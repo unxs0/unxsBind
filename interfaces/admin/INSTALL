@@ -1,0 +1,56 @@
+#
+#FILE
+#	unxsVZ/unxsBind/interfaces/admin/INSTALL
+#	$Id: INSTALL 1334 2010-04-09 16:03:46Z Gary $
+#AUTHOR-LEGAL
+#	(C) 2006-2009 Hugo Urquiza, Gary Wallis for Unixservice, LLC.
+#	(C) 2010 Gary Wallis for Unixservice, LLC.
+#	GPLv2 license applies. See included source base dir LICENSE file.
+#NOTES
+#	Based on using BASH shell on a CentOS 5 GNU/Linux server (or VE/VM.)
+#	Examples commands may have to be changed. They are based on the CentOS5 
+#	rpm distribution.
+#
+
+idnsAdmin Quick Install Instructions
+
+Prerequisites:
+
+You must have your iDNS backend system installed (iDNS.cgi) and tested.
+You must install the NEW libtemplate from unxsVZ/libs dir.
+
+
+Instructions:
+
+1-. Compile and install with a single command the binary file. Run the following command in this
+	directory:
+
+	# make install
+	
+2-. Then install the CSS stylesheet file and the interface templates.
+
+	Example for installing the CSS stylesheet:
+
+	# mkdir /var/www/unxs/html/css/
+	# cp -i ./templates/css/styles.css  /var/www/unxs/html/css/
+	# cp -i ./templates/css/popups.js  /var/www/unxs/html/css/
+
+	For installing the system templates:
+
+	# ./importTemplates.sh
+
+3-. Finally you have to install the interface images.
+
+	Example:
+
+	# cp -i ./templates/images/*.gif /var/www/unxs/html/images
+	# cp -i ./templates/images/*.jpg /var/www/unxs/html/images
+	# cp -i ./templates/images/*.png /var/www/unxs/html/images
+
+4-. Then login and test your new idnsAdmin interface, via your Firefox browser.
+
+	Example browser location URL:
+
+	https://192.168.22.128:9333/cgi-bin/idnsAdmin.cgi
+
+

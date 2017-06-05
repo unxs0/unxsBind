@@ -1,0 +1,124 @@
+/* 
+FILE
+	styles.css
+PURPOSE
+	Provide idnsAdmin/idnsOrg stylesheet 
+AUTHOR
+	Hugo Urquiza for Unixservice. (C) 2006-2008.
+*/
+
+body { font-family:verdana, sans-serif; color:#565c5e; margin:0px 0px 0px 0px; background-color:#ffffff; }
+a, a:visited { color:#565c5e; text-decoration:underline; }
+body td, body th { font-size:.7em; line-height:1.35em; }
+body select { font-size:.97em; line-height:1.35em; border:1px solid #dddddd; }
+a:hover { color:#0000FF; text-decoration:underline; }
+/* for links w/o underlines */
+.nound, .nound:visited { text-decoration:none; }
+.nound:hover { text-decoration:underline; }
+
+input.smallButton { font-family:verdana, sans-serif;width:50px; font-size:.97em;}
+input.largeButton {width:150px; font-family:verdana, sans-serif; font-size:.97em;}
+input.largestButton {width:190px; font-family:verdana, sans-serif; font-size:.97em;}
+
+input.close_button{background-color:#ffffff;font-family:verdana, sans-serif;;color:#554295;border:1px solid #c9c9c9;}
+
+.type_fields
+{
+	height:15px;
+	margin:0px 0 0px 0;
+	padding:0px;
+	border: 1px solid #554295;
+	background-color:#eeeeee;
+	font:bold 10px Arial, Helvetica, sans-serif;
+	color:#554295;
+}
+
+.type_fields_off
+{
+        height:15px;
+        margin:0px 0 0px 0;
+        padding:0px;
+        border: 1px solid #554295;
+        background-color:#c9c9c9;
+        font:bold 10px Arial, Helvetica, sans-serif;
+        color:#554295;
+}
+
+.type_textarea
+{
+        margin:0px 0 0px 0;
+        padding:0px;
+        border: 1px solid #554295;
+        background-color:#eeeeee;
+        font:bold 10px Arial, Helvetica, sans-serif;
+        color:#554295;
+}
+
+.type_textarea_off
+{
+        margin:0px 0 0px 0;
+        padding:0px;
+        border: 1px solid #554295;
+        background-color:#c9c9c9;
+        font:bold 10px Arial, Helvetica, sans-serif;
+        color:#554295;
+}
+
+.type_fields_req
+{
+	height:15px;
+	margin:0px 0 0px 0;
+	padding:0px;
+	border: 1px solid #554295;
+	background-color:#f3dadd;
+	font:bold 10px Arial, Helvetica, sans-serif;
+	color:#554295;
+}
+.padt10 { padding-top:10px; }
+.padlt8 { padding-left:8px; }
+.modhdr { font-family:verdana, sans-serif; color:#554295; padding:10px 0px 6px 0px; margin:0px; font-size:1.2em;  line-height:1.3em; font-weight:bold; }
+.padb20 { padding-bottom:20px; }
+
+.padlt6rt10 { padding-left:6px; padding-right:10px; }
+.mastbg2 { background-image:url(/images/bgrd_masthead.gif); background-repeat:no-repeat;background-position:right; }
+
+/* tabs classes */ 
+.wpsUnSelectedPlace { line-height:0.9em; padding:4px 8px 8px 8px; vertical-align: bottom; text-align: center; }
+
+
+.wpsUnSelectedPlaceLink, .wpsUnSelectedPlaceLink:visited { text-decoration:none; }
+.wpsUnSelectedPlaceLink:hover { text-decoration:underline; }
+
+/* 3D highlight on unselected tabs on Place bar */
+.wpsUnSelectedPlace3dHighlight {
+    /*background-color: #994c29;*/
+}
+
+/* 3D shadow on unselected tabs on Place bar */
+.wpsUnSelectedPlace3dShadow {
+    /*background-color: #994c29;*/
+}
+
+.wpsSelectedPlace { line-height:0.9em; padding:4px 8px 8px 8px; background-image:url(../images/bgrd_topnav_systxt.gif); background-repeat:repeat-x; background-position: left bottom; text-align: center; vertical-align: bottom; }
+
+.topNavBg { background-image:url(../images/bgrd_topnav.gif); background-position: left bottom; background-repeat:repeat-x;}
+
+.wpsSelectedPlaceLink, .wpsSelectedPlaceLink:visited { text-decoration:none; }
+.wpsSelectedPlaceLink:hover { text-decoration:underline; }
+
+/* 3D highlight on selected tab on Place bar */
+.wpsSelectedPlace3dHighlight {
+    /*background-color: #B6B7D3;*/
+}
+
+/* 3D shadow on selected tab on Place bar */
+.wpsSelectedPlace3dShadow {
+    /*background-color: #5D5E96;*/
+}
+
+.searchinp { font-family:verdana, sans-serif; font-size:.9em; color:#565c5e; border:1px solid #dddddd; padding:2px 2px 2px 6px; width:120px; height:19px; }
+.footer { font-family:verdana, sans-serif; color:gray; font-size:9px;}
+.notice { font-family:verdana, sans-serif;font-size:.55em;}
+.font10pt { font-size:.9em; line-height:1.4em; }
+.font10ptlh { font-size:.9em; line-height:1.1em; }
+.hdrtout { background-image:url(../images/bgrd_header_engage.gif); background-repeat:repeat-x; }

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="unxsDNS zone tab">
+    <meta name="author" content="(C) Unixservice, LLC. 2014-2015">
+    <link rel="shortcut icon" type=image/x-icon href=/images/onelogin.ico>
+
+    <title>{{gcBrand}} unxsDNS</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/bs/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/bs/css/offcanvas.css" rel="stylesheet">
+    <link href="/bs/css/collapse.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{cCGI}}?gcPage=Zone">{{gcBrand}} unxsDNS</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="{{cCGI}}?gcPage=User">User</a></li>
+            <li class="active"><a href="{{cCGI}}?gcPage=Zone">Zone</a></li>
+            <li><a href="{{cCGI}}?gcPage=About">About</a></li>
+            <li><a href="{{cCGI}}?gcPage=Contact">Contact</a></li>
+            {{cPrivilegedZoneMenu}}
+            <li><a href="{{cCGI}}?gcFunction=Logout">Logout</a></li>
+          </ul>
+        </div><!--/nav-collapse-->
+      </div><!--/container-->
+    </nav><!--/navbar-->
+    <!--end 3 div and one nav section-->
+
+    <div class="container">
+      <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-xs-12 col-sm-9">
+
+<!-- start jquery dynamic loading collapse search -->
+<div class="panel panel-default" id="panel1">
+	<div class="panel-heading">
+		<h4 class="form-signin-heading">
+			<a data-toggle="collapse" data-target="#collapseSearch" href="#collapseSearch" class="collapsed">Search</a>
+		</h4>
+	</div><!-- "panel-heading" -->
+	<div id="collapseSearch" class="panel-collapse collapse {{gcInCollapseSearch}}">
+	<div class="panel-body">
+		{{funcSearchSubmit}}
+	</div><!-- "panel-body" -->
+	</div><!-- "collapseSearch" -->
+</div><!-- "panel panel-default" -->
+<!-- end jquery dynmaic collapse search -->
+
+          <div class="jumbotron">
+	<h4>{{cCtHostnameLink}}</h4>
+          {{funcZoneImageTag}}
+          <ul class="list-group">
+         	 {{funcZoneInfo}}
+	  </ul>
+            
+
+<!-- start jquery collapse resource records -->
+<div class="panel panel-default" id="panel2">
+	<div class="panel-heading">
+		<h4 class="form-signin-heading">
+			<a data-toggle="collapse" data-target="#collapseResourceRecords" href="#collapseResourceRecords" class="collapsed">zone resource records</a>
+		</h4>
+	</div><!-- "panel-heading" -->
+	<div id="collapseResourceRecords" class="panel-collapse collapse">
+	<div class="panel-body">loading please wait...
+	</div><!-- "panel-body" -->
+	</div><!-- "collapseResourceRecords" -->
+</div><!-- "panel panel-default" -->
+<!-- end jquery collapse -->
+
+          </div><!--/jumbotron-->
+
+        </div><!--/col-xs-12.col-sm-9-->
+
+      </div><!--/row-->
+    </div><!--/container-->
+    <!--end 6 div section-->
+
+
+      <hr>
+
+      <footer>
+        <p>{{gcCopyright}}</p>
+      </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/bs/js/bootstrap.min.js"></script>
+    <script src="/bs/js/offcanvas.js"></script>
+    <script>
+	$('#collapseResourceRecords').on('shown.bs.collapse', function () {
+		$("#collapseResourceRecords").load("{{cCGI}}?gcPage=Zone&gcFunction=ResourceRecords");
+	});
+	$('#collapseSearch').on('shown.bs.collapse', function () {
+		$("#collapseSearch").load("{{cCGI}}?gcPage=Zone&gcFunction=SearchCollapse");
+	});
+    </script>
+  </body>
+</html>

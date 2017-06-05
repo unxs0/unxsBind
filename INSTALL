@@ -1,0 +1,60 @@
+OLD DEPRECATE ASAP
+TODO
+
+
+
+Very quick CentOS 5 install guide
+---------------------------------
+
+'yum' will provide a working system on your server for your
+evaluation very quickly.
+
+Single # is a command line operation
+Double ## is a comment in command line operations
+
+Does not cover setting installing a correct SSL cert, other servers,
+editing your named.conf etc...etc...
+
+Does not cover setting up boot init.d scripts for starting 
+named, httpd and mysqld etc...
+
+
+***NEW***
+Note that the unxsBind required cron entries are now
+added to /etc/cron.d/unxsbind by the init.d script. But,
+only if you remove the old deprecated root crontab entries.
+
+---
+1-. Setup your /etc/yum.repos.d/ with the unxs.repo:
+
+# wget http://unixservice.com/rpm/i386/unxsyum-1.0-1.i386.rpm
+
+## (optionally check md5sum of what you just downloaded)
+# wget http://unixservice.com/rpm/i386/unxsyum-1.0-1.i386.rpm.md5sum
+# md5sum -c unxsyum-1.0-1.i386.rpm.md5sum
+## (if ok proceed to install rpm - we will not mention this check 
+##	again but can be used for all our downloads.)
+
+# rpm -i unxsyum-1.0-1.i386.rpm
+
+1b-. Faster method? 
+Optionally just create /etc/yum.repos.d/unxs.conf with this content:
+[unxsVZ]
+name=unxsVZ
+baseurl=http://unixservice.com/rpm/
+enabled=1
+gpgcheck=0
+md5check=1
+
+---
+2-. Use yum to install unxsbind
+
+# yum install unxsbind
+
+This will setup everything including chkconfig boot settings.
+It will install all provided interfaces with the base templates.
+
+---
+3-. Test everything. If you find anything wrong in this guide,
+	in any interface, in the initial DNS system provided, please email us at
+	support @ unixservice . com

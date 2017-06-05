@@ -1,0 +1,42 @@
+1	1162936958	3	UpdateInfo	2		2	1181684485	uModDate
+1	1163114726	3	cExtraForViewSlave:internal	11	        //cExtraForViewSlave:internal\
+        zone "." {\
+                type hint;\
+                //Make sure you update this file every year or so.\
+                file "root.cache";\
+        };\
+        zone "localhost" {\
+                type master;\
+                file "master/localhost";\
+        };\
+        zone "0.0.127.in-addr.arpa" {\
+                type master;\
+                file "master/127.0.0";\
+        };\
+        //End	2	1163114898	Value in cComment
+1	1163030472	3	cViewXIP:ns1.openisp.net:external	6	Please modify this value for your setup	2	1181684573	209.177.154.67
+1	1163030502	3	cViewXIP:ns2.openisp.net:external	7	Please modify this value for your setup	2	1181684623	209.177.154.68
+1	1163034134	3	cuUID	9	uid of named across all cluster members	2	1163034234	25
+0	1163034286	3	cuGID	10	gid of named across all cluster members	2	0	25
+1	1163114853	3	cExtraForViewMaster:internal	12	        //cExtraForViewMaster:internal\
+        zone "." {\
+                type hint;\
+                //Make sure you update this file every year or so.\
+                file "root.cache";\
+        };\
+        zone "localhost" {\
+                type master;\
+                file "master/localhost";\
+        };\
+        zone "0.0.127.in-addr.arpa" {\
+                type master;\
+                file "master/127.0.0";\
+        };\
+        //End	2	1163114922	Value in cComment
+1	1163117577	3	cViewXIP:ns1.openisp.net:internal	13	Please modify for your setup	2	1181685132	10.0.0.1
+1	1163117640	3	cViewXIP:ns2.openisp.net:internal	14	Please modify for your setup	2	1181685177	10.0.0.2
+3	1168282432	3	cASP	16		2	1229122828	DNS ASP Company
+1	1171320799	3	cHostMaster	17		2	1181685219	hostmaster.openisp.net
+3	1229122872	3	allzone.stats	18		2	1229123036	/images/allzone.stats.png
+0	1238946687	1	cCryptMethod	19	MD5 or DES encryption for login passwords.	1	0	MD5
+3	1229122872	3	mrcstatus	20		2	1229123036	/images/mrcstatus.gif

@@ -1,0 +1,34 @@
+1	123 Easy Domain Names	1	1	1165352713	0	0
+2	123 Registration	1	1	1165352713	0	0
+3	#1 Domain Names International Inc. dba 1dni.com	1	1	1165352713	0	0
+4	2Day Internet Limited dba 2day.com	1	1	1165352713	0	0
+5	Abu-Ghazaleh Intellectual Property (AGIP)	1	1	1165352713	0	0
+6	BulkRegister.com	1	1	1165352713	0	0
+7	CentralNic Limited	1	1	1165352713	0	0
+8	CORE Internet Council of Registrars	1	1	1165352713	0	0
+9	Domain Intellect Pty Ltd.	1	1	1165352713	0	0
+10	Eastern Communications Company Limited	1	1	1165352713	0	0
+11	Easyspace Limited	1	1	1165352713	0	0
+12	Firevision.net	1	1	1165352713	0	0
+13	Gabia	1	1	1165352713	0	0
+14	Go Daddy Software	1	1	1165352713	0	0
+15	Internet Domain Registrars d/b/a Registrars.com	1	1	1165352713	0	0
+16	Marksonline	1	1	1165352713	0	0
+17	Melbourne IT Ltd trading as Internet Names Worldwide	1	1	1165352713	0	0
+18	Netpia.com	1	1	1165352713	0	0
+19	Network Solutions	1	1	1165352713	0	0
+20	New Dream Network	1	1	1165352713	0	0
+21	Nominet	1	1	1165352713	0	0
+22	NORDNET	1	1	1165352713	0	0
+23	OnlineNIC	1	1	1165352713	0	0
+24	Register.com Inc.	1	1	1165352713	0	0
+25	Research Institute for Computer Science	1	1	1165352713	0	0
+26	Simply.com	1	1	1165352713	0	0
+27	The NameIT Corporation d/b/a AITdomains.com	1	1	1165352713	0	0
+28	Tucows Inc.	1	1	1165352713	0	0
+29	Ukerna	1	1	1165352713	0	0
+30	 DOMAINDISCOVER	1046533	1046533	1169126134	0	0
+31	DOMAINPEOPLE, INC	1	1	1171628266	0	0
+32	Global Registartion Services(GRS)	1	1	1176821840	0	0
+33	UKreg	1	1	1179394359	0	0
+34	NetName	1	1	1179835723	0	0

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>AddRR</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">AddRR</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/cgi-bin/idnsOrg.cgi?gcFunction=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>gcLogin</td>
+	<td>Acme Admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>gcPasswd</td>
+	<td>5tgbhu8</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>gcFunction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectAndWait</td>
+	<td>cZone</td>
+	<td>label=acmevirt.net</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//td[2]/a/b</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='New']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cName</td>
+	<td>@</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cParam1</td>
+	<td>192.41.5.222</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='New Confirm']</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,5 @@
+#
+# creates /etc/hosts file from /etc/hosts.0 and ns1.callingcloud.net db
+
+#testing with care
+*/2 * * * * root /usr/sbin/GenerateHostsFile.sh

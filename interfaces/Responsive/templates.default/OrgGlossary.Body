@@ -1,0 +1,35 @@
+<body>
+<form method=post>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_header2">
+  <tr>
+    <td><img src="/images/unxslogo.gif"  style="margin:10px; "></td>
+    <td align="right">
+        <input type="submit" onClick="javascript:window.close()" value="X Close" style="margin:0 20px 0 0;" class="close_button"/>
+    </td>
+  </tr>
+
+</table>
+
+<table width="100%"  border="0" cellspacing="0" cellpadding="5" class="tTitles2">
+  <tr>
+    <td class="hdrtout padlt8"><h6 class="modhdr">Glossary: {{cLabel}}</h6></td>
+  </tr>
+</table>
+
+                <table border="0" cellspacing="0" cellpadding="4" style="margin:25px 0px 0 0px;">
+            <tr>
+                                <td> </td>
+
+                                <td class="table_center">
+                                <br>
+                                        <span>
+                                        {{cText}}
+                                        </span>
+                                </td>
+                                <td> </td>
+                                <td> </td>
+            </tr>
+
+          </table>
+<br>
+

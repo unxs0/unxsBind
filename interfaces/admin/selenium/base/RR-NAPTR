@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://node1vm:9333/" />
+<title>RR-NAPTR</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">RR-NAPTR</td></tr>
+</thead><tbody>
+<tr>
+	<td>clickAndWait</td>
+	<td>//td[5]/a/b</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='New']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectAndWait</td>
+	<td>cRRType</td>
+	<td>label=NAPTR</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cName</td>
+	<td>testnap</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cParam3</td>
+	<td> &quot;S&quot;<br />&quot;SIP+D2U&quot;<br /></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cParam4</td>
+	<td>&quot;!^.*$!sip:customer-service@example2.com!&quot;<br /></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cComment</td>
+	<td>testing naptr</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='New Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*The RR has an error: unexpected end of input*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cParam4</td>
+	<td>&quot;!^.*$!sip:customer-service@example2.com!&quot; _sip._udp.example2.com.<br /></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='New Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*Zone Resource Created*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Modify']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cParam3</td>
+	<td><br /></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Modify Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*The RR has an error: unexpected end of input*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cParam3</td>
+	<td> &quot;S&quot;<br />&quot;SIP+D2U&quot;<br /></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Modify Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*Zone Resource Modified*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delete Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*Zone Resource Deleted*</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

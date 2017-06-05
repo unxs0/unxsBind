@@ -1,0 +1,1027 @@
+41	Contact Additional Info	1	1	1176330226	0	0	Additional Info for the Contact: phone, contact e-mail, address, etc.<br>\
+E.g.:<br>\
+Address 798 Main Street, Hermosa Beach, CA 90254  U.S.A.<br>\
+Phone: 555-0565<br>\
+Fax: 555-0566\
+
+2	Serial Number	1	1	1173480218	0	0	The serial number format is YYYYMMDDNN, where YYYY is the year, MM is the month,\
+DD is the day, and NN is a count of how many times the zone data was modified\
+that day. <br>These fields won't work in any other order, since no other order\
+gives a value that always increases as the date changes. <br>This is critical:\
+whatever format you choose, it's important that the serial number always\
+increase when you update your zone data.
+3	Expire TTL	1	1	1173480447	0	0	Used by other DNS servers that are configured to load and host the zone to\
+determine when zone data expires if it is not renewed.\
+
+4	Refresh TTL	1	1	1173480497	0	0	Used to determine how often other DNS servers that load and host the zone must\
+attempt to renew the zone.
+5	Retry TTL	1	1	1173480526	0	0	Used to determine how often other DNS servers that load and host the zone are to\
+retry a request for update of the zone each time that the refresh interval occurs.
+6	Default TTL	1	1	1173480628	0	0	This TTL will be used as default for all the Resource Records that do not have\
+an explicit TTL set (i.e TTL = 0)\
+
+7	Negative TTL	1	1	1173480838	0	0	 Negative caching TTL Negative answers (such as when a requested record does not\
+exist) can be cached on non-authoritative servers as well. This field acts like\
+the overall TTL but specifically for negative answers. Small values are\
+appropriate (15m to 2h). 
+8	Hostmaster	1	1	1173481017	0	0	Email address of the person responsible for the zone. Please note that the '@'\
+symbol has to be changed by a '.'.<br>\
+<br>\
+E.g:<br>\
+<br>\
+joe@someisp.net<br>\
+<br>\
+turns into:<br>\
+<br>\
+joe.someisp.net\
+
+9	Resource TTL	1	1	1173482563	1	1175623776	The time the Resource Record will be cached in seconds. If left blank, (0) it\
+will use the default TTL for the Zone.\
+
+10	Resource Name	1	1	1175623565	1	1175623677	Indicates the name of the RR. Based on the RR Type this may have a different\
+meaning:<br>\
+<br>\
+E.g:<br>\
+<br>\
+In a 'A' type RR, Resource Name indicates the host:<br>\
+<br>\
+www IN A 217.32.45.123<br>\
+<br>\
+Resource Name: www<br>\
+RR Type: A<br>\
+IP Address: 217.32.45.123<br>\
+<br>\
+Please note that is also possible to leave Resource Name blank for A records, in\
+that case it takes the value of the $ORIGIN (The zone name)
+11	Resource Type	1	1	1175625855	1	1270850765	Indicates the type of the resource record (RR).<br>\
+<p>\
+RR type may be one of the following:\
+\
+<dl>\
+<dt>\
+<strong>A</strong>\
+</dt> \
+<dd>\
+This RR maps a hostname to a 32-bit IPv4 address.<br>\
+E.g.:<br>\
+<pre>\
+www\	A\	217.136.12.45<br>\
+</pre>\
+</dd>\
+\
+\
+<dt>\
+<strong>MX</strong>\
+</dt>\
+<dd>\
+ Is a RR type that specifys how Internet e-mail\
+should be routed. MX records point to the servers that should receive an e-mail,\
+and their priority relative to each other.<br>\
+E.g.:<br>\
+<pre>\
+mydomain.com\	MX\	10\	mailserver.mydomain.com.\
+</pre>\
+</dd>\
+\
+<dt>\
+<strong>HINFO</strong>\
+</dt>\
+<dd>\
+ A host Information RR can be set up to give\
+hardware operating system (OS) information about each host. Its presence is\
+optional, but having the information available can be useful.<br>\
+E.g.:<br>\
+<pre>\
+myserver\	HINFO\	"Pentium III"\	"Linux"\
+</pre>\
+</dd>\
+\
+<dt>\
+<strong>CNAME</strong>\
+</dt>\
+<dd>\
+This record type is used to define an alias host name. More from wikipedia:\
+<p>\
+CNAME records are specified in RFC 1034. CNAMEs are handled specially in the\
+domain name system, and have several restrictions on their use. When a DNS\
+resolver encounters a CNAME record while looking for a regular resource record,\
+it will restart the query using the canonical name instead of the original name.\
+When the resolver is told to look for CNAME records, the CNAME is returned,\
+rather than restarting the query. The canonical name that a CNAME points to can\
+be anywhere in the DNS, whether local or on a remote server in a different DNS zone.\
+\
+<p>\
+For example, if there is a DNS zone as follows:\
+\
+<p>\
+<pre>\
+foo.example.com.        CNAME  bar.example.com.\
+bar.example.com.        A      192.0.2.23\
+</pre>\
+<p>\
+When an A record lookup for foo.example.com is done, the resolver will see a\
+CNAME record and restart the checking at bar.example.com and will then return\
+192.0.2.23.\
+<p>\
+Terminology of CNAME vs "canonical name"\
+<p>\
+It has been traditional to refer to the label of a CNAME record as "a CNAME".\
+This is unfortunate, as "CNAME" is an abbreviation of "canonical name", and the\
+label of a CNAME record is most certainly not a canonical name. It is, however,\
+an entrenched usage. Care must therefore be taken to be very clear whether the\
+label, or the value (the canonical name) of a CNAME resource record is intended.\
+(Quoting from RFC 2181 section 10.1.1)\
+<p>\
+So, technically, a canonical name in the DNS is the primary name of a host (RFC\
+1034 section 3.6.2.) created by something other than a CNAME, or DNAME record. A\
+CNAME record creates an alias with a name on the left which points to a\
+canonical name specified on the right (the RDATA portion of the record).\
+<p>\
+Restrictions\
+<p>\
+1-. A CNAME must have no other resource records of other types (MX, A, etc.). (RFC\
+1034 section 3.6.2, RFC 1912 section 2.4) The exception is when DNSSEC is being\
+used, in which case there can be a DNSSEC related records such as RRSIG, NSEC,\
+etc. (RFC 2181 section 10.1)\
+<p>\
+2-. A CNAME records that point to other CNAME records should be avoided (RFC 1034\
+section 5.2.2). In particular, it is possible to create infinite loops with\
+CNAME records, and other error conditions, as:\
+<pre>\
+foo.example.com.\	CNAME\	bar.example.com.\
+bar.example.com.\	CNAME\	foo.example.com.\
+</pre>\
+<p>\
+3-. Other DNS record types, such as NS, MX, PTR, SRV, etc. that point to other names\
+should never point to a CNAME. (RFC 1034 section 3.6.2, RFC 1912 section 2.4)\
+So, for example, a zone should not contain constructs such as:\
+<pre>\
+foo.example.com.\	CNAME  host.example.com.\
+host.example.com.\	A \	192.0.2.1\
+example.com.\	MX\	0\	foo.example.com.\
+</pre>\
+<p>\
+(In short CNAME RRs are complicated. Use only if you know what you are doing.)\
+</dd>\
+\
+<dt>\
+<strong>TXT</strong>\
+</dt>\
+<dd>\
+This record type allows you to associate any arbitrary text\
+with a host name. This may be used to define Domain Keys or SPF records.<br>\
+E.g.:<br>\
+<pre>\
+mydomain.com.\	TXT\	"v=spf1 ptr ~all"\
+</pre>\
+</dd>\
+\
+<dt>\
+<strong>PTR</strong>\
+</dt>\
+<dd>This resource type is only used when a reverse\
+(in-addr.arpa) zone is selected. This record map a IPv4 address to a domain\
+name.<br>\
+E.g:<br>\
+<pre>\
+32\	PTR\	www.mydomain.com.<br>\
+</pre>\
+</dd>\
+\
+<dt>\
+<strong>SRV</strong>\
+</dt>\
+<dd>\
+The RR is composed of:\
+<p>\
+A codified NAME with several components seperated by periods.\
+<p>\
+<strong>Service</strong>: The symbolic name of the desired service, that starts\
+with an underscore char (_).<br>\
+<strong>Proto</strong>: The transport protocol of the desired service; this is\
+usually either TCP\
+or UDP, and as with the service starts with an underscore char (_).<br>\
+<strong>Name</strong>: The domain name for which this record is valid.<br>\
+<p>\
+Four distinct paramters:\
+<p>\
+<strong>Priority</strong>: The priority of the target host, lower value means\
+more preferred.<br>\
+<strong>Weight</strong>: A relative weight for records with the same priority.<br>\
+<strong>Port</strong>: The TCP or UDP port on which the service is to be found.<br>\
+<strong>Target</strong>: The canonical hostname of the machine providing the\
+service.<br>\
+<p>\
+An example SRV record might look like this:\
+<pre>\
+_sip._tcp.example.com.\	SRV\	0\	5\	5060\	sipserver.example.com.\
+</pre>\
+</dd>\
+\
+<dt>\
+<strong>AAAA</strong>\
+</dt>\
+<dd>\
+Is a RR similar to the A RR. But with an IPv6 seven colon, with eight separated\
+hex words\
+formatted number.\
+<p>\
+Leading 0 suppression is automated in unxsBind, as well as\
+consecutive 0 hex segment compression. This keeps things readable and much\
+smaller, especially useful for improving DNSSEC encryption speed.\
+<p>\
+Compressed IPv6 example:\
+<pre>\
+2001:0db8:0234:0000:0000:0000:0000:0001\
+Can be compressed to:\
+2001:db8:234::1\
+</pre>\
+<p>\
+For now we do not permit trailing :0000 since that is usually a network address.\
+This policy as well as the similar IPv4 one is being reviewed.\
+</dd>\
+\
+<dt>\
+<strong>NAPTR</strong>\
+</dt>\
+<dd>\
+Is a special RR record mostly used for VOIP. More from wikipedia:\
+<p>\
+Universal Resource Names (URNs) are a subset of Universal Resource Identifiers\
+(URIs) used for abstract identitiers, such as a person's name or their telephone\
+number. For URNs to be meaningful, they must be mapped to a concrete resource of\
+some sort. Universal Resource Locators (URLs) are often used to describe such\
+resources, such as a computer hostname, or a local file.\
+<p>\
+As part of the standardization of URNs, NAPTR records were introduced to do just\
+this. NAPTR records map between sets of URNs, URLs and plain domain names and\
+suggest to clients what protocol should be used to talk to the mapped resource.\
+Each NAPTR record contains a service name, a set of flags, a regexp rule, an\
+order value, a preference and a replacement. Multiple records can be chained\
+together in a cascade to rewrite URIs in fairly sophisticated, but deterministic\
+ways. These cascading rules have been standardized in RFC2915 and RFC3403.\
+<p>\
+A common use for NAPTR records is in SIP, where it is used to route phone calls\
+over the Internet. For example, the SIP URN for the US telephone number\
+1-800-555-1234 would be tel:+1-800-555-1234 and its domain name\
+4.3.2.1.5.5.5.0.0.8.1.e164.arpa. A SIP client doing a lookup on that name might\
+receive:\
+<p>\
+<pre>\
+$ORIGIN 4.3.2.1.5.5.5.0.0.8.1.e164.arpa.\
+IN NAPTR 100 10 "U" "E2U+sip" "!^.*$!sip:service@x.com!i" .\
+IN NAPTR 102 10 "U" "E2U+email" "!^.*$!mailto:information@x.com!i" .\
+</pre>\
+<p>\
+The first record has an order value of 100, which is lower than 102, so it is\
+picked first. Its preference of 10 is unimportant as there are no other rules\
+with order 100. The service name E2U+sip is an ENUM string indicating that the\
+record can be used in phone number-to-SIP lookups. The client then goes on to\
+apply the regexp rule !^.*$!sip:service@x.com!, which replaces\
+its entire lookup URN tel:+1-800-555-1234 with sip:service@x.com.\
+The "U" flag indicates that the replacement string is a SIP URN, and that no\
+further rules should be applied.\
+<p>\
+To resolve SIP URN, the client then performs a second NAPTR lookup—on\
+x.com, yielding:\
+<p>\
+<pre>\
+$ORIGIN x.com.\
+NAPTR 100 10 "S" "SIP+D2U" "!^.*$!sip:service@x.com!" _sip._udp.x.com\
+NAPTR 102 10 "S" "SIP+D2T" "!^.*$!sip:service@x.com!" _sip._tcp.x.com\
+</pre>\
+As before, the client picks the first record because it has the lowest order\
+value. The regexp rule replaces the lookup URN, this time with the domain name\
+_sip._udp.x.com. The "S" flag indicates that resulting domain name points\
+to a SRV record. The client thus finishes with _sip._udp.x.com, for which\
+it can then fetch a SRV record to initiate a VOIP call.\
+</dd>\
+\
+</dl>\
+\
+\
+\
+\
+
+12	IP Number	1	1	1175710444	0	0	A dot separated number that identifies uniquely a host<br>\
+<br>\
+E.g.:<br>\
+<br>\
+217.15.45.7\
+
+13	Preference Number	1	1	1175710642	1	1175710689	The Preference Number of a mail server indicates the priority of the server in\
+the mail server list for receiving email messages.<br>\
+The lower the number, the higher the priority.<br>\
+<br>\
+E.g.:<br>\
+<br>\
+<pre>\
+mydomain.com IN MX 10 mail1.mydomain.com.\
+                         IN MX 20 mail2.mydomain.com.\
+                         IN MX 30 mail3.mydomain.com.\
+</pre>\
+
+14	Mail Server	1	1	1175713870	0	0	The FQDN of the mail server that will hande the incoming email for a domain.<br>\
+Please note the final dot:<br>\
+E.g.:<br>\
+mydomain.com 10 MX mail1.mydomain.com.<br>
+15	Operating System	1	1	1175713968	0	0	The Operating System of the host referenced by the Resource Name. You may use\
+any arbitrary string for it.<br>\
+\
+
+16	Hardware Type	1	1	1175714025	0	0	An arbitrary string to describe the Hardware Type of the host referenced by\
+Resource Name.<br>\
+\
+
+17	Canonical Name	1	1	1175714108	0	0	The FQDN that will be the alias of the host referenced by Resource Name.<br>\
+Eg.:<br>\
+www CNAME gw.mydomain.com.<br>\
+
+18	Text in double quotes	1	1	1175714263	0	0	An arbitrary text in double quotes for the TXT record. It may be used for SPF or\
+Domain Keys. Also can be used to provide information about a host.<br>\
+Eg.:\
+<br>\
+www IN TXT "Main http server>"<br>\
+<br>\
+mydomain.com.  IN TXT "v=spf1 ptr ~all"<br>\
+\
+
+19	Company Name	1	1	1175716041	1	1175720383	Enter a string that will identify the Company. (eg. Acme Corporation)
+20	Email Address	1	1	1175716119	1	1175815976	You can optionally enter an Email Address here.<br>\
+E.g.: info@acme.com\
+
+21	Company Code	1	1	1175716164	1	1175816036	A unique code that will identify the Company.<br>\
+E.g,: COMP001900\
+
+22	Additional Info	1	1	1175716212	1	1176324852	Additional Info for the Company: phone, contact e-mail, address, web page, etc.<br>\
+E.g.:<br>\
+Acme Corporation, 1340 Mountain View, Azusa, CA 91702, U.S.A.<br>\
+Phone: 555-0565<br>\
+Fax: 555-0566\
+
+23	Contact Name	1	1	1175716315	1	1175813161	Enter the name for the contact of the Company.
+24	Login	1	1	1175716389	1	1175816318	A valid Login that will be used to gain access to the interfaces. (idnsOrg if\
+Customer, idnsAdmin.cgi if Administrator)<br>\
+E.g.:<br>\
+JohnAcme<br>\
+<br>\
+Spaces and '.' allowed.\
+
+25	Clear Password	1	1	1175718938	1	1175815876	Shows the password for the login account without encryption. This field is\
+read-only.\
+\
+
+26	Password	1	1	1175719094	1	1175816474	The password that will be used by the Login entered in the field above. No\
+spaces allowed, must have more than 5 characters. It's strongly recommended that\
+you use a non-dictionary word, such as a random string with mixed alphanumeric\
+characters.<br>\
+E.g.:<br>\
+ThY75fVrEed\
+
+27	Permission Level	1	1	1175719324	1	1175722287	Select the permission level from the following list:<br><br>\
+\
+<strong >- Organization Customer.</strong><br>\
+<strong>- Organization Webmaster.</strong><br>\
+<strong>- Organization Sales Force.</strong><br>\
+<strong>- Organization Customer Service.</strong><br>\
+<strong>- Organization Bookkeeper.</strong><br>\
+<strong>- Organization Admin.</strong>
+28	Create for Company	1	1	1175719722	1	1175821027	Select the Company for which you want to create the record. You can also change\
+the ownership of a record by pressing [Modify] and changing the value at this\
+drop-down.\
+
+29	Save Clear Text Password	1	1	1175816608	0	0	Check to save your password as clear text also, at the 'Clear Password' field.\
+This field is checked by default.\
+
+30	Resource Comment	1	1	1175818264	0	0	Optional comment regarding the Resource Record.
+31	Zone Name	1	1	1175820741	0	0	The name that will identify the zone. It must be a valid zone name as defined by\
+Internet standards.<br>\
+E.g.:<br>\
+acme.com<br>\
+mydomain.net<br>\
+
+32	NS Set	1	1	1175820894	0	0	The NS Set box displays the domain nameservers that serve the zone and their\
+function.<br>\
+E.g.:<br>\
+master1.bigisp.net MASTER<br>\
+slave1.bigisp.net SLAVE<br>\
+slave2.bigisp.net SLAVE<br>\
+
+33	DNS Views	1	1	1175821144	0	0	Views allows the DNS system to provide different functionality based on the\
+hosts querying it for a specific zone. In this case you can select external view\
+(the Internet) or internal view (the local net).\
+
+34	Do not create Jobs	1	1	1175886519	1	1175886632	Do not create Jobs. 
+35	Bulk Operations Data	1	1	1175886761	1	1209161261	Enter or paste the zone(s) and/or resource(s) record(s) you want to import.\
+The format of this input is:\
+RRName RRType RRParam1 [RRParam2]<br><br>\
+\
+RRName is the Name of the Resource Record, use '@' for $ORIGIN.<br>\
+RRType is the Resource Record Type. It may be one of the following:<br><br>\
+\
+A RRParam1 required. E.g: host A 216.32.45.78<br>\
+MX RRParam1 and RRParam2 required. E.g: @ MX 10 mail.isp.net<br>\
+HINFO RRParam1 and RRParam2 required. E.g. gateway i686 Linux 2.6<br>\
+CNAME RRParam1 required. E.g: www CNAME domain.com.<br>\
+TXT RRParam1 required E.g: domain.com TXT "v=spf1 ptr ~all"
+36	Search Company	1	1	1176314829	1	1209140409	Enter the complete or the first part of a company at the search box. Not\
+case sensitive. You can use % and _ SQL LIKE matching chars.
+37	Search Contact	1	1	1176314842	1	1209140445	Enter the complete or the first part of a contact name at the search box. Not\
+case sensitive. You can use % and _ SQL LIKE matching chars.
+38	Search Administrator	1	1	1176314854	1	1209140473	Enter the complete or the first part of an administrator name at the search box.\
+Not case sensitive. You can use % and _ SQL LIKE matching chars.
+39	Search Zone	1	1	1176314869	1	1209140503	Enter the complete or the first part of a company or contact name at the search\
+box. Not case sensitive. You can use % and _ SQL LIKE matching chars.
+40	Search Resource	1	1	1176314883	1	1209140528	Enter the complete or the first part of a resource name at the search box. Not\
+case sensitive. You can use % and _ SQL LIKE matching chars.
+42	Save Clear Password	1	1	1176330402	0	0	If this box is checked (default) the password will be saved as clear text in the\
+read only field 'Clear Text Password'. If you don't want to save the password as\
+clear text (not recommended) uncheck this box.\
+
+43	Administrator Additional Info	1	1	1176330761	0	0	Additional Info for the Administrator: phone, contact e-mail, address, etc.<br>\
+E.g.:<br>\
+Address 798 Main Street, Hermosa Beach, CA 90254  U.S.A.<br>\
+Phone: 555-0565<br>\
+Fax: 555-0566\
+
+44	Your Zones	1	1	1185224355	1	1185224908	At this dropdown you have all the zones your company owns. If you have\
+Javascript enabled,\
+the zone will be selected upon click. Otherwise, you have to select the zone and\
+press the [Select Zone] button.<br>\
+<br>\
+After that, the zone data will be loaded and displayed in the right panel. You\
+will be able to edit the SOA and add, modify or delete the zone resource records.\
+
+45	Your IP Blocks	1	1	1185224562	0	0	At this dropdown you have all IP blocks your company owns. The IP blocks will\
+determine which reverse lookup records (PTR records) you can create for a\
+reverse zone (*.in-addr.arpa)\
+
+46	Your Secondary Zones	1	1	1185224836	0	0	Secondary service zones are zones that are at another primary server (not\
+your master server). You can't select those zones for modification. They are\
+displayed at this dropdown only for reference.\
+
+47	System Health Reference	1	1	1186777537	1	1228159658	<p style='color: green;'>Green:</p>Indicates that there were not bind errors in\
+the last 24 hours and no job is pending or stuck.<br>\
+<p style='color: #DAA520;'>Yellow:</p>Indicates that there are more than 4 jobs\
+pending or stuck and no bind errors. Also, this condition is reached if no job\
+is stuck but there is a bind error in the last 24 hours.<br>\
+<p style='color: red;'>Red:</p>Indicates that there are more than 4 jobs pending\
+and more than one job stuck or pending.<br>\
+<p style='color: red;'>Critical:</p>Indicates that there is one or more DNS\
+query timeouts to any of the cluster nameservers.<br>\
+
+48	Administrator Permission Level	1	1	1187986796	0	0	At this drop-down you select the permission level for the administrator user. It\
+makes no difference for this interface whether if Backend-Root or Backend-Admin\
+is selected as both are equivalent.
+49	Company Selection	1	1	1203363334	0	0	For certain operations at the Bulk Operations tab you must select a company. Use\
+this dropdowm to do so.\
+
+50	Mass Update	1	1	1208267534	1	1208303259	#\
+# Mass Update Help\
+#\
+# 1-. Optionally specify uOwner from mass OPs left panel select.\
+#\
+# 2-. Before zones to be NS set updated:\
+# Optionally set new NS set via valid tNameServer.cLabel. via this format:\
+#cNameServer=label;\
+# (*but with no first #)\
+# You can set new NS sets as you go down a list of zones. As long as it is\
+# before them.\
+#\
+# 3-. Then enter one existing zone per line. ex:\
+#domain.org\
+# (*but with no first #)\
+#\
+# *Notes\
+# A line starting with a # is ignored. Commented out as some would say.\
+#
+51	uTTL	1	1	1208792866	1	1208793186	The $TTL directive is defined in RFC 2308.\
+\
+TTL in the DNS context defines the duration in seconds that the record may be\
+cached. Zero indicates the record should not be cached. Note: RFC 1912 cautions\
+that 0 = no caching is not widely implemented so make no assumptions.\
+\
+The default TTL for the zone is defined in BIND9 by the $TTL directive which\
+must appear at the beginning of the zone file i.e. before any RR to which it\
+will apply. This $TTL is used for any Resource Record which does not explicitly\
+set the 'ttl' field.\
+\
+The TTL field is defined to be an unsigned 32 bit value with a valid range from\
+0 to 2147483647 (clarified in RFC 2181) - which is a long time! - somewhere on\
+the other side of 68 years.\
+\
+The $TTL field may take any time value.\
+\
+In BIND 8 the SOA record (minimum parameter) was used to define the zone default\
+TTL value. In BIND 9 the SOA 'minimum' parameter is used as the negative\
+(NXDOMAIN) caching time (defined in RFC 2308). See our tZone.uZoneTTL\
+\
+RFC 1912 recommends that the $TTL value be set to 1 day or longer and that\
+certain RRs which rarely change, such as the MX records for the domain, use an\
+explicit TTL value to set even longer values such as 2 to 3 weeks. The value of\
+this field is a balance between how frequently you think the DNS records will\
+change vs load on the DNS server. In the example below the $TTL value of 2d (2\
+days) indicates that any change may not be fully propagated for 48 hours,\
+equally caching DNS servers will require to re-read the RRs from your DNS every\
+48 hours which can be a non-trivial load. Many users will set this value to say\
+2w (2 weeks) in normal operation then prior to planned changes will reduce the\
+value to say 1d or 12h, until the change has stabilized then restore the value\
+to 2w.
+52	uZoneTTL	1	1	1208793324	0	0	uZoneTTL is the last TTL SOA value, the minumum parameter as explained below:\
+\
+In BIND 9 the SOA 'minimum' parameter is used as the negative\
+(NXDOMAIN) caching time (defined in RFC 2308).\
+\
+IMPORTANT: Do not confuse with uTTL which is the $TTL directive value. See uTTL.
+53	uZone	1	1	1208795481	0	0	uZone is the internal SQL database unsigned integer key assigned to a single\
+tZone record.
+54	cZone	1	1	1208795597	1	1208796021	cZone is the name of a fully qualified DNS zone (with no trailing dot.) There\
+can be multiple tZone records with the same cZone as long as they are for\
+different views (see tView.)\
+\
+IMPORTANT\
+\
+You have to be careful to understand the node/level hierarchy in DNS so that if\
+you have in your DNS configuration, for example, two zone files where one is\
+included in the other the most specific will in most cases overwrite the\
+resource record  and SOA data of the less specific.\
+\
+An example: \
+\
+biginternet.com and www.biginternet.com are both setup in your DNS system\
+(arguably not a best practice!) Then even if an A record for www exists in the\
+biginternet.com zone. It would not be served. The A record if it exists in\
+www.biginternet.com would be served, and if the A record does not exist in\
+www.biginternet.com then a nxdomain would be served. In general the less\
+specific zone will be ignored if a more specific match exists. \
+\
+These cases cause great confusion among new DNS administrators.\
+\
+
+55	uNameServer	1	1	1208797747	0	0	uNameServer is the unsigned integer key into tNameServer.\
+\
+The table tNameServer is where sets of name servers (NSs) are configured.\
+\
+From the tZone tab you can assign or change any pre-configured name server set\
+(NS set)  for a given tZone. \
+\
+Please note the possible problems that may arise if you assign different NS sets\
+to same tZone.cZone but with different views.\
+\
+In general a seconday only zone will have a special NS set created, and have an\
+external  master configured. This is a master DNS server setup to transfer to\
+the herein slave servers authoratative data according to the SOA TTLs.
+56	cHostmaster	1	1	1208797992	0	0	cHostmaster is the email for person (or a role) responsible for this zone. \
+\
+It does NOT USE NORMAL EMAIL NOTATION. But uses the DNS . (dot) instead of the @\
+symbol. This means that the email can not have a dot before the email domain.\
+For example john.smith@biginternet.com would become in DNS parlance:\
+john@smith.biginternet.com.
+57	uSerial	1	1	1208798119	0	0	uSerial is an unsigned 32 bit value in range 1 to 4294967295 with a maximum\
+increment of 2147483647. In BIND implementations this is defined to be a 10\
+digit field. \
+\
+This value MUST change when any resource record in the zone file is updated. The\
+convention is to use a date based value to simplify this task - the most popular\
+being yyyymmddss where yyyy = year, mm = month and dd = day ss = a sequence\
+number in case you update it more than once in the day! Using this date format\
+means that the value 2005021002 means the last update was on the 10th Febrary\
+2005 and it was the third update that day. \
+\
+The date format is just a convention not a requirement so BIND will provide no\
+validation of the field. It is easy to make mistakes and get serial numbers out\
+of sequence. That is why mysqlBind2 takes care of this for you.
+58	uExpire	1	1	1208798255	0	0	uExpire is a signed 32 bit value in seconds. It indicates when the zone data is\
+no longer authoritative. This applies to slaves or secondary servers only.\
+Slaves stop responding to queries for the zone when this time has expired and no\
+contact has been made with the master. \
+\
+Thus when the ref values expires the slave will attempt to read the SOA record\
+for the zone - and request a zone transfer AXFR/IXFR if the sn has changed. If\
+contact is made the expiry and refresh values are reset and tyhe cycle starts\
+again. \
+\
+If the slave fails to contact the master it will retry every retry period but\
+continue to supply authoritative data for the zone until the expiry value is\
+reached at which point it will stop answering queries for the domain. RFC 1912\
+recommends 1209600 to 2419200 seconds (2-4 weeks) to allow for major outages of\
+the master.
+59	uRefresh	1	1	1208798378	0	0	uRefresh is an usigned 32 bit time value in seconds (in mysqlBind.) \
+\
+It indicates the time when the slave will try to refresh the zone from the master. \
+\
+RFC 1912 recommends 1200 to 43200 seconds, low (1200) if the data is volatile or\
+43200 (12 hours) if it's not. Since mysqlBind clusters are using NOTIFY you can\
+set for much higher values e.g. 1 or more days > 86400.
+60	uRetry	1	1	1208798568	0	0	uRetry is an unsigned 32 bit value in seconds. \
+\
+It defines the time between retries if the slave (secondary) fails to contact\
+the master when uRefresh has expired. \
+\
+Typical values would be 180 (3 minutes) to 900 (15 minutes) or higher.
+61	Company Tab Details	1	1	1209141207	1	1209141855	A company is an organization, enterprise or NGO, that may have\
+contacts and zones associated with it. Company search is available using the top\
+search box. Search by entering part of a company name and pressing <Enter> or\
+the [>] button.<br>\
+<br>\
+<strong>Usage:</strong><br>\
+1. Use a search string to create a list of companies. <br>\
+2. By clicking on one of the items in the list, you load and select a company.<br>\
+3. Once a company has been loaded it will be your default company for many \
+other operations during your session. You can always select another company by\
+going back to the 'Companies' tab.\
+
+62	Contact Tab Details	1	1	1209144011	1	1209167738	Company contacts are the persons authorized by the company to modify zone data\
+via the idnsOrg interface. Contact details and their login info is set up at\
+this tab. To search for a contact enter part of her name in the search box above\
+and press <Enter> or the [>] button.<br>\
+<br>\
+<strong>Usage:</strong><br>\
+1. Use a search string to create a list of contacts. <br>\
+2. By clicking on one of the items in the list, you load and select a company\
+contact.<br>\
+<br>\
+Please note that you can search for contacts even if you don't have a company\
+selected. In that case the contact search will be a global search across the\
+system database.\
+
+63	Zone Tab Details	1	1	1209144246	1	1209167706	To search for a zone enter part of its name in the search box above and press\
+<Enter> or the [>] button. The search results navigation list will display the\
+search results in this panel. By clicking on one of those links, you will load\
+the selected zone for working on it. To edit, remove or create a new zone\
+resource record, if possible click on it's name, or click on a similar one to\
+the one you wish to create. If the zone you are working with has no resource\
+records you must click on the resources tab above to add the first one.\
+<br>\
+After opening fields for both creation or modification, each field has a yellow\
+tool-tip with field specific information.<br>\
+<br>\
+<strong>Usage:</strong><br>\
+1. Use a search string to create a list of zones. <br>\
+2. By clicking on one of the items in the list, you load and select a zone.<br>\
+<br>\
+Please note that you can not move forward to the 'Resources' tab if you don't\
+have a zone loaded.
+64	Resources Tab Details	1	1	1209160557	1	1209167638	To search for a RRs enter part of its name in the search box above and press\
+<Enter> or the [>] button. The search results navigation list will display the\
+search results in this panel. By clicking on one of those links, you will load\
+the selected RR for working on it.\
+After opening fields for both creation or modification, each field has a yellow\
+tool-tip with field specific information.<br>\
+<br>\
+<strong>Usage:</strong><br>\
+1. Use a search string to create a list of zones. <br>\
+2. By clicking on one of the items in the list, you load and select a RR.<br>\
+<br>\
+Please note that you also click on the RR Name parameter at the bottom table to\
+load a specific RR.\
+
+65	Bulk Operations Tab Details	1	1	1209161099	1	1209167589	<strong>Warning this panel is not a two step system. No undo available.\
+Operations take place immediately</strong><br>\
+This tab allows you to create zones using a list and to add RRs to any zone you\
+want.<br>\
+<br>\
+<strong>Usage:</strong><br>\
+\
+For importing zone resource records:\
+\
+At the Bulk Data Entry Panel you must enter the zone name on a line using:<br>\
+<div align=center>cZone=thezonename.com;</div><br>\
+<br>\
+By the default, if the zone specified at the cZone parameter is invalid, the\
+data is ignored and the importer keeps going until de next cZone definition. If\
+you want the system to automatically create non existent zones, you have to\
+define the uCreateZones parameter as follows:<br>\
+<div align=center>uCreateZones;</div><br>\
+Once the zone is defined you can enter the resource(s) record(s) you want to\
+import.<br>\
+The format of this input is:<br>\
+RRName RRType RRParam1 [RRParam2]<br>\
+<br>\
+RRName is the Name of the Resource Record, use '@' for $ORIGIN.<br>\
+RRType is the Resource Record Type. It may be one of the following:<br><br>\
+<strong>A</strong> RRParam1 required. E.g: host A 216.32.45.78<br>\
+<strong>MX</strong> RRParam1 and RRParam2 required. E.g: @ MX 10 mail.isp.net<br>\
+<strong>HINFO</strong> RRParam1 and RRParam2 required. E.g. gateway i686 Linux\
+2.6<br>\
+<strong>CNAME</strong> RRParam1 required. E.g: www CNAME domain.com.<br>\
+<strong>TXT</strong> RRParam1 required E.g: domain.com TXT "v=spf1 ptr ~all"\
+
+66	Deleted Zones Tab Detail	1	1	1209161671	0	0	At this tab you can search for the deleted zones. When a zone is deleted via the\
+iDNS backend or the idnsAdmin interface, the zone data is copied to another\
+table which keeps all the deleted zones.<br>\
+Using the [Restore Zone] button you will be able to restore deleted zone.<br>\
+<br>\
+<strong>Usage:</strong>\
+Search for the zone you want to restore with tool above. Zone data will be\
+displayed read-only. By pressing the [Restore Zone] button and confirm the\
+action the zone and all its RRs will be restored across the DNS cluster. 
+67	Report Tab Details	1	1	1209165629	0	0	At this tab you can get per company hits information and also send an email with\
+the month you select.<br>\
+<br>\
+<strong>Usage:</strong><br>\
+To view a company hit statistics search it with the tool above, click on its\
+name and you will see the per zones and total hits count at this panel. You can\
+also drill down in the zone statistics by clickink on it. If you want to email a\
+monthly report use the [Email Report] button.
+68	Adminstrator Tab Details	1	1	1209166968	0	0	At this tab you can manage your iDNS system administrators and root users. An\
+administrator is a back-office permission level user (and any other interface us\
+er) that has been granted permission to administrate the iDNS DNS application\
+service provider (ASP) system.<br>\
+<br>\
+<strong>Usage:</strong><br>\
+At the bottom table you see the current system administrators and their\
+permission level. If you press on the 'Login' field value at the bottom table\
+you will\
+ load the system administrator at this tab to work with it.\
+
+69	Secondary Only Zone	1	1	1209501916	0	0	This read only field indicates if the loaded zone is a 'Secondary Only Zone'.\
+'Secondary Only Zone' are zones that exist in th iDNS system, but their\
+zonefiles are transferred from an external master server that is not the master\
+controlled by  the iDNS system.
+70	Company	1	1	1209502279	0	0	Select a company from this dropdown to assign the record you are editing to it.
+71	Zone Pending Jobs	1	1	1210033579	1	1210033661	If the zone you are editing has pending jobs, this means that either you or your\
+ISP management crew have updated the SOA record of the zone or added, modified\
+or deleted zone resource records. While these iDNS jobs are not finished, the\
+zones changes won't be propagated trough the whole NS cluster.<br>\
+<br>\
+If this value doesn't get to 0 in about 5 minutes, you should see it as a sign\
+of trouble and notify the responsible support person as soon as possible.<br>
+81	NS Cluster Usage	1	1	1228159526	0	0	This graph shows all BIND9 zone stats aggregated from all cluster nameservers.\
+<br>\
+Below you can see a sample of the named.stats file (first lines, which report\
+overall server statistics.)<br>\
+<pre style='background-color: #CCCCCC; color: #000000'>\
++++ Statistics Dump +++ (1227792201)\
+success 14025732\
+referral 1306212\
+nxrrset 3427595\
+nxdomain 2083432\
+recursion 104767\
+failure 865196\
+</pre>\
+\
+This data is aggregated to a round robin database (RRDTool) and then it's used\
+to generate the graph for overall statistics. Same data exists per each zone\
+served, and a graph request can be submitted using a button available at the\
+Zones tab left panel.\
+
+91	Weekly Top Ten Zones Modified	1	1	1228159748	0	0	This table shows the top ten of the modified zones in the last 7 days.
+101	Weekly Top Ten idnsOrg Users	1	1	1228159798	0	0	This table shows the top ten idnsOrg users that accessed the interface in the\
+last 7 days.\
+
+111	Weekly Top Ten idnsAdmin Users	1	1	1228159852	0	0	This table shows the top ten idnsAdmin users that accessed the interface in the\
+last 7 days.\
+
+121	Weekly Top Ten Zones by Traffic	1	1	1228160003	1	1228160518	This table shows the top ten zones by hit count. Hits information is gathered by\
+the thit interface at all the cluster servers. This info comes from BIND9\
+named.stats file, which provides statistics for all the server zones.\
+The zones hit information is stored at the iDNS tHit table. Each month the data\
+is extracted from this table and archived for future querying via the iDNS backend.\
+<br>\
+Each tHit record saves the following statistics about the zone:\
+\
+<li>success</li>\
+<li>referral:</li>\
+<li>nxrrset:</i>\
+<li>nxdomain</li>\
+<li>recursion</li>\
+<li>failure</li>\
+
+131	Owner	1	1	1228173049	0	0	This field indicates which company owns the loaded record.\
+
+141	Created By	1	1	1228173089	1	1228173409	This field indicates which contact created the loaded record.\
+
+151	Creation Date	1	1	1228173140	0	0	This field indicates the creation date of the loaded record.\
+
+161	Modified By	1	1	1228173285	1	1228173858	This field indicates which was the last contact to modify the loaded record.\
+
+171	Modification Date	1	1	1228173459	0	0	This field indicates the date the loaded record was last modified.\
+
+181	idnsAdmin Login	1	1	1228398219	1	1228398431	For logging into the idnsAdmin interface you have to enter your username and\
+password as provided by the administration staff. Once logged in you can change\
+your password at the 'Administrators' tab. <br>\
+Good passwords are made of random and non-associable combinations of alphanumeric\
+characters, mixing upper and lower case letters. Example:<br>\
+<i>jimmy34</i> This is a <b>bad</b> password<br>\
+<i>N6fa3Ds</i> This is a <b>good</b> password<br>\
+<br>\
+Minimum password length is 5 chars, that length check also applies to the username.\
+
+182	Secondary Service Cleanup	1	1	1239029481	1	1239031168	# Mass Update Help: Secondary Service Cleanup
+183	Secondary Service Only	1	1	1239029682	1	1239031157	# Mass Update Help: Secondary Service Only
+184	Zone List	1	1	1239030679	1	1239031147	# Mass Update Help: Zone List
+185	In tZone?	1	1	1239030697	1	1239031132	# Mass Update Help: In tZone?
+186	Mass named-checkzone	1	1	1239030732	1	1239031122	# Mass Update Help: Mass named-checkzone
+187	Mass PTR Check	1	1	1239030851	1	1239031112	# Mass Update Help: Mass PTR Check\
+
+188	Mass Resource Import	1	1	1239030947	1	1239031101	# Mass Update Help: Mass Resource Import
+189	Mass Delete	1	1	1239031022	0	0	# Mass Update Help: Mass Delete
+190	Copy to Views	1	1	1239031041	0	0	# Mass Update Help: Copy to Views
+191	Service	1	1	1259874631	4	1259875260	This field indicates the service, the protocol and the name. E.g.:\
+_http._tcp.example.com.<br>\
+<br>\
+We can divide this field in three parts:<br>\
+<li>Service</li>\
+<li>Protocol</li>\
+<li>Name</li>\
+<br>\
+\
+<b>Service:</b><br>\
+\
+Defines the symbolic service name (see  <a\
+href=http://www.iana.org/assignments/port-numbers target=_blank\
+class=darkLink>IANA port-numbers</a>) prepended with a '_' (underscore). Case\
+insensitive. Common values are:\
+\
+<li> _http - web service</li>\
+<li> _ftp - file transfer service</li>\
+<li> _ldap - LDAP service</li>\
+<li> _imap - IMAP mail service</li>\
+<li> _PKIXREP - PKIX Repository (X.509 certificates)</li>\
+\
+<b>Protocol:</b><br>\
+\
+Defines the protocol name (see IANA service-names) prepended with a '_'\
+(underscore). Case insensitive. Supported values are\
+\
+<li>_tcp - TCP protocol</li>\
+<li>_udp - UDP protocol</li>\
+\
+<b>Name:</b><br>\
+\
+Must be the zone FQDN ending with a dot.\
+\
+
+201	Priority	1	1	1259875422	0	0	The relative priority of this service (range 0 - 65535). Lowest is highest\
+priority, usage is the same as the MX preference field.\
+\
+
+211	Weight	1	1	1259875469	0	0	Used when more than one service has the same priority. An integer in the range 0\
+- 65535. The value 0 indicates no weighting should be applied. If the weight is\
+1 or greater it is a relative number in which the highest is most frequently\
+delivered, that is, given two SRV records both with Priority = 0, one with\
+weight = 1 the other weight = 6, the one with weight 6 will have its RR\
+delivered first 6 times out of 7 by the name server.
+221	Port	1	1	1259875525	0	0	Normally the port number assigned to the symbolic service but this is not a\
+requirement, for instance, it is permissible to define a _http service with a\
+port number of 8100 rather than the more normal port 80.\
+
+231	Target	1	1	1259875556	0	0	The name of the host that will provide this service. Does not have to be in the\
+same zone (domain). May be just a host name or a FQDN.
+241	IP Block	1	1	1259877668	0	0	Enter the IP block in either CIDR (192.168.0.1/24) or dash (192.168.0.1-255)\
+format that you want to delegate.\
+
+251	NS List	1	1	1259878081	0	0	Enter the FQDN of the nameservers to which you are going to delegate the IP\
+block one below the other. E.g:<br>\
+<br>\
+ns1.unixservice.com.<br>\
+ns2.unixservice.com.<br>\
+<br>\
+Don't forget the final dot.
+261	TTL	1	1	1259878227	0	0	Use this field if you want to specify a different TTL for the delegation RRs, if\
+not specified or 0, the zone default TTL will be used.\
+
+271	IP Format	1	1	1259878397	0	0	Select the format of the data that you will enter at the right panel. Currently\
+the only supported format is RIPE. ARIN and LACNIC format support is coming soon.\
+
+281	IP Auth Tab Details	1	1	1259878499	4	1259878511	At this tab you can import IP authority data into your iDNS database.<br>\
+With the IP authority data you'll setup blocks and companies. If a block and/or\
+company is not mentioned in the data you enter at the right panel <font\
+color=red>they will be removed from the database</font> and the operation has no\
+undo.<br>\
+If a block changes ownership,  the RRs belonging to it will be reset to default\
+RRs.<br>\
+If a block is expanded new RRs will be created as required (with default PTR.)<br>\
+When a new company is created, a default contact with the name of the company\
+and a a random password will be also created.<br>\
+Don't forget to place a CSV file with company names and ids at\
+/usr/local/idns/csv/companies.csv<br>\
+Also you must make sure that there's a tConfiguration entry uDefaultClient with\
+your ASP tClient row id.\
+\
+
+291	IP Auth Data	1	1	1259878579	0	0	At this textarea you enter the data to import into the iDNS database. Lines\
+starting with '#' or ';' are treated as comments, thus ignored. Don't put any\
+space between the lines. \
+\
+
+292	IPv6 Number	1	1	1268297008	1	1268297091	This next generation of the Internet Protocol, aimed to replace IPv4 on the\
+Internet, was eventually named Internet Protocol Version 6 (IPv6) in 1995[3][4]\
+The address size was increased from 32 to 128 bits or 16 octets, which, even\
+with a generous assignment of network blocks, is deemed sufficient for the\
+foreseeable future. <br>\
+<br>\
+<img alt=""\
+src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Ipv6_address.svg/300px-Ipv6_address.svg.png"\
+width="300" height="180">\
+<br>\
+<br>\
+Example of an IPv6 address:<br>\
+<br>\
+2001:0db8:85a3:08d3:1319:8a2e:0370:7334\
+\
+
+293	e164.arpa Origin or FQDN	1	1	1268297337	1	1268654839	@ or FQDN zone name.\
+<p>\
+If the zone is a e164.arpa then the following may apply:\
+<p>\
+The ITU ENUM allocates a specific zone, namely "e164.arpa" for use with ENUM\
+E.164 numbers on the IP side of the network. <a\
+href=http://tools.ietf.org/html/rfc3761 class=darkLink target=_blank>RFC\
+3761</a> define how any ENUM number, such as +1 555 42 42 can be transformed\
+into a Uniform Resource Identifier (URI), by reversing the numbers, separating\
+them with dots and adding the e164.arpa suffix thus:<br>\
+2.4.2.4.5.5.5.1.e164.arpa<br>\
+<br>\
+The URI can then be used to obtain the Internet Protocol addresses for services\
+such as the Session Initiation Protocol (SIP) VoIP telephony. In the Domain Name\
+System, NAPTR records are used to set the subscriber call forwarding/termination\
+preferences. Therefore the whole system can 'translate' E.164 addresses to SIP\
+addresses.<br>\
+\
+
+294	Order	1	1	1268299458	1	1268301510	An unsigned integer specifying the order in which the NAPTR records MUST be\
+processed to ensure the correct ordering of rules.  Low numbers are processed\
+before high numbers, and once a NAPTR is found whose rule "matches" the target,\
+the client MUST NOT consider any NAPTRs with a higher value for order.\
+<br>\
+E.g.:<br>\
+<br>\
+$ORIGIN 4.3.2.1.5.5.5.0.0.8.1.e164.arpa.<br>\
+IN NAPTR 100 10 "U" "E2U+sip" "!^.*$!sip:customer-service@example.com!i" .<br>\
+IN NAPTR 102 10 "U" "E2U+email" "!^.*$!mailto:information@example.com!i" .<br>\
+<br>\
+<br>\
+The first record has an order value of 100, which is lower than 102, so it is\
+picked first.\
+\
+
+295	Preference	1	1	1268299886	1	1268301600	An integer that specifies the order in which NAPTR records with equal "order"\
+values SHOULD be processed, low numbers being processed before high numbers. \
+This is similar to the preference field in an MX record, and is used so domain\
+administrators can direct clients towards more capable hosts or  lighter weight\
+protocols.  A client MAY look at records with higher preference values if it has\
+a good reason to do so such as not understanding the preferred protocol or\
+service.<br>\
+<br>\
+The important difference between Order and Preference is that once a match is\
+found the client MUST NOT consider records with a different Order but they MAY\
+process records with the same Order but different Preferences.  I.e., Preference\
+is used to give weight to rules that are considered the same from an authority\
+standpoint but not from a simple load balancing standpoint.\
+\
+
+296	Flags ENUM	1	1	1268301768	1	1268654292	Flags:<br>\
+<br>\
+A character string containing flags to control aspects of the rewriting and\
+interpretation of the fields in the record.  Flags are single characters from\
+the set [A-Z0-9].  The case of the alphabetic characters is not significant. <br>\
+ At this time only four flags, "S", "A", "U", and "P", are defined.  The "S",\
+"A" and "U" flags denote a terminal lookup. This means that this NAPTR record is\
+the last one and that the flag determines what the next stage should be.  The\
+"S" flag means that the next lookup should be for SRV records.  "A" means that\
+the next lookup should be for either an A, AAAA, or A6 record.  The "U" flag\
+means that the next step is not a DNS lookup but that the output of the Regexp\
+field is an URI that adheres to the 'absoluteURI' production found in the ABNF\
+of RFC 2396. <br>\
+\
+
+297	Regex ( optional SRV)	1	1	1268307314	1	1270760713	Regex:<br>\
+A STRING containing a substitution expression that is applied to the original\
+string held by the client in order to construct the next domain name to lookup.<br>\
+<br>\
+Optional SRV:<br>\
+The next NAME to query for NAPTR, SRV, or address records depending on the value\
+of the flags field.  This MUST be a fully qualified domain-name. \
+\
+
+301	cOptions	1	1	1268687547	1	1268688629	Overview\
+\
+You can place optional standard BIND configuration lines that will appear in the\
+/usr/local/idns/named.d/master.zones file (included via\
+/usr/local/idns/named.conf) or special unxsBind options listed below:\
+\
+unxsBind Options\
+\
+//NoNonRRNS\
+\
+This directs unxsBind to not include the zones tZone set tNSSet list of NS\
+resource records. This option may be useful if you want to publish a zone to a\
+set of NSs, but with only tResource provided NS RRs.\
+\
+//DotSignedExtension\
+\
+This directs unxsBind to use the zone name with a .signed extension. This is\
+used internally for testing initial DNSSEC support.\
+\
+TSIG Notes\
+\
+If a tConfiguration cTSIGKeyName global TSIG key name value exists. It is placed\
+in the master.zones zone section like so for EVERY ZONE:\
+\
+allow-transfer { key cTSIGKeyName;};\
+allow-update { key cTSIGKeyName;};\
+\
+If you only want some zones to have these BIND statements (or every zone to use\
+a different key name. You can set that directly in cOptions for each zone.

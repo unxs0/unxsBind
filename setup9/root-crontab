@@ -1,0 +1,32 @@
+# Cron jobs needed for unxsBind
+
+# -- WARNING -- WARNING -- WARNING -- WARNING -- WARNING -- WARNING --
+# ------------------  EDIT THE CORRECT FILE  -------------------------
+# This file is copied to /etc/cron.d/unxsbind from
+# /usr/local/share/iDNS/setup/root-crontab when the unxsbind service 
+# is started via its init.d script and the file /etc/cron.d/unxsbind is
+# cleared when the service is stopped. Therefore any edits made
+# directly to /etc/cron.d/unxsbind will be lost anytime the unxsbind 
+# service restarts.
+#
+# To make changes, edit the master copy 
+# /usr/local/share/iDNS/setup/root-crontab
+#
+# The reason this is done this way is because the unxsBind cron job
+# should only be invoked if the unxsbind service is enabled and not
+# just as a consequence of installing the unxsbind as it was the case
+# previously. 
+
+#
+#iDNS job queue processing.
+#Sample default configuration file. Change for your real NS after initial testing and setup.
+#
+#Dual master configuration
+* * * * * root /var/www/unxs/cgi-bin/iDNS.cgi ProcessJobQueue ns1.yourdomain.com >> /var/log/unxsbindlog 2>&1
+
+#iDNS tHit subsystem
+*/5 * * * * root /usr/sbin/bind9-genstats.sh >> /var/log/unxsbindlog 2>&1
+#
+#iDNS graphs
+#default cZone allzone.stats
+*/5 * * * * root sleep 5; /usr/sbin/tHitCollector AddData > /tmp/delme 2>&1; /usr/sbin/tHitCollector Graph > /tmp/delme 2>&1;

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <title>Test Suite</title>
+</head>
+<body>
+<table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
+<tr><td><b>Test Suite</b></td></tr>
+<tr><td><a href="ZonesTab">ZonesTab</a></td></tr>
+<tr><td><a href="RR-A0">RR-A0</a></td></tr>
+<tr><td><a href="RR-A1">RR-A1</a></td></tr>
+<tr><td><a href="RR-MX0">RR-MX0</a></td></tr>
+<tr><td><a href="RR-MX1">RR-MX1</a></td></tr>
+<tr><td><a href="RR-HINFO0">RR-HINFO0</a></td></tr>
+<tr><td><a href="RR-HINFO1">RR-HINFO1</a></td></tr>
+<tr><td><a href="RR-CNAME0">RR-CNAME0</a></td></tr>
+<tr><td><a href="RR-CNAME1">RR-CNAME1</a></td></tr>
+<tr><td><a href="RR-TXT0">RR-TXT0</a></td></tr>
+<tr><td><a href="RR-TXT1">RR-TXT1</a></td></tr>
+<tr><td><a href="RR-A01">RR-A01</a></td></tr>
+<tr><td><a href="RR-A11">RR-A11</a></td></tr>
+<tr><td><a href="RR-MX01">RR-MX01</a></td></tr>
+<tr><td><a href="RR-MX11">RR-MX11</a></td></tr>
+<tr><td><a href="RR-HINFO01">RR-HINFO01</a></td></tr>
+<tr><td><a href="RR-HINFO11">RR-HINFO11</a></td></tr>
+<tr><td><a href="RR-CNAME01">RR-CNAME01</a></td></tr>
+<tr><td><a href="RR-CNAME11">RR-CNAME11</a></td></tr>
+<tr><td><a href="RR-TXT01">RR-TXT01</a></td></tr>
+<tr><td><a href="RR-TXT11">RR-TXT11</a></td></tr>
+<tr><td><a href="RR-TXT2">RR-TXT2</a></td></tr>
+<tr><td><a href="RR-CNAME2">RR-CNAME2</a></td></tr>
+<tr><td><a href="RR-MX2">RR-MX2</a></td></tr>
+<tr><td><a href="RR-A2">RR-A2</a></td></tr>
+<tr><td><a href="RR-HINFO2">RR-HINFO2</a></td></tr>
+<tr><td><a href="DelegTools.xml">DelegTools</a></td></tr>
+<tr><td><a href="RRWizard">RRWizard</a></td></tr>
+<tr><td><a href="RR-SRV0">RR-SRV0</a></td></tr>
+<tr><td><a href="BulkImport">BulkImport</a></td></tr>
+</tbody></table>
+</body>
+</html>

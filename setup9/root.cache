@@ -1,0 +1,46 @@
+
+; <<>> DiG 9.3.6-P1-RedHat-9.3.6-4.P1.el5_4.2 <<>> . ns
+;; global options:  printcmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 43373
+;; flags: qr rd ra; QUERY: 1, ANSWER: 13, AUTHORITY: 0, ADDITIONAL: 14
+
+;; QUESTION SECTION:
+;.				IN	NS
+
+;; ANSWER SECTION:
+.			510793	IN	NS	b.root-servers.net.
+.			510793	IN	NS	c.root-servers.net.
+.			510793	IN	NS	d.root-servers.net.
+.			510793	IN	NS	e.root-servers.net.
+.			510793	IN	NS	f.root-servers.net.
+.			510793	IN	NS	g.root-servers.net.
+.			510793	IN	NS	h.root-servers.net.
+.			510793	IN	NS	i.root-servers.net.
+.			510793	IN	NS	j.root-servers.net.
+.			510793	IN	NS	k.root-servers.net.
+.			510793	IN	NS	l.root-servers.net.
+.			510793	IN	NS	m.root-servers.net.
+.			510793	IN	NS	a.root-servers.net.
+
+;; ADDITIONAL SECTION:
+a.root-servers.net.	604543	IN	A	198.41.0.4
+a.root-servers.net.	604543	IN	AAAA	2001:503:ba3e::2:30
+b.root-servers.net.	604767	IN	A	192.228.79.201
+c.root-servers.net.	518032	IN	A	192.33.4.12
+d.root-servers.net.	604652	IN	A	128.8.10.90
+e.root-servers.net.	604767	IN	A	192.203.230.10
+f.root-servers.net.	604767	IN	A	192.5.5.241
+f.root-servers.net.	604767	IN	AAAA	2001:500:2f::f
+g.root-servers.net.	518032	IN	A	192.112.36.4
+h.root-servers.net.	604652	IN	A	128.63.2.53
+h.root-servers.net.	604652	IN	AAAA	2001:500:1::803f:235
+i.root-servers.net.	604543	IN	A	192.36.148.17
+j.root-servers.net.	518032	IN	A	192.58.128.30
+j.root-servers.net.	518032	IN	AAAA	2001:503:c27::2:30
+
+;; Query time: 37 msec
+;; SERVER: 200.69.193.1#53(200.69.193.1)
+;; WHEN: Tue Apr 27 23:40:59 2010
+;; MSG SIZE  rcvd: 500
+

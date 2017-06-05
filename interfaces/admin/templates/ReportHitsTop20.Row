@@ -1,0 +1,6 @@
+<tr>
+	<td>{{uCount}}</td>
+	<td><a class=darkLink href="idnsAdmin.cgi?gcPage=Report&gcFunction=ZoneFocus&uHit={{uHit}}&cCustomer={{cCustomer}}&cZone={{cZone}}&uView={{uView}}&uResource={{uResource}}">{{cZoneList}}</a></td>
+	<td align=right>{{uHitCount}}</td>
+</tr>
+

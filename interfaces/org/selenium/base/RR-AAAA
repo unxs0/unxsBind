@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>RR-AAAA</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">RR-AAAA</td></tr>
+</thead><tbody>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Resources</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='New']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectAndWait</td>
+	<td>cRRType</td>
+	<td>label=AAAA</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cName</td>
+	<td>ipv6host</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cComment</td>
+	<td>testing ipv6 A</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cParam1</td>
+	<td>2001:0db8:85a3:08d3:1319:8a2e:0370</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='New Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*IPv6 format-6 error!*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cParam1</td>
+	<td>2001:0db8:85a3:08d3:1319:8a2e:0370:7334</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='New Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*Zone Resource Created*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Modify']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cParam1</td>
+	<td>999punk:db8:85a3:8d3:1319:8a2e:370:7334</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Modify Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*IPv6 number can only have hexadecimal digits and colons*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cParam1</td>
+	<td>456:db8:85a3:8d3:1319:8a2e:370:7334</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Modify Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*Zone Resource Modified*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Delete Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*Zone Resource Deleted*</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

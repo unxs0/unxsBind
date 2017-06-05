@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="unxsVZ unxsDNS user tab">
+    <meta name="author" content="(C) Unixservice, LLC. 2014-2015">
+    <link rel="shortcut icon" type=image/x-icon href=/images/onelogin.ico>
+
+    <title>{{gcBrand}} unxsDNS</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/bs/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/bs/css/offcanvas.css" rel="stylesheet">
+    <link href="/bs/css/collapse.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{cCGI}}?gcPage=User">{{gcBrand}} unxsDNS</a>
+        </div><!--/navbar-header-->
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="{{cCGI}}?gcPage=User">User</a></li>
+            <li><a href="{{cCGI}}?gcPage=Zone">Zone</a></li>
+            <li><a href="{{cCGI}}?gcPage=About">About</a></li>
+            <li><a href="{{cCGI}}?gcPage=Contact">Contact</a></li>
+            {{cPrivilegedZoneMenu}}
+            <li><a href="{{cCGI}}?gcFunction=Logout">Logout</a></li>
+          </ul>
+        </div><!-- /.nav-collapse -->
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->
+
+    <div class="container">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-xs-12 col-sm-9">
+
+          <div class="jumbotron">
+        	<h3 class="form-signin-heading">Info</h3>
+		<h5>{{gcName}} {{funcMOTD}}</h5>
+		<h3>Saved Session Data</h3>
+		<h5>
+		Zone cZone: {{gcZone}}<br>
+		Zone uZone: {{guZone}}<br>
+		</h5>
+          </div><!-- "jumbotron" -->
+
+<!-- start jquery collapse Login History-->
+<div class="panel panel-default" id="panel3">
+	<div class="panel-heading">
+		<h4 class="form-signin-heading">
+			<a data-toggle="collapse" data-target="#collapseThree" href="#collapseThree" class="collapsed">Login History</a>
+		</h4>
+	</div><!-- "panel-heading" -->
+	<div id="collapseThree" class="panel-collapse collapse">
+	<div class="panel-body">loading please wait...
+	</div><!-- "panel-body" -->
+	</div><!-- "collapseThree" -->
+</div><!-- "panel panel-default" -->
+<!-- end jquery collapse -->
+
+<!-- start jquery collapse Operation History-->
+<div class="panel panel-default" id="panel4">
+	<div class="panel-heading">
+		<h4 class="form-signin-heading">
+			<a data-toggle="collapse" data-target="#collapseFour" href="#collapseFour" class="collapsed">Operation History</a>
+		</h4>
+	</div><!-- "panel-heading" -->
+	<div id="collapseFour" class="panel-collapse collapse">
+	<div class="panel-body">loading please wait...
+	</div><!-- "panel-body" -->
+	</div><!-- "collapseFour" -->
+</div><!-- "panel panel-default" -->
+<!-- end jquery collapse -->
+
+<!-- start jquery collapse Change Passwd -->
+<div class="panel panel-default" id="panel5">
+	<div class="panel-heading">
+		<h4 class="form-signin-heading">
+			<a data-toggle="collapse" data-target="#collapseFive" href="#collapseFive" class="collapsed">Change Your Password</a>
+		</h4>
+	</div><!-- "panel-heading" -->
+	<div id="collapseFive" class="panel-collapse collapse {{gcInCollapseFive}}">
+	<div class="panel-body">
+
+          <div class="list-group">
+		<h5>{{gcMessage}}</h5>
+      		<form name="changepasswd" class="form-signin" role="form" method="post" action="{{cCGI}}">
+		<input type=hidden name="gcPage" value="User">
+
+        	<label for="inputEmail" class="sr-only">Login</label>
+        	<input disabled maxlength="31" title='Your login'
+			type="login" id="inputEmail" class="form-control" placeholder="{{gcLogin}}" name="gcLogin" >
+		<input type=hidden name=cLogin value='{{gcLogin}}'>
+
+       		<label for="inputPassword11" class="sr-only">Current Password</label>
+       		<input autocomplete="off" maxlength="31" title='Input your current password'
+			type="password" id="inputPassword11" class="form-control" placeholder="" value="" name="cCurrentPasswd" required>
+
+       		<label for="inputPassword12" class="sr-only">New Password</label>
+       		<input maxlength="31" title='Input your new password. Must be at least 6 characters long'
+			type="password" id="inputPassword12" class="form-control" placeholder="New Password" name="cPasswd" required>
+
+       		<label for="inputPassword13" class="sr-only">New Password Again</label>
+       		<input maxlength="31" title='Input your new password again please.'
+			type="password" id="inputPassword13" class="form-control" placeholder="New Password Again" name="cPasswd2" required>
+
+		<button class="btn btn-lg btn-primary btn-block" title="This will change your password and you will need to login again." type="submit" name=gcFunction value='Change Password'>Change Password</button>
+		</form>
+	  </div><!--/list-group-->
+
+
+	</div><!-- "panel-body" -->
+	</div><!-- "collapseFive" -->
+</div><!-- "panel panel-default" -->
+<!-- end jquery collapse -->
+
+        </div><!--/.col-xs-12.col-sm-9-->
+
+        </div><!--/row-->
+      </div><!--/container-->
+
+
+
+
+      <hr>
+
+      <footer>
+        <p>{{gcCopyright}}</p>
+      </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/bs/js/bootstrap.min.js"></script>
+    <script src="/bs/js/offcanvas.js"></script>
+    <script>
+	$('#collapseThree').on('shown.bs.collapse', function () {
+		$("#collapseThree").load("{{cCGI}}?gcPage=User&gcFunction=LoginInfo");
+	});
+	$('#collapseFour').on('shown.bs.collapse', function () {
+		$("#collapseFour").load("{{cCGI}}?gcPage=User&gcFunction=OperationsInfo");
+	});
+    </script>
+  </body>
+</html>

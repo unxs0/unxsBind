@@ -1,0 +1,259 @@
+<body marginwidth="0" marginheight="0">
+
+<div align="center" class="standard2colnee">
+
+<table cellspacing="0" cellpadding="0" border="0" width=1200>
+	<tr valign="top">
+	<td class="padb20"><img border=0 src=/images/unxslogo.jpg></td>
+
+		<td align="right">
+
+
+	<!-- one row, one cell table to span the page-->
+	<table border="0" class="wpsPlaceBar" cellspacing="0" cellpadding="0" width="608">
+		<tr>
+
+			<!-- Navigation -->
+			<td align="left" background="/images/bgrd_topnav.gif" valign="bottom" nowrap>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0">
+					<tr>
+						<td class="wpsSelectedPlace" nowrap height="100%">
+						<a title='Zone management' class="wpsSelectedPlaceLink" href='{{cCGI}}?gcPage=Zone&uZone={{uZone}}'><b class ="font10pt">Zone</b></a>
+						</td>
+						<td class="wpsUnSelectedPlace" nowrap height="100%">
+						<a title='Zone resource record management' class="wpsUnSelectedPlaceLink" href='{{cCGI}}?gcPage=Resource&uZone={{uZone}}'><b class ="font10pt">Resources</b></a>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+                <tr>
+		<td valign=top align=right class=notice>
+{{gcName}} ({{gcLogin}}) of {{gcOrgName}} is logged in from {{gcHost}} [{{cUserLevel}}] <a title='Erase login cookies' href={{cCGI}}?gcFunction=Logout>Logout
+</a></td>
+                </tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+
+
+<form method=post action={{cCGI}} style="margin:0px;">
+<table width=1200  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+
+{{gcMessage}}
+<table border="0" cellspacing="0" cellpadding="0" width="100%" style='border: solid gray 1px'>
+  <tr>
+    <td valign="top" width="9" class="hdrtout padlt8" height="21"></td>
+    <td class="hdrtout padlt8" width="33%">
+		<h6 class="modhdr">Customer Resource Panel</h6>
+	</td>
+    <td valign="top" width="9" class="hdrtout padlt8"></td>
+    <td width="10">&nbsp;</td>
+    <td valign="top" width="9" class="hdrtout padlt8"></td>
+    <td class="hdrtout padlt8">
+		<h6 class="modhdr">{{cZone}} Delegation Tool </h6>
+	</td>
+    <td valign="top" width="9" class="hdrtout padlt8"></td>
+  </tr>
+  <tr>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td valign="top">
+	
+	
+	
+<table border="0" cellspacing="8" cellpadding="0" width="100%" class="table_content">
+		<tr>
+		  <td>&nbsp;</td>
+		  <td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td width=33%>
+				<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Your Zones')"><strong>Your Zones</strong></a></td>
+			</td>
+			<td>
+				<script language="JavaScript" type="text/JavaScript">
+				function changePage(newLoc)
+				{
+					nextPage = newLoc.options[newLoc.selectedIndex].value
+				
+					if (nextPage != "---")
+						document.location.href = "{{cCGI}}?gcPage=Zone&cZone="+nextPage
+				}
+				</script>
+				{{funcSelectZone}}
+			</td>
+		</tr>
+		<tr>
+			<td valign=top>				
+				<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Your IP Blocks')"><strong>Your IP Blocks</strong></a></td>
+			</td>
+			<td>
+				{{funcSelectBlock}}
+			</td>
+		</tr>
+		<tr>
+			<td valign=top>			
+				<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Your Secondary Zones')"><strong>Your Secondary Zones</strong></a></td>
+			</td>
+			<td>
+				{{funcSelectSecondary}}
+			</td>
+		</tr>
+		<tr>
+			<td colspan=2>
+				<input type=hidden name=gcPage value=Zone>
+				<input type=submit title='Select a zone to edit. Not needed if you have javascript enabled in your browser' class=largeButton name=gcFunction value='Select Zone'><br><br>
+				<strong><u>Delegation Tool</u></strong><br>
+				This tool allow you to delegate an IP block to the nameserver(s) specified in the 'NS List' textarea. Please note that no empty lines are allowed between nameservers.<br>
+				In the 'IP Block' parameter you must specify an IPv4 block in CIDR format (E.g.: '192.168.10.0/24') or in dash format IP range (E.g.: '192.168.10.1-255'.)
+				The TTL parameter specifies the TTL value for the delegation records, if not specified, the zone default TTL wil be used.
+			</td>
+		</tr>
+		<tr>
+			<td colspan=2>
+			{{funcZoneStatus}}
+			</td>
+		</tr>
+		<tr>
+			<td colspan=2>
+			<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=Zone Pending Jobs')"><strong>Zone Pending Jobs</strong></a><br>
+			{{cPendingJobs}}
+			</td>
+		</tr>
+			
+	</table>
+	
+	
+	
+	
+	
+	</td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td>&nbsp;</td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td valign="top">
+	
+	
+<table border="0" cellspacing="5" cellpadding="0" width="100%" class="table_content">
+	<tr>
+	  <td valign="top">&nbsp;</td>
+	  <td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td>
+			<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=IP Block')"><strong>IP Block</strong></a></td>
+		</td>
+		<td>
+			<input type=hidden name=cIPBlock value='{{cIPBlock}}'>
+			<input title='IP block in CIDR (e.g. 217.68.21.0/24) or in dash (e.g. 217.68.21.0-255) format' type=text name=cIPBlock value='{{cIPBlock}}' size=40 maxlength=99 class="type_fields">
+			<input type=hidden name=uNameServer value='{{uNameServer}}'>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=TTL')"><strong>TTL</strong></a></td>
+		</td>
+		<td>
+			<input type=hidden name=uDelegationTTL value='{{uDelegationTTL}}'>
+			<input title='NS RR TTL. If 0, will be set to the default zone TTL' type=text name=uDelegationTTL value='{{uDelegationTTL}}' size=40 maxlength=99 class="type_fields">
+		</td>
+	</tr>
+	<tr>
+		<td valign="top">
+		<input type=hidden name=cNSList value='{{cNSList}}'>
+			<a class=inputLink href="#" onClick="open_popup('{{iCGI}}?gcPage=Glossary&cLabel=NS List')"><strong>NS List</strong></a></td>
+			
+		</td>
+		<td>
+			<input type=hidden name=cNSList value='{{cNSList}}'>
+			<textarea title='List of NSs to which you are going to delegate the IP block' name=cNSList cols=50 rows=4 class="type_textarea">{{cNSList}}</textarea>
+		</td>
+	</tr>
+
+	<tr>
+		<td>&nbsp;
+		
+		</td>
+		<td colspan=2>
+			<input type=submit title='Delegate entered IP block in a two step procedure' class=largeButton name=gcFunction value='Delegate Block{{gcModStep}}'>
+			<input type=submit title='Remove delegation in a two step procedure' class=largeButton name=gcFunction value='Remove Del.{{gcNewStep}}'>
+		</td>
+	</tr>
+</table>
+	
+	
+	
+	</td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td></td>
+    <td><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td></td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td></td>
+  </tr>
+</table>
+
+<br />
+
+
+<table border="0" cellspacing="0" cellpadding="0" width="100%" style='border: solid gray 1px'>
+  <tr>
+    <td valign="top" width="9" class="hdrtout padlt8" height="21"></td>
+    <td class="hdrtout padlt8"><h6 class="modhdr">{{cZone}} Resource Records</td>
+    <td valign="top" width="9" class="hdrtout padlt8"></td>
+  </tr>
+  <tr>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td>
+	
+<table border="0" cellspacing="0" cellpadding="7" width="100%" class="table_content" style="margin-top:5px;">
+	<tr bgcolor="#e9e9e9">
+		<td class="tit_list">
+			Name
+		</td>
+		<td class="tit_list">
+			TTL
+		</td>
+		<td class="tit_list">
+			Type
+		</td>
+		<td class="tit_list">
+			Parameter 1
+		</td>
+		<td class="tit_list">
+			Parameter 2
+		</td>
+		<td class="tit_list">
+			Comment
+		</td>
+	</tr>
+	{{funcRRs}}
+</table>
+
+	
+	</td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td></td>
+  </tr>
+</table>
+
+
+
+
+
+	</td>
+  </tr>
+</table>
+</form>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>ReportsTab</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ReportsTab</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/cgi-bin/idnsAdmin.cgi?gcFunction=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>gcLogin</td>
+	<td>Root</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>gcPasswd</td>
+	<td>wsxedc</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>gcFunction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//td[8]/a/b</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cSearch</td>
+	<td>ad</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='image']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*Adjug Ltd*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Adjug Ltd</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*adjug.com*219539245*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*Total hits for company:219662846*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=ebookers.com</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*37877536*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//td[8]/a/b</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>cMonthHit</td>
+	<td>label=tJun2009Hit</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Email Report']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*You don't have a report email address configured. Please create a tConfiguration entry for cReportEmail*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/cgi-bin/iDNS.cgi?gcFunction=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>gcLogin</td>
+	<td>Root</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>gcPasswd</td>
+	<td>wsxedc</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>gcFunction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Main</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=tConfiguration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>gcCommand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cLabel</td>
+	<td>cReportEmail</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cValue</td>
+	<td>supportgrp@unixservice.com</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcCommand' and @value='Create New Record']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/cgi-bin/idnsAdmin.cgi</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//td[8]/a/b</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>cMonthHit</td>
+	<td>label=tJun2009Hit</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Email Report']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*Report emailed ok*</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

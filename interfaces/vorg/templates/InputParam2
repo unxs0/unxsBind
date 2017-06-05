@@ -1,0 +1,11 @@
+<tr>
+	<td>
+		<a class=inputLink href="#" onClick="open_popup('?gcPage=Glossary&cLabel={{cParam2Label}}')"><strong>{{cParam2Label}}</strong></a>
+	</td>
+	<td>
+		<input title='{{cParam2Title}}' type=text name=cParam2 value='{{cParam2}}' size=40 maxlength=255  class={{cParam2Style}} {{gcInputStatus}}>
+	</td>
+</tr>
+
+
+		

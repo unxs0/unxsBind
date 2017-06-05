@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>ZonesTab</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ZonesTab</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/cgi-bin/idnsOrg.cgi?gcFunction=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>gcLogin</td>
+	<td>John Doe</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>gcPasswd</td>
+	<td>wsxedc</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>gcFunction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>gcFunction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*No Zone Selected*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectAndWait</td>
+	<td>cZone</td>
+	<td>label=ns1.yourdomain.com</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>gcFunction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Modify SOA']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*Modify data, review, then confirm. Any other action to cancel.*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Modify SOA Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*Zone Modified*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Modify SOA']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>uExpire</td>
+	<td>65535</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Modify SOA Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*SOA expire value is less*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>uExpire</td>
+	<td>604800</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>uRefresh</td>
+	<td>108000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Modify SOA Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*Refresh TTL out of range*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>uRefresh</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Modify SOA Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*Refresh TTL out of range*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>uRefresh</td>
+	<td>10800</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>uTTL</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Modify SOA Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*Default TTL out of range*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>uTTL</td>
+	<td>9999999999</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Modify SOA Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*Default TTL out of range*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>uTTL</td>
+	<td>86400</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>uRetry</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Modify SOA Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*Retry TTL out of range*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>uRetry</td>
+	<td>maradona</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Modify SOA Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*Retry TTL out of range*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>uRetry</td>
+	<td>3600</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>uZoneTTL</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Modify SOA Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*Negative TTL out of range*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>uZoneTTL</td>
+	<td>86400</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cHostmaster</td>
+	<td>judy</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Modify SOA Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*FQDN Hostmaster required. Must specify 'email.' in front*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cHostmaster</td>
+	<td>judy.isapunk</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='gcFunction' and @value='Modify SOA Confirm']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>glob:*Zone Modified*</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

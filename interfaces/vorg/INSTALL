@@ -1,0 +1,79 @@
+#
+#FILE
+#	unxsVZ/unxsBind/interfaces/vorg/INSTALL
+#	$Id: INSTALL 1334 2010-04-09 16:03:46Z Gary $
+#AUTHOR-LEGAL
+#	(C) 2006-2009 Hugo Urquiza, Gary Wallis for Unixservice LLC.
+#	(C) 2010 Gary Wallis for Unixservice LLC.
+#	GPLv2 license applies. See included LICENSE file.
+#NOTES
+#	Based on using BASH shell on a CentOS 5 GNU/Linux server (or VE/VM.)
+#	Examples commands may have to be changed. They are based on the CentOS5 
+#	rpm distribution.
+#
+
+vdnsOrg Quick Install Instructions
+
+---
+Brief Introduction:
+
+vdnsOrg provides the same functionality as idnsOrg. The only difference they have (at least from the
+end user point of view) is that vdnsOrg can handle zones deployed for all the BIND views
+deployed in the system.  Also vdsnOrg is the first interface to support LDAP login.
+
+---
+Prerequisites:
+
+You must have your iDNS backend system installed (iDNS.cgi) and tested.
+You need to install the NEW libtemplate from the unxsVZ/libs dir.
+
+---
+Important notes about upgrading and other post install issues:
+
+1-. New LDAP debug log issues, so you need to first create it with some valid perms.
+
+# touch /var/log/unxsBindLDAP.log
+# chown apache:root /var/log/unxsBindLDAP.log
+# chmod 240 /var/log/unxsBindLDAP.log
+
+You must also set new local.h.default LDAP section defines in your ../../local.h
+
+
+---
+Instructions:
+
+1-. Compile and install with a single command the binary file. Run the following command in this
+	directory:
+
+	# make install
+	
+2-. (If you already installed idnsAdmin skip this setp)
+    Then install the CSS stylesheet file and the interface templates.
+
+	Example for installing the CSS stylesheet:
+
+	# cd ../admin
+	# cp -i ./templates/css/styles.css  /var/www/unxs/html/css
+	# cp -i ./templates/css/popups.js  /var/www/unxs/html/css
+
+	For installing the system templates:
+
+	# ./importTemplates.sh
+
+3-. (If you already installed idnsAdmin skip this setp) 
+    Finally you have to install the interface images.
+
+	Example:
+
+	# cd ../admin
+	# cp -i ./templates/images/*.gif /var/www/unxs/html/images
+	# cp -i ./templates/images/*.jpg /var/www/unxs/html/images
+	# cp -i ./templates/images/*.png /var/www/unxs/html/images
+
+4-. Then login and test your new vdnsOrg interface, via your Firefox browser.
+
+	Example browser location URL:
+
+	https://192.168.22.128:9333/cgi-bin/vdnsOrg.cgi
+
+

@@ -1,0 +1,286 @@
+	
+<body marginwidth="0" marginheight="0">
+
+<div align="center" class="standard2colnee">
+
+<table cellspacing="0" cellpadding="0" border="0" width=1200>
+	<tr valign="top">
+	<td class="padb20"><img border=0 src=/images/unxsbind.jpg></td>
+
+		<td align="right">
+
+
+	<!-- one row, one cell table to span the page-->
+	<table border="0" class="wpsPlaceBar" cellspacing="0" cellpadding="0" width="608">
+		<tr>
+
+			<!-- Navigation -->
+			<td align="left" background="/images/bgrd_topnav.gif" valign="bottom" nowrap>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0">
+					<tr>
+						<td class="wpsUnSelectedPlace" nowrap height="100%">
+						<a title='System overalll information' class="wpsUnSelectedPlaceLink" href="idnsAdmin.cgi?&gcPage=Dashboard"><b class ="font10pt">Dashboard</b></a>
+						</td>
+						<td class="wpsUnSelectedPlace" nowrap height="100%">
+						<a title='Company management' class="wpsUnSelectedPlaceLink" href="idnsAdmin.cgi?&gcPage=Customer"><b class ="font10pt">Companies</b></a>
+						</td>
+						<td class="wpsUnSelectedPlace" nowrap height="100%">
+						<a title='Contact management' class="wpsUnSelectedPlaceLink" href="idnsAdmin.cgi?&gcPage=CustomerUser"><b class ="font10pt">Contacts</b></a>
+						</td>
+						<td class="wpsUnSelectedPlace" nowrap height="100%">
+						<a title='Zone management' class="wpsUnSelectedPlaceLink" href="idnsAdmin.cgi?&gcPage=Zone"><b class ="font10pt">Zones</b></a>
+						</td>
+						<td class="wpsSelectedPlace" nowrap height="100%">
+						<a title='Zone resource record management' class="wpsSelectedPlaceLink" href="idnsAdmin.cgi?&gcPage=Resource"><b class ="font10pt">Resources</b></a>
+						</td>
+						<td class="wpsUnSelectedPlace" nowrap height="100%">
+						<a title='Bulk import zones and RRs' class="wpsUnSelectedPlaceLink" href="idnsAdmin.cgi?&gcPage=BulkOp"><b class ="font10pt">Bulk Operations</b></a>
+						</td>
+						<td class="wpsUnSelectedPlace" nowrap height="100%">
+						<a title='Restore deleted zones' class="wpsUnSelectedPlaceLink" href="idnsAdmin.cgi?&gcPage=RestoreZone"><b class ="font10pt">Restore Zones</b></a>
+						</td>
+						<td class="wpsUnSelectedPlace" nowrap height="100%">
+						<a title='Import IP Auth data into the system' class="wpsUnSelectedPlaceLink" href="idnsAdmin.cgi?&gcPage=IPAuth"><b class ="font10pt">IP Auth</b></a>
+						</td>
+						<td class="wpsUnSelectedPlace" nowrap height="100%">
+						<a title='Zone and customer use report' class="wpsUnSelectedPlaceLink" href='idnsAdmin.cgi?cZone={{gcZone}}&uView={{uView}}&uResource={{uResource}}&cCustomer={{cCustomer}}&gcPage=Report'><b class ="font10pt">Report</b></a>
+						</td>
+						<td class="wpsUnSelectedPlace" nowrap height="100%">
+						<a title='Administrator management' class="wpsUnSelectedPlaceLink" href='idnsAdmin.cgi?cZone={{gcZone}}&uView={{uView}}&uResource={{uResource}}&cCustomer={{cCustomer}}&gcPage=Administrator'><b class ="font10pt">Administrators</b></a>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+                <tr>
+		<td valign=top align=right class=notice>
+{{gcName}} ({{gcLogin}}) of {{gcOrgName}} is logged in from {{gcHost}} [{{cUserLevel}}] <a title='Erase login cookies' href={{cCGI}}?gcFunction=Logout>Logout
+</a>
+		{{funcTopInfo}}
+		</td>
+                </tr>
+							<tr>
+								<td class="mastbg2">
+
+									<table cellspacing="0" cellpadding="0" border="0" width="100%">
+									<tr valign="top">
+										
+										<td align="right" class="padt10">																				
+											<form action=idnsAdmin.cgi method="post">
+												<table cellspacing="0" cellpadding="0" border="0">
+													<tr>
+														<td><input type="text" value="Search" class="searchinp" name=cSearch onfocus="this.select();" title="Search for deleted RRs with a keyword" /></td>
+
+														<td valign="middle" style="padding: 0px 4px 0px 4px;"></td><td class="padlt6rt10"><input type="image" src="/images/btn_mast_search.gif" alt="Search" width="17" height="17" border="0" title="Find one or more deleted RRs based on input search pattern" /></td>
+													</tr>
+												</table>
+												<input type=hidden name=gcFunction value=Search>
+												<input type=hidden name=gcPage value=RestoreResource>
+											</form>									 
+										</td>
+										
+										
+									</tr>
+									</table>
+								</td>
+							</tr>
+
+			</table>
+		</td>
+	</tr>
+</table>
+
+
+
+<form method=post action={{cCGI}} style="margin:0px; ">
+<input type=hidden name=uView value='{{cuView}}'>
+<table width=1100  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+{{gcMessage}}	
+<table border="0" cellspacing="0" cellpadding="0" width="100%" style='border: solid gray 1px'>
+  <tr>
+    <td valign="top" width="9" class="hdrtout padlt8" height="21"></td>
+    <td class="hdrtout padlt8" width="40%">
+		<h6 class="modhdr">Deleted RRs Management</h6>
+	</td>
+    <td valign="top" width="9" class="hdrtout padlt8"></td>
+    <td width="10">&nbsp;</td>
+    <td valign="top" width="9" class="hdrtout padlt8"></td>
+    <td class="hdrtout padlt8">
+		<h6 class="modhdr">{{cZone}} Resource Record Data</h6>
+	</td>
+    <td valign="top" width="9" class="hdrtout padlt8"></td>
+  </tr>
+  <tr>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td valign="top">
+	
+<table border="0" cellspacing="8" cellpadding="0" width="100%" class="table_content">
+	<tr>
+	  <td>&nbsp;</td>
+	  <td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td width=33% valign=top>
+<a class=inputLink href="#" onClick="javascript:window.open('{{iCGI}}?gcPage=Glossary&cLabel=Search Resource','Glossary','height=600,width=500,status=yes,toolbar=no,menubar=no,location=no,scrollbars=1')"><strong>Search Results</strong></a></td>
+                </tr>
+                <tr>
+                        <td colspan=2>
+			{{cNavList}}
+			<input type=hidden name=cNavList value="{{cNavList}}">
+	</tr>	
+		<tr>
+			<td colspan=2>
+			<u><strong>Restore Procedure Overview</strong></u>
+			</td>
+		</tr>
+			<td colspan=2>
+			Select the RR you want to restore from the bottom table at this page. Then click the [Restore RR] button to restore the RR in a two steps procedure. Zone serial number will be incremented and the RR will get propagated trough the nameservers in the cluster again.<br>
+To go back to the zone you were working with, just click on the Zones tab.
+		</td>
+	</tr>
+</table>
+
+	
+	</td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td>&nbsp;</td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td valign="top">
+
+
+<table border="0" cellspacing="5" cellpadding="0" width="100%" class="table_content">
+	<tr>
+	  <td valign="top">&nbsp;</td>
+	  <td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td valign="top">	
+			<a class=inputLink href="#" onClick="javascript:window.open('{{iCGI}}?gcPage=Glossary&cLabel={{cNameLabel}}','Glossary','height=600,width=500,status=yes,toolbar=no,menubar=no,location=no,scrollbars=1')"><strong>{{cNameLabel}}</strong></a>
+		</td>
+		<td>
+
+			<input title='{{cNameTip}}' type=text name=cName value='{{cName}}' size=40 maxlength=99 {{gcInputStatus}} class=type_fields_off>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<a class=inputLink href="#" onClick="javascript:window.open('{{iCGI}}?gcPage=Glossary&cLabel=Resource TTL','Glossary','height=600,width=500,status=yes,toolbar=no,menubar=no,location=no,scrollbars=1')"><strong>Resource TTL</strong></a></td>
+		<td>
+			<input title='Resource TTL. 0 for default' type=text name=uTTL value='{{uTTL}}' size=40 maxlength=15 {{gcInputStatus}} class=type_fields_off>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>	
+			<a class=inputLink href="#" onClick="javascript:window.open('{{iCGI}}?gcPage=Glossary&cLabel=Resource Type','Glossary','height=600,width=500,status=yes,toolbar=no,menubar=no,location=no,scrollbars=1')"><strong>Resource Type</strong></a></td>
+		<td>
+			<input type=hidden name=cRRType value='{{cRRType}}'>
+			<input type=text class=type_fields_off value='{{cRRType}}' {{gcInputStatus}}>
+		</td>
+	</tr>
+	<tr>
+	
+	<tr>
+		<td>	
+			<a class=inputLink href="#" onClick="javascript:window.open('{{iCGI}}?gcPage=Glossary&cLabel={{cParam1Label}}','Glossary','height=600,width=500,status=yes,toolbar=no,menubar=no,location=no,scrollbars=1')"><strong>{{cParam1Label}}</strong></a>
+		</td>
+		<td>
+			<input title='{{cParam1Tip}}' type=text name=cParam1 value='{{cParam1}}' size=40 maxlength=255 {{gcInputStatus}} class=type_fields_off>
+		</td>
+	</tr>
+	
+	{{funcRRMetaParam}}
+	<tr>
+	<td>
+		<a class=inputLink href="#" onClick="javascript:window.open('{{iCGI}}?gcPage=Glossary&cLabel=Resource Comment','Glossary','height=600,width=500,status=yes,toolbar=no,menubar=no,location=no,scrollbars=1')"><strong>Resource Comment</strong></a></td>
+	<td>
+		<input title='Add a short comment if you like' type=text name=cComment value='{{cComment}}' size=40 maxlength=255 {{gcInputStatus}} class=type_fields_off>
+	</td>
+	</tr>
+	
+	
+	<tr>
+	<td>&nbsp;</td>
+		<td colspan="2">
+<input type=submit title='Restore the loaded resource record with a two step procedure' class=largeButton name=gcFunction value='{{gcNewStep}} Restore RR'>
+		</td>
+	</tr>
+
+</table>
+
+
+	
+	</td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td></td>
+    <td><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td></td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td></td>
+  </tr>
+</table>
+
+<br />
+
+
+<table border="0" cellspacing="0" cellpadding="0" width="100%" style='border: solid gray 1px'>
+  <tr>
+    <td valign="top" width="9" class="hdrtout padlt8" height="21"></td>
+    <td class="hdrtout padlt8"><h6 class="modhdr">{{cZone}} Deleted Resource Records</h6></td>
+    <td valign="top" width="9" class="hdrtout padlt8"></td>
+  </tr>
+  <tr>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td>
+	
+<table border="0" cellspacing="0" cellpadding="7" width="100%" class="table_content" style="margin-top:5px;">
+	<tr>
+		<td class="title_list">
+			Name
+		</td>
+		<td class="title_list">
+			TTL
+		</td>
+		<td class="title_list">
+			Type
+		</td>
+		<td class="title_list">
+			Parameter 1
+		</td>
+		<td class="title_list">
+			Parameter 2
+		</td>
+		<td class="title_list">
+			Comment
+		</td>
+	</tr>
+	{{funcDeletedRRs2}}
+</table>
+
+
+	
+	</td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td ><img src="/images/clear.gif" width="9" height="9" /></td>
+    <td></td>
+  </tr>
+</table>
+
+	</td>
+  </tr>
+</table>
+<input type=hidden name=gcPage value="RestoreResource">
+<input type=hidden name=uDeletedZone value='{{uDeletedZone}}'>
+<input type=hidden name=uDeletedResource value='{{uDeletedResource}}'>
+
+</form>
