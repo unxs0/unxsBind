@@ -131,6 +131,8 @@ int main(int iArgc, char *cArgv[])
 		ExtMainShell(iArgc,cArgv);
 	}
 
+	if(getenv("HTTP_X_REAL_IP")!=NULL)
+		sprintf(gcHost,"%.99s",getenv("HTTP_X_REAL_IP"));
 
 	if(strcmp(getenv("REQUEST_METHOD"),"POST"))
 	{
@@ -2612,10 +2614,11 @@ void SSLCookieLogin(void)
 {
 	char *ptr,*ptr2;
 
-	//Parse out login and passwd from cookies
-	 
-		
+	if(getenv("HTTPS")==NULL && getenv("HTTP_X_FORWARDED_SSL")==NULL)
+		iDNS("Non SSL access denied");
 
+
+	//Parse out login and passwd from cookies
 	if(getenv("HTTP_COOKIE")!=NULL)
 		strncpy(gcCookie,getenv("HTTP_COOKIE"),1022);
 	
