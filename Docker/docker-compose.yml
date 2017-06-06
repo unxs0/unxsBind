@@ -34,6 +34,7 @@ services:
   unxsbind:
     image: unxsio/unxsbind
     container_name: unxsbind
+    hostname: server0.unxs.io
     privileged: true
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
