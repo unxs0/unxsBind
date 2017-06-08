@@ -29,12 +29,12 @@ services:
     image: unxsio/unxsbind-mysql
     container_name: unxsbind-mysql
     volumes:
-      - /var/lib/mysql:/var/lib/mysql
+      - /var/lib/mysql/$EXTERNAL_HOSTNAME:/var/lib/mysql
 
   unxsbind:
     image: unxsio/unxsbind
     container_name: unxsbind
-    hostname: server0.unxs.io
+    hostname: $EXTERNAL_HOSTNAME
     privileged: true
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
@@ -43,6 +43,6 @@ services:
     expose:
       - 8088
     environment:
-      - VIRTUAL_HOST=server0.unxs.io
-      - LETSENCRYPT_HOST=server0.unxs.io
+      - VIRTUAL_HOST=$EXTERNAL_HOSTNAME
+      - LETSENCRYPT_HOST=$EXTERNAL_HOSTNAME
       - LETSENCRYPT_EMAIL=certbot@unxs.io
