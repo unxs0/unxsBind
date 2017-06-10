@@ -46,3 +46,18 @@ services:
       - VIRTUAL_HOST=$EXTERNAL_HOSTNAME
       - LETSENCRYPT_HOST=$EXTERNAL_HOSTNAME
       - LETSENCRYPT_EMAIL=certbot@unxs.io
+
+  webhook:
+    image: unxsio/unxsbind
+    container_name: unxsbind
+    hostname: $EXTERNAL_WEBHOOK_HOSTNAME
+    privileged: true
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - /usr/bin/docker
+    expose:
+      - 8088
+    environment:
+      - VIRTUAL_HOST=$EXTERNAL_WEBHOOK_HOSTNAME
+      - LETSENCRYPT_HOST=$EXTERNAL_WEBHOOK_HOSTNAME
+      - LETSENCRYPT_EMAIL=certbot@unxs.io
