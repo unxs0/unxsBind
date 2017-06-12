@@ -42,13 +42,19 @@ COPY webhook.httpd.conf /etc/httpd/conf.d/
 RUN sed -i -e 's/^Listen 80/#Listen 80/g' /etc/httpd/conf/httpd.conf
 RUN touch /var/www/unxs/logs/cgi.log;chown apache:apache /var/www/unxs/logs/cgi.log;
 
+#use rc.local for misc tasks
 #Prepare links
 RUN echo "ln -s /tmp/docker.sock /var/run/docker.sock;" >> /etc/rc.d/rc.local
-RUN echo "if [ \"$$WEBHOOK_CGI\" != \"\" ];then mv /var/www/unxs/html/webhook.cgi /var/www/unxs/html/$$WEBHOOK_CGI;fi;" >> /etc/rc.d/rc.local
+
+#Prepare for cgi secret name
+RUN echo "source /root/Docker/Running/.env" >> /etc/rc.d/rc.local
+RUN echo "if [ \"\$WEBHOOK_CGI\" != \"\" ];then mv /var/www/unxs/html/webhook.cgi /var/www/unxs/html/\$WEBHOOK_CGI;fi;" >> /etc/rc.d/rc.local
+#has to be +x
 RUN chmod +x /etc/rc.d/rc.local
 
 #Build and install webhook
 WORKDIR /home/unxs
+ARG CACHEBUST=1
 RUN git clone https://github.com/unxs0/unxsBind.git
 WORKDIR /home/unxs/unxsBind/Docker/unxsBind-webhook/webhook
 RUN  make install
