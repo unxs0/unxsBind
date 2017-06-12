@@ -21,6 +21,9 @@ HELP
 
 void logfileLine(FILE *fp,const char *cFunction,const char *cLogline)
 {
+
+	if(!fp) return;
+
 	time_t luClock;
 	char cTime[32];
 	pid_t pidThis;
@@ -82,6 +85,8 @@ int main(int iArgc, char *cArgv[])
 		//int cl=0;
 		entry gentries[8];
 		char *gcl;
+
+		memset(gentries,0,sizeof(gentries));
 
 		printf("Content-type: text/text\n\n");
 		gcl=getenv("QUERY_STRING");
