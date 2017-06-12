@@ -5,6 +5,8 @@
 #AUTHOR/LEGAL
 #	(C) 2017 Gary Wallis for Unixservice, LLC.
 #NOTES
+#
+
 GIT_VERSION := $(shell git describe --dirty --always --tags)
 
 CFLAGS=-Wall -DGitVersion=\"$(GIT_VERSION)\"
@@ -23,3 +25,8 @@ cgi.o: cgi.h cgi.c
 
 clean:
 	rm -f *.o webhook.cgi
+
+#This needs security work still
+install: webhook.cgi
+	install -s webhook.cgi /var/www/unxs/html/webhook.cgi
+	rm -f webhook.cgi

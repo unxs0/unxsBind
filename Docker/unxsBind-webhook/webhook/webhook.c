@@ -2,7 +2,10 @@
 FILE 
 	webhook.c
 PURPOSE
+	Provide endpoint for GitHub and Docker HUb webhook callbacks.
 LEGAL
+	(C) 2017 Gary Wallis for Unixservice, LLC.
+	GPLv2 License Applies
 OTHER
 HELP
 
@@ -73,7 +76,10 @@ int main(int iArgc, char *cArgv[])
 	}//end post method interface section
 
 	printf("Content-type: text/text\n\n");
-	printf("d1 %s\n",cGitVersion);
+	for(x=0;gentries[x].name[0]&&x<8;x++)
+		printf("%s=%s\n",gentries[x].name,gentries[x].val);
+	for(x=0;entries[x].name[0]&&x<256;x++)
+		printf("%s=%s\n",entries[x].name,entries[x].val);
 	return(0);
 
 }//end of main()

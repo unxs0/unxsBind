@@ -42,6 +42,12 @@ RUN touch /var/www/unxs/logs/cgi.log;chown apache:apache /var/www/unxs/logs/cgi.
 RUN echo "ln -s /tmp/docker.sock /var/run/docker.sock;" >> /etc/rc.d/rc.local
 RUN chmod +x /etc/rc.d/rc.local
 
+#Build and install webhook
+WORKDIR /home/unxs
+RUN git clone https://github.com/unxs0/unxsBind.git
+WORKDIR /home/unxs/unxsBind/Docker/unxsBind-webhook/webhook
+RUN  make install
+
 CMD ["/usr/sbin/init"]
 
 #Useful commands
