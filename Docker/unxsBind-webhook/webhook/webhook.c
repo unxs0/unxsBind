@@ -107,7 +107,10 @@ int main(int iArgc, char *cArgv[])
 		if(cRedeploy[0])
 		{
 			char cCommand[256];
-			sprintf(cCommand,"/usr/bin/docker rm -f %.99s",cRedeploy);
+			sprintf(cCommand,"/usr/bin/docker rm -f %.99s;"
+					"cd /root/Docker/Running;"
+					"/usr/bin/docker-compose up -d",
+							cRedeploy);
 			RunForkedCommand(cCommand,fp);
 		}
 	}

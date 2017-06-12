@@ -20,7 +20,11 @@ RUN yum -y install httpd; systemctl enable httpd.service
 RUN yum -y install git gcc make mysql-devel openssl-devel
 RUN yum -y install bind-utils
 RUN yum -y install libtool-ltdl
+RUN yum -y install epel-release
+RUN yum -y install python-pip
 RUN yum -y clean all
+RUN pip install --upgrade pip
+RUN pip install docker-compose
 RUN systemctl enable httpd.service
 
 #Start install
