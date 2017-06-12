@@ -104,6 +104,7 @@ int main(int iArgc, char *cArgv[])
 		}
 
 		printf("Thanks! %s %s\n",cHost,cHostname);
+		fflush(stdout);
 		if(cRedeploy[0])
 		{
 			char cCommand[256];
