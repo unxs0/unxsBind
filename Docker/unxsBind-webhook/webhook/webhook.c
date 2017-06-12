@@ -29,6 +29,9 @@ int main(int iArgc, char *cArgv[])
 	char gcHostname[100]={""};
 	register int x;
 
+	FILE *fp=NULL;
+	fp=fopen("/var/www/unxs/logs/cgi.log","a");
+
 	gethostname(gcHostname,98);
 
 	if(getenv("REMOTE_HOST")!=NULL)
@@ -40,46 +43,32 @@ int main(int iArgc, char *cArgv[])
 	if(getenv("HTTP_X_REAL_IP")!=NULL)
 		sprintf(gcHost,"%.99s",getenv("HTTP_X_REAL_IP"));
 
-	//Get method interface
+	//Post with URL get items
 	if(getenv("REQUEST_METHOD")!=NULL)
 	{
-		if(strcmp(getenv("REQUEST_METHOD"),"POST"))
+		printf("Content-type: text/text\n\n");
+		gcl = getenv("QUERY_STRING");
+
+		for(x=0;gcl[0] != '\0' && x<8;x++)
 		{
-		        gcl = getenv("QUERY_STRING");
+       	       		getword(gentries[x].val,gcl,'&');
+       	       		plustospace(gentries[x].val);
+       	       		unescape_url(gentries[x].val);
+       	       		getword(gentries[x].name,gentries[x].val,'=');
+			//basic anti hacker
+			escape_shell_cmd(gentries[x].val);
+		}
+		for(x=0;gentries[x].name[0]&&x<8;x++)
+			fprintf(fp,"%s=%s\n",gentries[x].name,gentries[x].val);
 
-		        for(x=0;gcl[0] != '\0' && x<8;x++)
-			{
-       	        		getword(gentries[x].val,gcl,'&');
-       	        		plustospace(gentries[x].val);
-       	        		unescape_url(gentries[x].val);
-       	        		getword(gentries[x].name,gentries[x].val,'=');
-				//basic anti hacker
-				escape_shell_cmd(gentries[x].val);
-			}
-		}//end get method interface section
+		printf("Thanks! %s %s\n",gcHost,gcHostname);
 	}
-
-	//Post method interface
-	if(getenv("CONTENT_LENGTH")==NULL)
+	else
 	{
 		printf("Non-cgi %s %s\n",cArgv[0],cGitVersion);
-		return(0);
 	}
-	cl = atoi(getenv("CONTENT_LENGTH"));
-	for(x=0;cl && (!feof(stdin)) && x<256 ;x++)
-	{
-		entries[x].val = fmakeword(stdin,'&',&cl);
-		plustospace(entries[x].val);
-		unescape_url(entries[x].val);
-		entries[x].name = makeword(entries[x].val,'=');
 
-	}//end post method interface section
-
-	printf("Content-type: text/text\n\n");
-	for(x=0;gentries[x].name[0]&&x<8;x++)
-		printf("%s=%s\n",gentries[x].name,gentries[x].val);
-	for(x=0;entries[x].name[0]&&x<256;x++)
-		printf("%s=%s\n",entries[x].name,entries[x].val);
+	if(fp) fclose(fp);
 	return(0);
 
 }//end of main()
