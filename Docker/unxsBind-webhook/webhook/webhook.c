@@ -120,8 +120,8 @@ int main(int iArgc, char *cArgv[])
 		logfileLine(fp,"main","Non-cgi");
 	}
 
-	if(fp) fclose(fp);
 	logfileLine(fp,"main","end");
+	if(fp) fclose(fp);
 	return(0);
 
 }//end of main()

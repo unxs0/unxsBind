@@ -42,8 +42,9 @@ COPY webhook.httpd.conf /etc/httpd/conf.d/
 RUN sed -i -e 's/^Listen 80/#Listen 80/g' /etc/httpd/conf/httpd.conf
 RUN touch /var/www/unxs/logs/cgi.log;chown apache:apache /var/www/unxs/logs/cgi.log;
 
-#Prepare link
+#Prepare links
 RUN echo "ln -s /tmp/docker.sock /var/run/docker.sock;" >> /etc/rc.d/rc.local
+RUN echo "if [ \"$$WEBHOOK_CGI\" != \"\" ];then mv /var/www/unxs/html/webhook.cgi /var/www/unxs/html/$$WEBHOOK_CGI;fi;" >> /etc/rc.d/rc.local
 RUN chmod +x /etc/rc.d/rc.local
 
 #Build and install webhook
