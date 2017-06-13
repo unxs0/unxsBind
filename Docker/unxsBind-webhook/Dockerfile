@@ -49,10 +49,13 @@ RUN echo "ln -s /tmp/docker.sock /var/run/docker.sock;" >> /etc/rc.d/rc.local
 #Prepare for cgi secret name
 RUN echo "source /root/Docker/Running/.env" >> /etc/rc.d/rc.local
 RUN echo "if [ \"\$WEBHOOK_CGI\" != \"\" ];then mv /var/www/unxs/html/webhook.cgi /var/www/unxs/html/\$WEBHOOK_CGI;fi;" >> /etc/rc.d/rc.local
+#If you are using private repositories
+RUN echo "if [ \"\$WEBHOOK_DOCKER_LOGIN\" != \"\" ];then /usr/bin/docker login \$WEBHOOK_DOCKER_LOGIN;fi;" >> /etc/rc.d/rc.local
 #has to be +x
 RUN chmod +x /etc/rc.d/rc.local
 
 #Build and install webhook
+ARG bla=bla
 WORKDIR /home/unxs
 RUN git clone https://github.com/unxs0/unxsBind.git
 WORKDIR /home/unxs/unxsBind/Docker/unxsBind-webhook/webhook
