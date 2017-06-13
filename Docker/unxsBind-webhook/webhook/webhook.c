@@ -49,8 +49,10 @@ void RunForkedCommand(char *cCommand, FILE *fp)
 	if(pidChild!=0)
 		return;
 
-	system(cCommand);
-	logfileLine(fp,"RunForkedCommand",cCommand);
+	if(system(cCommand))
+		logfileLine(fp,"RunForkedCommand",cCommand);
+	else
+		logfileLine(fp,"RunForkedCommand Error",cCommand);
 
 }//void RunForkedCommand(char *cCommand)
 
@@ -63,7 +65,6 @@ int main(int iArgc, char *cArgv[])
 
 	FILE *fp=NULL;
 	fp=fopen("/var/www/unxs/logs/cgi.log","a");
-	logfileLine(fp,"main","start");
 
 	gethostname(cHostname,98);
 
@@ -75,6 +76,9 @@ int main(int iArgc, char *cArgv[])
 
 	if(getenv("HTTP_X_REAL_IP")!=NULL)
 		sprintf(cHost,"%.99s",getenv("HTTP_X_REAL_IP"));
+
+	logfileLine(fp,"main","start");
+	logfileLine(fp,"host",cHost);
 
 	//Post with URL get items
 	if(getenv("REQUEST_METHOD")!=NULL)
@@ -112,11 +116,12 @@ int main(int iArgc, char *cArgv[])
 		fflush(stdout);
 		if(cRedeploy[0])
 		{
-			char cCommand[256];
+			char cCommand[512];
 			sprintf(cCommand,"/usr/bin/docker rm -f %.99s;"
 					"cd /root/Docker/Running;"
+					"/usr/bin/docker-compose pull %.99s;"
 					"/usr/bin/docker-compose up -d",
-							cRedeploy);
+							cRedeploy,cRedeploy);
 			RunForkedCommand(cCommand,fp);
 		}
 	}
