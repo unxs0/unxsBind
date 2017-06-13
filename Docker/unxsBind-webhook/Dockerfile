@@ -54,7 +54,6 @@ RUN chmod +x /etc/rc.d/rc.local
 
 #Build and install webhook
 WORKDIR /home/unxs
-ARG CACHEBUST=1
 RUN git clone https://github.com/unxs0/unxsBind.git
 WORKDIR /home/unxs/unxsBind/Docker/unxsBind-webhook/webhook
 RUN  make install

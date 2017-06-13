@@ -85,6 +85,7 @@ int main(int iArgc, char *cArgv[])
 	{
 		register int x;
 		char cRedeploy[100]={""};
+		char cRemoveImage[100]={""};
 		//pentry entries[256];
 		//int cl=0;
 		entry gentries[8];
@@ -110,18 +111,28 @@ int main(int iArgc, char *cArgv[])
 			logfileLine(fp,"value",gentries[x].val);
 			if(!strcmp(gentries[x].name,"redeploy"))
 				sprintf(cRedeploy,"%.99s",gentries[x].val);
+			else if(!strcmp(gentries[x].name,"removeimage"))
+				sprintf(cRemoveImage,"%.99s",gentries[x].val);
 		}
 
 		printf("Thanks! %s %s\n",cHost,cHostname);
 		fflush(stdout);
-		if(cRedeploy[0])
+		char cCommand[512];
+		if(cRedeploy[0] && cRemoveImage[0])
 		{
-			char cCommand[512];
+			sprintf(cCommand,"/usr/bin/docker rm -f %.99s;"
+					"/usr/bin/docker image rm %.99s;"
+					"cd /root/Docker/Running;"
+					"/usr/bin/docker-compose up -d",
+							cRedeploy,cRemoveImage);
+			RunForkedCommand(cCommand,fp);
+		}
+		else if(cRedeploy[0])
+		{
 			sprintf(cCommand,"/usr/bin/docker rm -f %.99s;"
 					"cd /root/Docker/Running;"
-					"/usr/bin/docker-compose pull %.99s;"
 					"/usr/bin/docker-compose up -d",
-							cRedeploy,cRedeploy);
+							cRedeploy);
 			RunForkedCommand(cCommand,fp);
 		}
 	}
