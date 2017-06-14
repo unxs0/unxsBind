@@ -47,7 +47,10 @@ RUN touch /var/www/unxs/logs/cgi.log;chown apache:apache /var/www/unxs/logs/cgi.
 RUN echo "ln -s /tmp/docker.sock /var/run/docker.sock;" >> /etc/rc.d/rc.local
 
 #Prepare for cgi secret name
-RUN echo "source /root/Docker/Running/.env" >> /etc/rc.d/rc.local
+#global
+RUN echo "source /root/Docker/Running/.env 2> /dev/null;" >> /etc/rc.d/rc.local
+#particular
+RUN echo "source /root/Docker/Running/`hostname -f`/.env 2> /dev/null;" >> /etc/rc.d/rc.local
 RUN echo "if [ \"\$WEBHOOK_CGI\" != \"\" ];then mv /var/www/unxs/html/webhook.cgi /var/www/unxs/html/\$WEBHOOK_CGI;fi;" >> /etc/rc.d/rc.local
 #If you are using private repositories
 RUN echo "if [ \"\$WEBHOOK_DOCKER_LOGIN\" != \"\" ];then /usr/bin/docker login \$WEBHOOK_DOCKER_LOGIN;fi;" >> /etc/rc.d/rc.local
