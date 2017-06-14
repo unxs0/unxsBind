@@ -67,10 +67,5 @@ RUN  make install
 CMD ["/usr/sbin/init"]
 
 #Useful commands
-#docker build -t unxsio/unxsbind-webhook .
-#docker rm -f unxsbind-webhook;docker run --privileged --restart unless-stopped \
-#	--volume /sys/fs/cgroup:/sys/fs/cgroup:ro \
-#	--volume /usr/bin/docker:/usr/bin/docker \
-#	--volume /var/run/docker.sock:/var/run/docker.sock \
-#		--name unxsbind-webhook -p 8088:8088 -d unxsio/unxsbind-webhook
+#docker build -t local/unxsbind-webhook .
 #
